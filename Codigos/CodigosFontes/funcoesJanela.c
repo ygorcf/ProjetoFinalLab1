@@ -225,4 +225,4 @@ void atualizarPainel(Painel painelAtualizar){
 	SDL_RenderPresent(painelAtualizar);
 }
 
-#endif
+#endif /* _FUNCOES_JANELA_C_ */

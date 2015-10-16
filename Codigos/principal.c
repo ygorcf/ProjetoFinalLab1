@@ -48,7 +48,7 @@ int main(int argc, char* args[]){
 	copiouTextura = copiarTexturaPainel(arqErros, painel, textura, retangulo);
 	/*---------------*/
 	
-	superficie = textoParaSuperficie(arqErros, fonte, "Ola mundo!", corFonte);
+	superficie = textoParaSuperficie(arqErros, fonte, "Limpar", corFonte);
 	
 	retangulo.x = 0;
 	retangulo.y = 16;
@@ -70,14 +70,33 @@ int main(int argc, char* args[]){
             {
                 sair = 1; //sair do loop principal
             }
+            if(event.type == SDL_MOUSEBUTTONUP) //fechar a janela?
+            {
+            	SDL_Point posMouse;
+                SDL_GetMouseState(&posMouse.x, &posMouse.y);
+                if(pontoDentroRetangulo(&posMouse, &retangulo)){
+                	SDL_DestroyRenderer(painel);
+                	painel = criarPainel(arqErros, janela);
+									SDL_RenderPresent(painel);
+                	SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Limpando Tela", "Tela Limpa!", janela);
+								}
+            }
         }
         //SDL_Delay(3000);
-				SDL_RenderPresent( painel);
+				SDL_RenderPresent(painel);
         //SDL_Flip(screen); //atualizar a tela
         //SDL_UpdateWindowSurface(janela);
     }
 	
 		
 	finalizarTudo(arqErros);
+	return 0;
+}
+
+
+
+int pontoDentroRetangulo(SDL_Point *ponto, SDL_Rect *rect){
+	if((ponto->x <= (rect->w+rect->x) && ponto->x >= rect->x) && 
+			(ponto->y <= (rect->h+rect->y) && ponto->y >= rect->y)) return 1;
 	return 0;
 }

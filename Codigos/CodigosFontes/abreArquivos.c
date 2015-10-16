@@ -1,6 +1,9 @@
 #ifndef _ABRE_ARQUIVOS_C_
 #define _ABRE_ARQUIVOS_C_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 
 
 // Objetivo: Criar um arquivo que ira conter todos os erros que aconteceram 

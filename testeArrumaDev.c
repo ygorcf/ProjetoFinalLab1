@@ -13,7 +13,7 @@ int main(void){
   localDev[strlen(localDev)-1] = '\0';
   
   arqDev = fopen(localDev, "r");
-  strcat(localDev, "2");
+  strcat(localDev, "2.dev");
   novoDev = fopen(localDev, "w");
   if(arqDev == NULL){
     printf("ERRO ao abrir o arquivo!!\n");
@@ -24,16 +24,17 @@ int main(void){
     fgets(linha, 127, arqDev);
     //printf("%s", strstr(linha, "Includes"));
     if(strstr(linha, "Includes=\"") != NULL){
-      printf("Novo local ds includes do projeto: ");
+      printf("Novo local dos includes do projeto: ");
       fgets(novoIncludes, 127, stdin);
   
       novoIncludes[strlen(novoIncludes)-1] = '\0';
       strcpy(linha, "Includes=\"");
       strcat(linha, novoIncludes);
+      if(linha[strlen(linha)-1] != '\\')strcat(linha, "\\\n");
       strcat(linha, "\"\n");
     }
     if(strstr(linha, "Libs=\"") != NULL){
-      printf("Novo local ds libs do projeto: ");
+      printf("Novo local dos libs do projeto: ");
       fgets(novoLibs, 127, stdin);
   
       novoLibs[strlen(novoLibs)-1] = '\0';

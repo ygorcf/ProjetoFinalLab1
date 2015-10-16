@@ -1,6 +1,9 @@
 #ifndef _INICIA_TERMINA_C_
 #define _INICIA_TERMINA_C_
 
+#include <stdio.h>
+#include <stdlib.h>
+
 
 
 // Objetivo: Inicializar tudo que sera necessario
