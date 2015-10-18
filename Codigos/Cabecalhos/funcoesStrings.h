@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 char *rsprintf(char *formato, ...);
+char *rTirarCaracter(char *stringTirarCaracter);
 
 #include <CodigosFontes/funcoesStrings.c>
 

@@ -18,4 +18,11 @@ typedef struct {
 	int opacidade;
 } Cor;
 
+typedef struct {
+	Painel painelPertencente;
+	Superficie superficie;
+	Textura textura;
+	Retangulo area;
+} Componente;
+
 #endif
