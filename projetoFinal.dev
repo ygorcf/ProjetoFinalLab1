@@ -4,8 +4,8 @@ Name=projetoFinal
 Type=1
 Ver=2
 ObjFiles=
-Includes="C:\Users\ygorc\Google Drive\UCB\PF_LAB\include";"C:\Users\ygorc\Google Drive\UCB\PF_LAB\Codigos"
-Libs="C:\Users\ygorc\Google Drive\UCB\PF_LAB\lib"
+Includes="C:\Users\ygorc\PF_LAB_GIT\ProjetoFinalLab1\include\";"C:\Users\ygorc\PF_LAB_GIT\ProjetoFinalLab1\Codigos\"
+Libs="C:\Users\ygorc\PF_LAB_GIT\ProjetoFinalLab1\lib\"
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
@@ -189,4 +189,5 @@ Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+
 

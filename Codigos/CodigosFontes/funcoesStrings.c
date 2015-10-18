@@ -19,4 +19,14 @@ char *rsprintf(char *formato, ...){
 	return strinRet;
 }
 
+
+
+// Objetivo: Diminuir um caracter da string
+// Parametro: O endereco da string que ira ser retirado o caracter
+// Retorno: Um ponteiro para a nova string
+char *rTirarCaracter(char *stringTirarCaracter){
+	stringTirarCaracter[strlen(stringTirarCaracter)-1] = '\0';
+	return stringTirarCaracter;
+}
+
 #endif /* _FUNCOES_STRINGS_C_ */
