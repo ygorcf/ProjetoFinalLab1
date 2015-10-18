@@ -1,7 +1,6 @@
 #ifndef _FUNCOES_JANELA_C_
 #define _FUNCOES_JANELA_C_
 
-#include <SDL2/SDL.h>
 #include <Cabecalhos/tiposDadosJanela.h>
 #include <stdio.h>
 
@@ -312,8 +311,8 @@ int pintarSuperficie(Superficie superficiePintar, Cor corPintar){
 // Parametros: As coordenadas X e Y onde o retangulo sera pintado no painel, a largura e 
 //							altura do retangulo, a cor do retangulo a ser pintado e o painel onde o 
 //							retangulo sera pintado
-// Retorno: A estrutura Componente contendo todos os dados do retangulo ou NULL se 
-//					 ocorrer um erro
+// Retorno: A estrutura Componente contendo todos os dados do retangulo ou se ocorrer 
+//					 um erro, o atributo da estrutura que ocorreu um erro sera NULL
 Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Cor cor, 
 																	Painel painelDestino){
 	Componente comp;
@@ -329,13 +328,14 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 	// Verifica se ocorreu erro ao pintar a superficie
 	if(comp.superficie == NULL){
 		salvarErro("Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	
 	// Pinta a superficie e verifica se ocorreu erro quando ela foi pintada
 	if(pintarSuperficie(comp.superficie, cor) != 0){
 		salvarErro("Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'\n");
+		return comp;
 	}
 		
 	// Cria uma textura a partir da superficie
@@ -344,13 +344,13 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 	// Verifica se ocorreu um erro ao criar a textura
 	if(comp.textura == NULL){
 		salvarErro("Erro na funcao 'superficieParaTextura' de 'pintarRetanguloPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	// Copia a textura para o painel e verifica se ocorreu um erro ao copiar a textura
 	if(copiarTexturaPainel(comp.painelPertencente, comp.textura, comp.area) != 0){
 		salvarErro("Erro na funcao 'copiarTexturaPainel' de 'pintarRetanguloPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	return comp;
@@ -362,8 +362,8 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 // Parametros: As coordenadas X e Y onde o retangulo sera pintado no painel, a largura e 
 //							altura do retangulo, a largura da borda, a cor da borda, a cor de dentro
 //							do retangulo a ser pintado e o painel onde o retangulo sera pintado
-// Retorno: A estrutura Componente contendo todos os dados do retangulo ou NULL se 
-//					 ocorrer um erro
+// Retorno: A estrutura Componente contendo todos os dados do retangulo ou se ocorrer 
+//					 um erro, o atributo da estrutura que ocorreu um erro sera NULL
 Componente pintarRetanguloCBordasPainel(int posX, int posY, int largura, int altura, 
 																	int larguraBorda, Cor corBorda, Cor corFundo, 
 																	Painel painelDestino){
@@ -373,21 +373,130 @@ Componente pintarRetanguloCBordasPainel(int posX, int posY, int largura, int alt
 	comp = pintarRetanguloPainel(posX, posY, largura, altura, corBorda, painelDestino);
 	
 	// Verifica se ocorreu um erro ao pintar o primeiro retangulo
-	if(comp == NULL){
+	if(comp.painelPertencente == NULL || comp.superficie == NULL || comp.textura == NULL){
 		salvarErro("Erro na funcao 1 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'\n");
-		return NULL
+		return comp;
 	}
 	
-	// Pinta outro retangulo dentro do primeiro com a cor do fundo e verifica se ocorreu 
-	//	um erro ao pintar esse retangulo
-	if(pintarRetanguloPainel(posX + larguraBorda , posY + larguraBorda, 
-												 largura - larguraBorda, altura - larguraBorda, corFundo, 
-												 painelDestino) == NULL){
+	// Pinta outro retangulo dentro do primeiro com a cor do fundo
+	Componente compDentro = pintarRetanguloPainel(posX + larguraBorda , posY + 
+												 larguraBorda, largura - larguraBorda*2, altura - larguraBorda*2, 
+												 corFundo, painelDestino);
+												 
+	// Verifica se ocorreu um erro ao pintar esse retangulo
+	if(compDentro.painelPertencente == NULL || compDentro.superficie == NULL || 
+			compDentro.textura == NULL){
 		salvarErro("Erro na funcao 2 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	return comp;
+}
+
+
+
+// Objetivo: Pintar em um painel uma tabela
+// Parametros: As coordenadas X e Y onde a tabela sera pintada no painel, a largura e 
+//							altura da tabela, a largura da borda, a cor da borda, a cor de dentro
+//							de cada celula a ser pintada, a quantidade de colunas da tabela, a 
+//							quantidade de linhas da tabela e o painel onde o retangulo sera pintado
+// Retorno: A estrutura Componente contendo todos os dados do retangulo ou se ocorrer 
+//					 um erro, o atributo da estrutura que ocorreu um erro sera NULL
+Componente pintarTabelaPainel(int posX, int posY, int largura, int altura, 
+															 int larguraBorda, Cor corBorda, Cor corFundo, 
+															 int qtdColunas, int qtdLinhas, Painel painelDestino){
+	Componente comp, compAux;
+	comp.painelPertencente = painelDestino;
+	
+	pintarRetanguloPainel(posX, posY, largura, altura, corBorda, painelDestino);
+	
+	comp.area.x = posX + larguraBorda;
+	comp.area.y = posY + larguraBorda;
+	comp.area.w = largura - (larguraBorda*2);
+	comp.area.h = altura - (larguraBorda*2);
+	
+	int linha, coluna, larguraCelula, alturaCelula, posXCelula, posYCelula;
+	
+	larguraCelula = comp.area.w / qtdColunas;
+	alturaCelula = comp.area.h / qtdLinhas;
+	//printf("%d - %d\n", alturaCelula, alturaCelula*5);
+	
+	
+	for(linha = 1; linha <= qtdLinhas; linha++){
+		for(coluna = 1; coluna <= qtdColunas; coluna++){
+			if(linha == qtdLinhas && 
+					(comp.area.y + (alturaCelula * linha) - (posY + comp.area.h)) < 0){
+				//alturaCelula += (-1 * (comp.area.y + (alturaCelula * linha) - (posY + comp.area.h)));
+				posYCelula = (altura / qtdLinhas) + 
+												(-1 * (comp.area.y + (alturaCelula * linha) - (posY + comp.area.h)));
+			}else{
+				posYCelula = comp.area.h / qtdLinhas;
+			}
+			if(coluna == qtdColunas && 
+					(comp.area.x + (larguraCelula * coluna) - (posX + comp.area.w)) < 0){
+				//alturaCelula += (-1 * (comp.area.y + (alturaCelula * linha) - (posY + comp.area.h)));
+				posXCelula = (largura / qtdColunas) + 
+												(-1 * (comp.area.x + (larguraCelula * coluna) - (posX + comp.area.w)));
+			}else{
+				posXCelula = comp.area.w / qtdColunas;
+			}
+			
+			//printf("-> %d \n", (comp.area.y + (alturaCelula * (linha))) - (posY + comp.area.h));
+			//printf(" %d\n", altura - (comp.area.y + (alturaCelula * (linha))));
+			//printf(" %d\n", (comp.area.x + (larguraCelula * (coluna))));
+			compAux = pintarRetanguloCBordasPainel((comp.area.x + (larguraCelula * (coluna -1))),
+																		(comp.area.y + (alturaCelula * (linha -1))),
+																		posXCelula,
+																		posYCelula, 
+																		larguraBorda,
+																		corBorda,
+																		corFundo, 
+																		painelDestino);
+			/*printf("%d - %d | %d  %d\n", linha, coluna, 
+							(comp.area.x + (larguraCelula * coluna)),
+							(comp.area.y + (alturaCelula * linha)));*/
+			if(compAux.painelPertencente == NULL || compAux.superficie == NULL || 
+					compAux.textura == NULL){
+				salvarErro(rsprintf("Erro na funcao %d %d 'pintarTabelaPainel' de 'pintarRetanguloCBordasPainel'\n",
+														linha, coluna));
+				return compAux;
+			}
+		}
+	}
+	
+	comp.superficie = compAux.superficie;
+	comp.textura = compAux.textura;
+	comp.area.x = posX;
+	comp.area.y = posY;
+	//comp.area.w = largura;
+	//comp.area.h = altura;
+	
+	return comp;	
+}
+
+
+
+// Objetivo: 
+Componente pintarDadoTabela(Componente tabelaDestino, int linhaTabela, int colunaTabela, 
+														 int espacamentoCelula, char *dado, Fonte fonteTexto, 
+														 Cor corTexto){
+	Retangulo rect;
+	int larguraCelula, alturaCelula, posXDado, posYDado, larguraDado, alturaDado;
+	Superficie superficieDado;
+	
+	superficieDado = textoParaSuperficie(fonteTexto, dado, corTexto);
+	larguraDado = superficieDado->w;
+	alturaDado = superficieDado->h;
+	larguraCelula = tabelaDestino.superficie->w;
+	alturaCelula = tabelaDestino.superficie->h;
+	posXDado = tabelaDestino.area.x + (larguraCelula * (colunaTabela - 1)) + 
+							((larguraCelula - larguraDado) / 2);
+	posYDado = tabelaDestino.area.y + (alturaCelula * (linhaTabela - 1)) + 
+							((alturaCelula - alturaDado) / 2);
+	
+	pintarTextoPainel(dado, tabelaDestino.painelPertencente, posXDado, posYDado, 
+										 fonteTexto, corTexto);
+	
 }
 
 #endif /* _FUNCOES_JANELA_C_ */

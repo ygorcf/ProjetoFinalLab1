@@ -21,6 +21,12 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 Componente pintarRetanguloCBordasPainel(int posX, int posY, int largura, int altura, 
 																	int larguraBorda, Cor corBorda, Cor corFundo, 
 																	Painel painelDestino);
+Componente pintarTabelaPainel(int posX, int posY, int largura, int altura, int larguraBorda, 
+															 Cor corBorda, Cor corFundo, int qtdColunas, int qtdLinhas, 
+															 Painel painelDestino);
+Componente pintarDadoTabela(Componente tabelaDestino, int linhaTabela, int colunaTabela, 
+														 int espacamentoCelula, char *dado, Fonte fonteTexto, 
+														 Cor corTexto);
 
 #include <CodigosFontes/funcoesJanela.c>
 
