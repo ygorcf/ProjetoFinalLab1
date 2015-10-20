@@ -3,5 +3,6 @@
 
 Piloto alocarPiloto();
 int salvarPiloto(Piloto pilotoCadastrar);
+int apresentarTodosPilotos(Componente tabelaDestino, Cor corFonte);
 
 #endif /* _FUNCOES_PILOTO_H_ */

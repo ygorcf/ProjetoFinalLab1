@@ -37,14 +37,13 @@ int main(int argc, char* args[]){
 	painel = criarPainel(janela);
 	fonte = abrirFonte("Ubuntu-M.ttf", 16);
 	
-	pintarTextoPainel("Ola mundo!", painel, 0, 0, fonte, corFonte);
+	//pintarTextoPainel("Ola mundo!", painel, 0, 0, fonte, corFonte);
 	/*---------------*/
 	
-	char inputText[255] = {"Some Text!"};
-	Componente compSomeText;
-	compSomeText = pintarTextoPainel(inputText, painel, 0, 32, fonte, corFonte);
+	char inputText[255] = {"Novo Piloto"};
+	Componente compSomeText, compSair;
 		
-	pintarTextoPainel("Digitar...", painel, 0, 16, fonte, corFonte);
+	//pintarTextoPainel("Digitar...", painel, 0, 16, fonte, corFonte);
 	retangulo = compSomeText.area;
 	retangulo.x = (retangulo.x - 10 > 0) ? retangulo.x - 10 : retangulo.x;
 	retangulo.y = (retangulo.y - 10 > 0) ? retangulo.y - 10 : retangulo.y;
@@ -56,14 +55,18 @@ int main(int argc, char* args[]){
 	
 	//pintarRetanguloCBordasPainel(100, 100, 100, 100, 10, corBorda, corFundo, painel);
 	Componente tabela;
-	tabela = pintarTabelaPainel(10, 100, 540, 300, 1, corBorda, corFundo, 5, 5, painel);
+	//tabela = pintarTabelaPainel(10, 100, 540, 300, 1, corBorda, corFundo, 5, 5, painel);
 	//printf("2\n");
-	pintarDadoTabela(tabela, 1, 1, 5, "Radouken!", fonte, corFonte);
-	pintarDadoTabela(tabela, 3, 4, 5, "CHUPA!", fonte, corFonte);
-	pintarDadoTabela(tabela, 3, 5, 5, "PAO", fonte, corFonte);
-	pintarDadoTabela(tabela, 4, 5, 5, "DE", fonte, corFonte);
-	pintarDadoTabela(tabela, 5, 5, 5, "BATATA", fonte, corFonte);
+	//pintarDadoTabela(tabela, 1, 1, 5, "Radouken!", fonte, corFonte);
+	//pintarDadoTabela(tabela, 3, 4, 5, "CHUPA!", fonte, corFonte);
+	//pintarDadoTabela(tabela, 3, 5, 5, "PAO", fonte, corFonte);
+	//pintarDadoTabela(tabela, 4, 5, 5, "DE", fonte, corFonte);
+	//pintarDadoTabela(tabela, 5, 5, 5, "BATATA", fonte, corFonte);
 	//SDL_RenderDrawRect(painel, &retangulo);
+	//pintarMenuPrincipal(painel, corFundo, corFonte);
+	pintarTextoPainel("MENU PRINCIPAL", painel, 200, 10, fonte, corFonte);
+	compSomeText = pintarTextoPainel("Pilotos", painel, 10, 40, fonte, corFonte);
+	compSair = pintarTextoPainel("SAIR", painel, 10, 460, fonte, corFonte);
 	atualizarPainel(painel);
 	
 	SDL_StartTextInput();
@@ -84,12 +87,18 @@ int main(int argc, char* args[]){
                 SDL_GetMouseState(&posMouse.x, &posMouse.y);
                 if(pontoDentroRetangulo(&posMouse, &compSomeText.area)){
                 	
-									SDL_DestroyRenderer(painel);
-                	painel = criarPainel(janela);
-									SDL_RenderPresent(painel);
-                	SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Limpando Tela", "Tela Limpa!", janela);
+									painel = limparPainel(painel, janela);
+                	//SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Limpando Tela", "Tela Limpa!", janela);
+									//if(pintarMenuNovoPiloto(painel, corFundo, corFonte) == 0){
+									if(pintarMenuPilotos(janela, painel, corFundo, corFonte) == 0){
+										painel = limparPainel(painel, janela);
+										pintarMenuPrincipal(janela, painel, corFundo, corFonte);
+									}
 									
-									printf("Pronto para digitar texto\n");
+									//printf("Pronto para digitar texto\n");
+								} else if(pontoDentroRetangulo(&posMouse, &compSair.area)){
+                	sair = 1;
+									//printf("Pronto para digitar texto\n");
 								}
             }
 						if( event.type == SDL_KEYDOWN )
@@ -97,14 +106,27 @@ int main(int argc, char* args[]){
                         //Handle backspace
                         if( event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputText) > 0 )
                         {
-                            //lop off character
+                            /*//lop off character
                             //inputText.pop_back();
                             rTirarCaracter(inputText);
-                            char strAux[strlen(inputText)];
-                            memset(strAux, ' ', sizeof(strAux));
-                            pintarTextoPainel(strAux, painel, 0, 16, fonte, corFonte);
+                            //char strAux[strlen(inputText)];
+                            //memset(strAux, ' ', sizeof(strAux));
+                            Superficie superAux = textoParaSuperficie(fonte, inputText, corFonte);
+                            Retangulo rectAux;
+                            if(strlen(inputText) > 0){
+														compSomeText = pintarTextoPainel(inputText, painel, compSomeText.area.x, compSomeText.area.y, fonte, corFonte);
+                            rectAux.x = (compSomeText.area.x + compSomeText.area.w);
+                            rectAux.y = compSomeText.area.y;
+                            rectAux.w = superAux->w;
+                            rectAux.h = superAux->h;
+                            }else{
+                            	rectAux = compSomeText.area;
+														}
+                            Cor branco = {255, 255, 255, 255};
+                            pintarRetanguloPainel(rectAux.x, rectAux.y, rectAux.w, rectAux.h, branco, painel);
 														atualizarPainel(painel);
-                            renderText = 1;
+                            //renderText = 1;*/
+                            retirarUltimaLetraTextoPainel(inputText, fonte, corFonte, compSomeText);
                         }
                         /*//Handle copy
                         else if( event.key.keysym.sym == SDLK_c && SDL_GetModState() & KMOD_CTRL )
@@ -127,13 +149,12 @@ int main(int argc, char* args[]){
 		                        {
 		                            //Append character
 		                            strcat(inputText, event.text.text);
-		                            printf("%s", inputText);
 		                            renderText = 1;
-                            		printf("APPEND CHAR\n");
+                            		//printf("APPEND CHAR\n");
 		                        }
 		                    }
         }
-        
+
                 if( renderText )
                 {
                     //Text is not empty
@@ -141,14 +162,14 @@ int main(int argc, char* args[]){
                     {
                         //Render new text
                         compSomeText = pintarTextoPainel(inputText, painel, 0, 32, fonte, corFonte);
-												printf("RENDER NEW TEXT\n");
+												//printf("RENDER NEW TEXT\n");
                     }
                     //Text is empty
                     else
                     {
                         //Render space texture
                         compSomeText = pintarTextoPainel(" ", painel, 0, 32, fonte, corFonte);
-                        printf("RENDER SPACE\n");
+                        //printf("RENDER SPACE\n");
                     }
                 }
         //SDL_Delay(3000);
@@ -156,8 +177,8 @@ int main(int argc, char* args[]){
         //SDL_Flip(screen); //atualizar a tela
         //SDL_UpdateWindowSurface(janela);
     }
-	
-            SDL_StopTextInput();
+
+  SDL_StopTextInput();
 		
 	finalizarTudo(arqErros);
 	return 0;

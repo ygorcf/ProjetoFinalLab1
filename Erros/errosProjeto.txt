@@ -1,756 +1,648 @@
-2015-10-18- 18:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:45: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:45: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:45: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:45: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:45: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:45: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:54: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:54: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:54: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:54: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:54: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 18:54: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:02: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:02: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:02: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:03: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:03: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:03: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:04: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:04: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:04: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:06: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:06: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:06: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:36: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:37: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:37: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:37: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:51: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:53: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:53: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:53: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:53: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:40: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 19:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:01: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:01: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:01: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:01: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:05: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:05: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:05: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:05: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:06: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:06: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:06: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:06: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:42: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:12: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:12: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:12: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:12: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:13: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:32: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:43: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:55: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:56: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:44: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 20:57: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:00: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: (null)
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:09: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:14: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:14: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:14: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:14: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:15: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:15: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:15: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:15: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:16: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:46: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:17: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:18: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:18: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:18: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:18: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:19: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:21: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:49: (null)
+2015-10-19- 23:50: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: (null)
-2015-10-18- 21:22: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-19- 23:50: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 1 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'
+2015-10-19- 23:50: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 0 178 'pintarTabelaPainel' de 'pintarRetanguloCBordasPainel'
+2015-10-19- 23:50: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:50: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-19- 23:50: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: (null)
-2015-10-18- 21:22: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 1 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:22: Erro na funcao 0 178 'pintarTabelaPainel' de 'pintarRetanguloCBordasPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:23: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:25: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:07: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:26: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:27: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:28: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:28: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:28: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:28: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:29: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:30: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:30: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:30: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:30: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:30: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:30: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:31: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:33: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:34: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
-
-2015-10-18- 21:35: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
+2015-10-20- 00:08: Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'
 
