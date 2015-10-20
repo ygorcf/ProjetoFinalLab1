@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <Cabecalhos/tiposDadosJanela.h>
 
 #define LOCAL_ARQUIVO_PILOTOS "/Dados/Pilotos.guyg"
 
@@ -32,9 +33,16 @@ Piloto alocarPiloto(){
 // Parametro: A estrutura contendo os dados do piloto a ser salvo
 // Retorno: 0 - se o piloto foi salvo ou 1 - caso ocorrer um erro
 int salvarPiloto(Piloto pilotoCadastrar){
-	FILE *arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "ab");
+	FILE *arquivoPilotos = NULL;
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "ab");
+	
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'salvarPiloto'\n");
+		return 1;
+	}
+	
 	if(fwrite(&pilotoCadastrar, sizeof(Piloto), 1, arquivoPilotos) != 1){
-		salvarErro("Erro ao salvar um piloto!");
+		salvarErro("Erro ao salvar os dados de um piloto de 'salvarPiloto'\n");
 		return 1;
 	}
 	fclose(arquivoPilotos);
@@ -43,6 +51,61 @@ int salvarPiloto(Piloto pilotoCadastrar){
 
 
 
-//
+//Objetivo:
+Piloto pesquisarPiloto(int idPesquisar){
+	FILE *arquivoPilotos;
+	Piloto pilotoPesquisar, pilotoErro;
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	pilotoErro.id = 0;
+	pilotoErro.idade = 0;
+	pilotoErro.nome = NULL;
+	pilotoErro.paisOrigem = NULL;
+	pilotoErro.sexo = 'E';
+	
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'pesquisarPiloto'\n");
+		return pilotoErro;
+	}
+	
+	while(!feof(arquivoPilotos)){
+		if(fread(&pilotoPesquisar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPiloto'\n");
+			return pilotoErro;
+		}
+		if(pilotoPesquisar.id == idPesquisar)
+			break;
+	}
+	fclose(arquivoPilotos);
+	
+	return pilotoPesquisar;
+}
+
+
+
+//Objetivo:
+int apresentarTodosPilotos(Componente tabelaDestino, Cor corFonte){
+	FILE *arquivoPilotos;
+	Piloto pilotoPesquisa, pilotoErro;
+	int ret = 0, linhaTabela;
+	Fonte fonteTexto = abrirFonte("Ubuntu-M.ttf", 16);
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosPilotos'\n");
+		return 1;
+	}
+	
+	for(linhaTabela = 2; !feof(arquivoPilotos); linhaTabela++){
+		if(fread(&pilotoPesquisa, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			salvarErro("Erro ao salvar um piloto!");
+			return 1;
+		}
+		pintarDadoTabela(tabelaDestino, linhaTabela, 1, 5, rsprintf("%d", pilotoPesquisa.id), fonteTexto, corFonte);
+	}
+	fclose(arquivoPilotos);
+	
+	return ret;
+}
 
 #endif /* _FUNCOES_PILOTO_C_ */

@@ -1,7 +1,6 @@
 #ifndef _FUNCOES_JANELA_C_
 #define _FUNCOES_JANELA_C_
 
-#include <SDL2/SDL.h>
 #include <Cabecalhos/tiposDadosJanela.h>
 #include <stdio.h>
 
@@ -312,8 +311,8 @@ int pintarSuperficie(Superficie superficiePintar, Cor corPintar){
 // Parametros: As coordenadas X e Y onde o retangulo sera pintado no painel, a largura e 
 //							altura do retangulo, a cor do retangulo a ser pintado e o painel onde o 
 //							retangulo sera pintado
-// Retorno: A estrutura Componente contendo todos os dados do retangulo ou NULL se 
-//					 ocorrer um erro
+// Retorno: A estrutura Componente contendo todos os dados do retangulo ou se ocorrer 
+//					 um erro, o atributo da estrutura que ocorreu um erro sera NULL
 Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Cor cor, 
 																	Painel painelDestino){
 	Componente comp;
@@ -329,13 +328,14 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 	// Verifica se ocorreu erro ao pintar a superficie
 	if(comp.superficie == NULL){
 		salvarErro("Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	
 	// Pinta a superficie e verifica se ocorreu erro quando ela foi pintada
 	if(pintarSuperficie(comp.superficie, cor) != 0){
 		salvarErro("Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'\n");
+		return comp;
 	}
 		
 	// Cria uma textura a partir da superficie
@@ -344,13 +344,13 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 	// Verifica se ocorreu um erro ao criar a textura
 	if(comp.textura == NULL){
 		salvarErro("Erro na funcao 'superficieParaTextura' de 'pintarRetanguloPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	// Copia a textura para o painel e verifica se ocorreu um erro ao copiar a textura
 	if(copiarTexturaPainel(comp.painelPertencente, comp.textura, comp.area) != 0){
 		salvarErro("Erro na funcao 'copiarTexturaPainel' de 'pintarRetanguloPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	return comp;
@@ -362,32 +362,402 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 // Parametros: As coordenadas X e Y onde o retangulo sera pintado no painel, a largura e 
 //							altura do retangulo, a largura da borda, a cor da borda, a cor de dentro
 //							do retangulo a ser pintado e o painel onde o retangulo sera pintado
-// Retorno: A estrutura Componente contendo todos os dados do retangulo ou NULL se 
-//					 ocorrer um erro
+// Retorno: A estrutura Componente contendo todos os dados do retangulo ou se ocorrer 
+//					 um erro, o atributo da estrutura que ocorreu um erro sera NULL
 Componente pintarRetanguloCBordasPainel(int posX, int posY, int largura, int altura, 
 																	int larguraBorda, Cor corBorda, Cor corFundo, 
 																	Painel painelDestino){
 	Componente comp;
 	
-	// Pinta um retangulo com a cor da borda
+	// Pinta um retangulo para ser a borda
 	comp = pintarRetanguloPainel(posX, posY, largura, altura, corBorda, painelDestino);
 	
 	// Verifica se ocorreu um erro ao pintar o primeiro retangulo
-	if(comp == NULL){
+	if(comp.painelPertencente == NULL || comp.superficie == NULL || comp.textura == NULL){
 		salvarErro("Erro na funcao 1 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'\n");
-		return NULL
+		return comp;
 	}
 	
-	// Pinta outro retangulo dentro do primeiro com a cor do fundo e verifica se ocorreu 
-	//	um erro ao pintar esse retangulo
-	if(pintarRetanguloPainel(posX + larguraBorda , posY + larguraBorda, 
-												 largura - larguraBorda, altura - larguraBorda, corFundo, 
-												 painelDestino) == NULL){
+	// Pinta outro retangulo dentro do primeiro com a cor do fundo
+	Componente compDentro = pintarRetanguloPainel(posX + larguraBorda , posY + 
+												 larguraBorda, largura - larguraBorda*2, altura - larguraBorda*2, 
+												 corFundo, painelDestino);
+												 
+	// Verifica se ocorreu um erro ao pintar esse retangulo
+	if(compDentro.painelPertencente == NULL || compDentro.superficie == NULL || 
+			compDentro.textura == NULL){
 		salvarErro("Erro na funcao 2 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'\n");
-		return NULL
+		return comp;
 	}
 	
 	return comp;
+}
+
+
+
+// Objetivo: Pintar em um painel uma tabela
+// Parametros: As coordenadas X e Y onde a tabela sera pintada no painel, a largura e 
+//							altura da tabela, a largura da borda, a cor da borda, a cor de dentro
+//							de cada celula a ser pintada, a quantidade de colunas da tabela, a 
+//							quantidade de linhas da tabela e o painel onde o retangulo sera pintado
+// Retorno: A estrutura Componente contendo todos os dados do retangulo ou se ocorrer 
+//					 um erro, o atributo da estrutura que ocorreu um erro sera NULL
+Componente pintarTabelaPainel(int posX, int posY, int largura, int altura, 
+															 int larguraBorda, Cor corBorda, Cor corFundo, 
+															 int qtdColunas, int qtdLinhas, Painel painelDestino){
+	Componente comp, compAux;
+	int linha, coluna, larguraCelula, alturaCelula, posXCelula, posYCelula;
+	
+	// Pinta um retangulo para ser a borda
+	pintarRetanguloPainel(posX, posY, largura, altura, corBorda, painelDestino);
+	
+	// Verifica se ocorreu um erro ao pintar o retangulo da borda
+	if(comp.painelPertencente == NULL || comp.superficie == NULL || comp.textura == NULL){
+		salvarErro("Erro na funcao 1 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'\n");
+		return comp;
+	}
+	
+	Retangulo areaTabelaSBorda = {posX + larguraBorda, posY + larguraBorda, 
+																 largura - (larguraBorda*2), altura - (larguraBorda*2)};
+	comp.area.x = posX + larguraBorda;
+	comp.area.y = posY + larguraBorda;
+	comp.area.w = largura - (larguraBorda*2);
+	comp.area.h = altura - (larguraBorda*2);
+	
+	
+	larguraCelula = areaTabelaSBorda.w / qtdColunas;
+	alturaCelula = areaTabelaSBorda.h / qtdLinhas;
+	
+	
+	for(linha = 1; linha <= qtdLinhas; linha++){
+		for(coluna = 1; coluna <= qtdColunas; coluna++){
+			if(linha == qtdLinhas && (areaTabelaSBorda.y + (alturaCelula * linha) - 
+					(posY + areaTabelaSBorda.h)) < 0){
+				posYCelula = (altura / qtdLinhas) + 
+											 (-1 * (areaTabelaSBorda.y + (alturaCelula * linha) - 
+											 (posY + areaTabelaSBorda.h)));
+			}else{
+				posYCelula = areaTabelaSBorda.h / qtdLinhas;
+			}
+			if(coluna == qtdColunas && (areaTabelaSBorda.x + (larguraCelula * coluna) - 
+					(posX + areaTabelaSBorda.w)) < 0){
+				posXCelula = (largura / qtdColunas) + 
+											 (-1 * (areaTabelaSBorda.x + (larguraCelula * coluna) - 
+											 (posX + areaTabelaSBorda.w)));
+			}else{
+				posXCelula = areaTabelaSBorda.w / qtdColunas;
+			}
+			compAux = pintarRetanguloCBordasPainel((areaTabelaSBorda.x + (larguraCelula * 
+																							(coluna -1))),
+																							(areaTabelaSBorda.y + (alturaCelula * 
+																							(linha -1))),
+																							posXCelula,
+																							posYCelula, 
+																							larguraBorda,
+																							corBorda,
+																							corFundo, 
+																							painelDestino);
+			if(compAux.painelPertencente == NULL || compAux.superficie == NULL || 
+					compAux.textura == NULL){
+				salvarErro(rsprintf("Erro na funcao %d %d 'pintarTabelaPainel' de 'pintarRetanguloCBordasPainel'\n",
+														linha, coluna));
+				return compAux;
+			}
+		}
+	}
+	
+	comp.painelPertencente = painelDestino;
+	comp.superficie = compAux.superficie;
+	comp.textura = compAux.textura;
+	comp.area.x = posX;
+	comp.area.y = posY;
+	comp.area.w = largura;
+	comp.area.h = altura;
+	
+	return comp;	
+}
+
+
+
+// Objetivo: 
+Componente pintarDadoTabela(Componente tabelaDestino, int linhaTabela, int colunaTabela, 
+														 int espacamentoCelula, char *dado, Fonte fonteTexto, 
+														 Cor corTexto){
+	Retangulo rect;
+	int larguraCelula, alturaCelula, posXDado, posYDado, larguraDado, alturaDado;
+	Superficie superficieDado;
+	
+	superficieDado = textoParaSuperficie(fonteTexto, dado, corTexto);
+	larguraDado = superficieDado->w;
+	alturaDado = superficieDado->h;
+	larguraCelula = tabelaDestino.superficie->w;
+	alturaCelula = tabelaDestino.superficie->h;
+	posXDado = tabelaDestino.area.x + (larguraCelula * (colunaTabela - 1)) + 
+							((larguraCelula - larguraDado) / 2);
+	posYDado = tabelaDestino.area.y + (alturaCelula * (linhaTabela - 1)) + 
+							((alturaCelula - alturaDado) / 2);
+	
+	pintarTextoPainel(dado, tabelaDestino.painelPertencente, posXDado, posYDado, 
+										 fonteTexto, corTexto);
+	
+}
+
+
+
+// Objetivo: 
+Componente retirarUltimaLetraTextoPainel(char *texto, Fonte fonteTexto, Cor corFonte, Componente componenteTexto){
+	rTirarCaracter(texto);
+  Superficie superAux = textoParaSuperficie(fonteTexto, texto, corFonte);
+  Retangulo rectAux;
+  if(strlen(texto) > 0){
+		componenteTexto = pintarTextoPainel(texto, componenteTexto.painelPertencente, componenteTexto.area.x, componenteTexto.area.y, fonteTexto, corFonte);
+    rectAux.x = (componenteTexto.area.x + componenteTexto.area.w);
+    rectAux.y = componenteTexto.area.y;
+    rectAux.w = superAux->w;
+    rectAux.h = superAux->h;
+  }else{
+    rectAux = componenteTexto.area;
+	}
+  Cor branco = {255, 255, 255, 255};
+  pintarRetanguloPainel(rectAux.x, rectAux.y, rectAux.w, rectAux.h, branco, componenteTexto.painelPertencente);
+	atualizarPainel(componenteTexto.painelPertencente);
+}
+
+
+
+// Objetivo: 
+Painel limparPainel(Painel painelLimpar, Janela janelaPertencente){
+	SDL_DestroyRenderer(painelLimpar);
+  painelLimpar = criarPainel(janelaPertencente);
+	SDL_RenderPresent(painelLimpar);
+	return painelLimpar;
+}
+
+
+
+// Objetivo:
+int pintarMenuPrincipal(Janela janela, Painel painelDestino, Cor corFundo, Cor corPrincipal){
+	int ret = 0, sair = 0;
+	Fonte fonteTexto = abrirFonte("Ubuntu-M.ttf", 16);
+	Fonte fonteTitulo = abrirFonte("Ubuntu-M.ttf", 22);
+	Componente compTitulo, compNomePiloto, compSair;
+	
+	limparPainel(painelDestino, janela);
+	compTitulo = pintarTextoPainel("MENU PRINCIPAL", painelDestino, 200, 10, fonteTitulo, corPrincipal);
+	pintarTextoPainel("Pilotos", painelDestino, 10, 40, fonteTexto, corPrincipal);
+	compSair = pintarTextoPainel("SAIR", painelDestino, 10, 460, fonteTexto, corPrincipal);
+	/*compNomePiloto = pintarTextoPainel("Nome do Piloto:", painelDestino, 10, 60, fonteTexto, corPrincipal);
+	compSair = pintarTextoPainel("SAIR", painelDestino, 10, 460, fonteTexto, corPrincipal);
+	pintarRetanguloCBordasPainel((compNomePiloto.area.x + compNomePiloto.area.w + 10), compNomePiloto.area.y, 300, 21, 1, corPrincipal, corFundo, painelDestino);
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	while(sair){
+		while(SDL_PollEvent(&event)){
+			if(event.type == SDL_MOUSEBUTTONUP){
+        SDL_Point posMouse;
+        SDL_GetMouseState(&posMouse.x, &posMouse.y);
+        if(pontoDentroRetangulo(&posMouse, &compSair)){
+          sair = 1;
+				}
+      }
+		}
+	}*/
+	
+	return 0;
+}
+
+
+
+// Objetivo:
+int pintarMenuPilotos(Janela janela, Painel painelDestino, Cor corFundo, Cor corPrincipal){
+	int ret = 0, sair = 0;
+	Fonte fonteTexto = abrirFonte("Ubuntu-M.ttf", 16);
+	Fonte fonteTitulo = abrirFonte("Ubuntu-M.ttf", 22);
+	Componente compTitulo, compNovoPiloto, compSair;
+	
+	limparPainel(painelDestino, janela);
+	compTitulo = pintarTextoPainel("PILOTOS", painelDestino, 200, 10, fonteTitulo, corPrincipal);
+	compNovoPiloto = pintarTextoPainel("Novo Piloto", painelDestino, 10, 40, fonteTexto, corPrincipal);
+	compSair = pintarTextoPainel("SAIR", painelDestino, 10, 460, fonteTexto, corPrincipal);
+	//compNomePiloto = pintarTextoPainel("Novo Piloto", painelDestino, 10, 60, fonteTexto, corPrincipal);
+	//compSair = pintarTextoPainel("SAIR", painelDestino, 10, 460, fonteTexto, corPrincipal);
+	//pintarRetanguloCBordasPainel((compNomePiloto.area.x + compNomePiloto.area.w + 10), compNomePiloto.area.y, 300, 21, 1, corPrincipal, corFundo, painelDestino);
+	atualizarPainel(painelDestino);
+	
+									
+	SDL_Event event;
+	while(!sair){
+		while(SDL_PollEvent(&event)){
+			if(event.type == SDL_MOUSEBUTTONUP){
+        SDL_Point posMouse;
+        SDL_GetMouseState(&posMouse.x, &posMouse.y);
+        if(pontoDentroRetangulo(&posMouse, &compSair.area)){
+          sair = 1;
+				}else if(pontoDentroRetangulo(&posMouse, &compNovoPiloto.area)){
+          if(pintarMenuNovoPiloto(janela, painelDestino, corFundo, corPrincipal) == 0){
+						painelDestino = limparPainel(painelDestino, janela);
+						pintarMenuPilotos(janela, painelDestino, corFundo, corPrincipal);
+					}
+				}
+      }
+		}
+	}
+	return 0;
+}
+
+
+
+// Objetivo:
+int pintarMenuNovoPiloto(Janela janela, Painel painelDestino, Cor corFundo, Cor corPrincipal){
+	int ret = 0, sair = 0, atualizaPainel = 0, campoAtivo = 0, renderText;
+	Fonte fonteTexto = abrirFonte("Ubuntu-M.ttf", 16);
+	Fonte fonteTitulo = abrirFonte("Ubuntu-M.ttf", 22);
+	Componente compTitulo, compNomePiloto, compSair, compIdadePiloto, compSexoPiloto, 
+	compPaisNatalPiloto, compNomePilotoUser, compSairUser, compIdadePilotoUser, 
+	compSexoPilotoMUser, compSexoPilotoFUser, compPaisNatalPilotoUser, compAtualizar,
+	compNomePilotoDigitado;
+	char nomePiloto[127];
+	memset(nomePiloto, '\0', sizeof(nomePiloto));
+	
+	compAtualizar.textura = NULL;
+	compAtualizar.painelPertencente = NULL;
+	compAtualizar.superficie = NULL;
+	
+	limparPainel(painelDestino, janela);
+	compTitulo = pintarTextoPainel("NOVO PILOTO", painelDestino, 200, 10, fonteTitulo, corPrincipal);
+	compNomePiloto = pintarTextoPainel("Nome do Piloto:", painelDestino, 10, 60, fonteTexto, corPrincipal);
+	compIdadePiloto = pintarTextoPainel("Idade do Piloto:", painelDestino, 10, 100, fonteTexto, corPrincipal);
+	compSexoPiloto = pintarTextoPainel("Sexo do Piloto:", painelDestino, 10, 140, fonteTexto, corPrincipal);
+	compPaisNatalPiloto = pintarTextoPainel("Pais natal do Piloto:", painelDestino, 10, 180, fonteTexto, corPrincipal);
+	compSair = pintarTextoPainel("SAIR", painelDestino, 10, 460, fonteTexto, corPrincipal);
+	compNomePilotoUser = pintarRetanguloCBordasPainel((compNomePiloto.area.x + compNomePiloto.area.w + 10), compNomePiloto.area.y, 300, 30, 1, corPrincipal, corFundo, painelDestino);
+	compIdadePilotoUser = pintarRetanguloCBordasPainel((compIdadePiloto.area.x + compIdadePiloto.area.w + 10), compIdadePiloto.area.y, 300, 30, 1, corPrincipal, corFundo, painelDestino);
+	compSexoPilotoMUser = pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 10), compSexoPiloto.area.y, 30, 30, 3, corPrincipal, corFundo, painelDestino);
+	compSexoPilotoFUser = pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 50), compSexoPiloto.area.y, 30, 30, 1, corPrincipal, corFundo, painelDestino);
+	compPaisNatalPilotoUser = pintarRetanguloCBordasPainel((compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 10), compPaisNatalPiloto.area.y, 300, 30, 1, corPrincipal, corFundo, painelDestino);
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		renderText = 0;
+		while(SDL_PollEvent(&event)){
+			printf("%d\n", event.type);
+			if(event.type == SDL_MOUSEBUTTONUP){
+        SDL_Point posMouse;
+        SDL_GetMouseState(&posMouse.x, &posMouse.y);
+        if(pontoDentroRetangulo(&posMouse, &compSair.area)){
+          sair = 1;
+				}else if(pontoDentroRetangulo(&posMouse, &compNomePilotoUser.area)){
+					if(compAtualizar.textura != NULL && compAtualizar.painelPertencente != NULL &&
+							compAtualizar.superficie != NULL){
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 3, corFundo, corFundo, painelDestino);
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 1, corPrincipal, corFundo, painelDestino);
+						
+						compAtualizar.textura = NULL;
+						compAtualizar.painelPertencente = NULL;
+						compAtualizar.superficie = NULL;
+					}
+					compAtualizar = pintarRetanguloCBordasPainel((compNomePiloto.area.x + compNomePiloto.area.w + 10), compNomePiloto.area.y, 300, 30, 3, corPrincipal, corFundo, painelDestino);
+					campoAtivo = 1;
+					atualizarPainel(painelDestino);
+        }else if(pontoDentroRetangulo(&posMouse, &compIdadePilotoUser.area)){
+					if(compAtualizar.textura != NULL && compAtualizar.painelPertencente != NULL &&
+							compAtualizar.superficie != NULL){
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 3, corFundo, corFundo, painelDestino);
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 1, corPrincipal, corFundo, painelDestino);
+						
+						compAtualizar.textura = NULL;
+						compAtualizar.painelPertencente = NULL;
+						compAtualizar.superficie = NULL;
+					}
+					compAtualizar = pintarRetanguloCBordasPainel((compIdadePiloto.area.x + compIdadePiloto.area.w + 10), compIdadePiloto.area.y, 300, 30, 3, corPrincipal, corFundo, painelDestino);
+					campoAtivo = 2;
+					atualizarPainel(painelDestino);
+        }else if(pontoDentroRetangulo(&posMouse, &compSexoPilotoMUser.area)){
+					pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 50), compSexoPiloto.area.y, 30, 30, 3, corFundo, corFundo, painelDestino);
+					pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 50), compSexoPiloto.area.y, 30, 30, 1, corPrincipal, corFundo, painelDestino);
+					pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 10), compSexoPiloto.area.y, 30, 30, 3, corPrincipal, corFundo, painelDestino);
+					atualizarPainel(painelDestino);
+        }else if(pontoDentroRetangulo(&posMouse, &compSexoPilotoFUser.area)){
+					pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 10), compSexoPiloto.area.y, 30, 30, 3, corFundo, corFundo, painelDestino);
+					pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 10), compSexoPiloto.area.y, 30, 30, 1, corPrincipal, corFundo, painelDestino);
+					pintarRetanguloCBordasPainel((compSexoPiloto.area.x + compSexoPiloto.area.w + 50), compSexoPiloto.area.y, 30, 30, 3, corPrincipal, corFundo, painelDestino);
+					atualizarPainel(painelDestino);
+        }else if(pontoDentroRetangulo(&posMouse, &compPaisNatalPilotoUser.area)){
+					if(compAtualizar.textura != NULL && compAtualizar.painelPertencente != NULL &&
+							compAtualizar.superficie != NULL){
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 3, corFundo, corFundo, painelDestino);
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 1, corPrincipal, corFundo, painelDestino);
+						
+						compAtualizar.textura = NULL;
+						compAtualizar.painelPertencente = NULL;
+						compAtualizar.superficie = NULL;
+					}
+					compAtualizar = pintarRetanguloCBordasPainel((compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 10), compPaisNatalPiloto.area.y, 300, 30, 3, corPrincipal, corFundo, painelDestino);
+					campoAtivo = 3;
+					atualizarPainel(painelDestino);
+        }else{
+        	if(compAtualizar.textura != NULL && compAtualizar.painelPertencente != NULL &&
+							compAtualizar.superficie != NULL){
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 3, corFundo, corFundo, painelDestino);
+						pintarRetanguloCBordasPainel(compAtualizar.area.x, compAtualizar.area.y, 300, 30, 1, corPrincipal, corFundo, painelDestino);
+						
+						compAtualizar.textura = NULL;
+						compAtualizar.painelPertencente = NULL;
+						compAtualizar.superficie = NULL;
+						compNomePilotoDigitado = pintarTextoPainel(nomePiloto, painelDestino, (compNomePiloto.area.x + compNomePiloto.area.w + 15), compNomePiloto.area.y+5, fonteTexto, corPrincipal);
+      			atualizarPainel(painelDestino);
+					}
+					campoAtivo = 0;
+				}
+      } else if( event.type == SDL_TEXTINPUT ){
+		    if( !( ( event.text.text[ 0 ] == 'c' || event.text.text[ 0 ] == 'C' ) && ( event.text.text[ 0 ] == 'v' || event.text.text[ 0 ] == 'V' ) && SDL_GetModState() & KMOD_CTRL ) ){
+		      if(campoAtivo == 1){
+						strcat(nomePiloto, event.text.text);
+					} else if(campoAtivo == 2){
+						
+					} else if(campoAtivo == 3){
+						
+					}
+		      renderText = 1;
+		      atualizaPainel = 1;
+		    }
+		  } else if( event.type == SDL_KEYDOWN ){
+		  	if( event.key.keysym.sym == SDLK_BACKSPACE && strlen(nomePiloto) > 0 ){
+          retirarUltimaLetraTextoPainel(nomePiloto, fonteTexto, corPrincipal, compNomePilotoDigitado);
+        }
+        /*//Handle copy
+        else if( event.key.keysym.sym == SDLK_c && SDL_GetModState() & KMOD_CTRL )
+        {
+            SDL_SetClipboardText( inputText );
+            printf("COPY\n");
+        }
+        //Handle paste
+        else if( event.key.keysym.sym == SDLK_v && SDL_GetModState() & KMOD_CTRL )
+        {
+            strcpy(inputText, SDL_GetClipboardText());
+            renderText = 1;
+            printf("PASTE\n");
+        }*/
+      }
+		}
+		if(atualizaPainel){
+			atualizaPainel = 0;
+			atualizarPainel(painelDestino);
+		}
+		if(renderText){
+      if( nomePiloto != "" ){
+        compNomePilotoDigitado = pintarTextoPainel(nomePiloto, painelDestino, (compNomePiloto.area.x + compNomePiloto.area.w + 15), compNomePiloto.area.y+5, fonteTexto, corPrincipal);
+      }else{
+        compNomePilotoDigitado = pintarTextoPainel(" ", painelDestino, (compNomePiloto.area.x + compNomePiloto.area.w + 10), compNomePiloto.area.y, fonteTexto, corPrincipal);
+      }
+    }
+	}
+  SDL_StopTextInput();
+	
+	return 0;
 }
 
 #endif /* _FUNCOES_JANELA_C_ */

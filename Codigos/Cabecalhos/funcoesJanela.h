@@ -21,6 +21,18 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 Componente pintarRetanguloCBordasPainel(int posX, int posY, int largura, int altura, 
 																	int larguraBorda, Cor corBorda, Cor corFundo, 
 																	Painel painelDestino);
+Componente pintarTabelaPainel(int posX, int posY, int largura, int altura, int larguraBorda, 
+															 Cor corBorda, Cor corFundo, int qtdColunas, int qtdLinhas, 
+															 Painel painelDestino);
+Componente pintarDadoTabela(Componente tabelaDestino, int linhaTabela, int colunaTabela, 
+														 int espacamentoCelula, char *dado, Fonte fonteTexto, 
+														 Cor corTexto);
+Componente retirarUltimaLetraTextoPainel(char *texto, Fonte fonteTexto, Cor corFonte, 
+																					Componente componenteTexto);
+Painel limparPainel(Painel painelLimpar, Janela janelaPertencente);
+int pintarMenuPrincipal(Janela janela, Painel painelDestino, Cor corFundo, Cor corPrincipal);
+int pintarMenuPilotos(Janela janela, Painel painelDestino, Cor corFundo, Cor corPrincipal);
+int pintarMenuNovoPiloto(Janela janela, Painel painelDestino, Cor corFundo, Cor corPrincipal);
 
 #include <CodigosFontes/funcoesJanela.c>
 
