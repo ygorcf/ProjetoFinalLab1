@@ -14,9 +14,9 @@
 #include "includesProjeto.h"
 
 int main(int argc, char* args[]){
-	FILE *arqErros;
-	arqErros = criaArquivoErros("errosProjeto.txt");
-	inicializarTudo(arqErros);
+	//FILE *arqErros;
+	//arqErros = criaArquivoErros("errosProjeto.txt");
+	inicializarTudo();
 	
 	Janela janela;
 	Painel painel;
@@ -24,18 +24,18 @@ int main(int argc, char* args[]){
 	Superficie superficie;
 	Textura textura;
 	Retangulo retangulo;
-	Cor corFonte;
+	Cor corFonte = {178, 34, 34, 255};
 	int sair = 0, copiouTextura = 1;
 	
-	corFonte.r = 178;
+	/*corFonte.r = 178;
 	corFonte.g = 34;
 	corFonte.b = 34;
-	corFonte.opacidade = 255;
+	corFonte.opacidade = 255;*/
 	
 	
 	janela = criarJanela("Minha janela", 560, 480);
 	painel = criarPainel(janela);
-	fonte = abrirFonte("Ubuntu-M.ttf", 16);
+	fonte = FONTE_TEXTO_PRINCIPAL;
 	
 	//pintarTextoPainel("Ola mundo!", painel, 0, 0, fonte, corFonte);
 	/*---------------*/
@@ -64,33 +64,28 @@ int main(int argc, char* args[]){
 	//pintarDadoTabela(tabela, 5, 5, 5, "BATATA", fonte, corFonte);
 	//SDL_RenderDrawRect(painel, &retangulo);
 	//pintarMenuPrincipal(painel, corFundo, corFonte);
-	pintarTextoPainel("MENU PRINCIPAL", painel, 200, 10, fonte, corFonte);
-	compSomeText = pintarTextoPainel("Pilotos", painel, 10, 40, fonte, corFonte);
-	compSair = pintarTextoPainel("SAIR", painel, 10, 460, fonte, corFonte);
+	pintarTextoPainel("MENU PRINCIPAL", painel, 200, 10, FONTE_TITULO_PRINCIPAL);
+	compSomeText = pintarTextoPainel("Pilotos", painel, 10, 40, FONTE_TEXTO_PRINCIPAL);
+	compSair = pintarTextoPainel("SAIR", painel, 10, 460, FONTE_TEXTO_PRINCIPAL);
 	atualizarPainel(painel);
 	
 	SDL_StartTextInput();
 	SDL_Event event; //um evento enviado pela SDL
-    while(!sair) //rodar enquanto nao for para encerrar :)
-    {
+	//SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
+    while(!sair){
     	int renderText = 0;
-        while(SDL_PollEvent(&event)) //checar eventos
-        {
-        	//printf("%d\n", event.type);
-            if(event.type == SDL_QUIT) //fechar a janela?
-            {
-                sair = 1; //sair do loop principal
-            }
-            else if(event.type == SDL_MOUSEBUTTONUP) //fechar a janela?
-            {
+        while(SDL_WaitEvent(&event)){
+            if(event.type == SDL_QUIT)
+                sair = 1;
+            else if(event.type == SDL_MOUSEBUTTONUP){
             	SDL_Point posMouse;
-                SDL_GetMouseState(&posMouse.x, &posMouse.y);
+              SDL_GetMouseState(&posMouse.x, &posMouse.y);
                 if(pontoDentroRetangulo(&posMouse, &compSomeText.area)){
-                	
-									painel = limparPainel(painel, janela);
+                	painel = limparPainel(painel, janela);
                 	//SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "Limpando Tela", "Tela Limpa!", janela);
 									//if(pintarMenuNovoPiloto(painel, corFundo, corFonte) == 0){
 									if(pintarMenuPilotos(janela, painel, corFundo, corFonte) == 0){
+										SDL_FlushEvent(1024);
 										painel = limparPainel(painel, janela);
 										pintarMenuPrincipal(janela, painel, corFundo, corFonte);
 									}
@@ -98,6 +93,7 @@ int main(int argc, char* args[]){
 									//printf("Pronto para digitar texto\n");
 								} else if(pontoDentroRetangulo(&posMouse, &compSair.area)){
                 	sair = 1;
+          				break;
 									//printf("Pronto para digitar texto\n");
 								}
             }
@@ -106,7 +102,8 @@ int main(int argc, char* args[]){
                         //Handle backspace
                         if( event.key.keysym.sym == SDLK_BACKSPACE && strlen(inputText) > 0 )
                         {
-                            /*//lop off character
+                            /*
+														//lop off character
                             //inputText.pop_back();
                             rTirarCaracter(inputText);
                             //char strAux[strlen(inputText)];
@@ -126,9 +123,10 @@ int main(int argc, char* args[]){
                             pintarRetanguloPainel(rectAux.x, rectAux.y, rectAux.w, rectAux.h, branco, painel);
 														atualizarPainel(painel);
                             //renderText = 1;*/
-                            retirarUltimaLetraTextoPainel(inputText, fonte, corFonte, compSomeText);
+                            retirarUltimaLetraTextoPainel(inputText, compSomeText);
                         }
-                        /*//Handle copy
+                        /*
+												//Handle copy
                         else if( event.key.keysym.sym == SDLK_c && SDL_GetModState() & KMOD_CTRL )
                         {
                             SDL_SetClipboardText( inputText );
@@ -155,23 +153,6 @@ int main(int argc, char* args[]){
 		                    }
         }
 
-                if( renderText )
-                {
-                    //Text is not empty
-                    if( inputText != "" )
-                    {
-                        //Render new text
-                        compSomeText = pintarTextoPainel(inputText, painel, 0, 32, fonte, corFonte);
-												//printf("RENDER NEW TEXT\n");
-                    }
-                    //Text is empty
-                    else
-                    {
-                        //Render space texture
-                        compSomeText = pintarTextoPainel(" ", painel, 0, 32, fonte, corFonte);
-                        //printf("RENDER SPACE\n");
-                    }
-                }
         //SDL_Delay(3000);
 				SDL_RenderPresent(painel);
         //SDL_Flip(screen); //atualizar a tela
@@ -180,7 +161,7 @@ int main(int argc, char* args[]){
 
   SDL_StopTextInput();
 		
-	finalizarTudo(arqErros);
+	finalizarTudo();
 	return 0;
 }
 

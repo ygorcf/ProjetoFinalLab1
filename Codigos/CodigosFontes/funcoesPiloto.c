@@ -83,11 +83,12 @@ Piloto pesquisarPiloto(int idPesquisar){
 
 
 //Objetivo:
-int apresentarTodosPilotos(Componente tabelaDestino, Cor corFonte){
+int apresentarTodosPilotos(Componente tabelaDestino){
 	FILE *arquivoPilotos;
 	Piloto pilotoPesquisa, pilotoErro;
 	int ret = 0, linhaTabela;
-	Fonte fonteTexto = abrirFonte("Ubuntu-M.ttf", 16);
+	Fonte fonte = FONTE_TEXTO_PRINCIPAL;
+	Cor corFonte = {178, 34, 34, 255};
 	
 	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
 	
@@ -101,7 +102,7 @@ int apresentarTodosPilotos(Componente tabelaDestino, Cor corFonte){
 			salvarErro("Erro ao salvar um piloto!");
 			return 1;
 		}
-		pintarDadoTabela(tabelaDestino, linhaTabela, 1, 5, rsprintf("%d", pilotoPesquisa.id), fonteTexto, corFonte);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 1, 5, rsprintf("%d", pilotoPesquisa.id), fonte, corFonte);
 	}
 	fclose(arquivoPilotos);
 	

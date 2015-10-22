@@ -8,8 +8,8 @@
 #include <SDL2/SDL_ttf.h>
 #endif
 
-int inicializarTudo(FILE *arquivoErros);
-void finalizarTudo(FILE *arquivoErros);
+int inicializarTudo();
+void finalizarTudo();
 
 #include <CodigosFontes/iniciaTermina.c>
 
