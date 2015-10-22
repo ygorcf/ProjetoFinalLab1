@@ -74,6 +74,6 @@ int main(void){
   }
   
   printf("===================================\n"); 
-	system("PAUSE"); 
+	//system("PAUSE"); 
   return 0;
 }

@@ -1,5 +1,6 @@
-/*#include <SDL2/SDL.h>
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include "includesProjeto.h"
 
 #define SCREEN_W 640 //tamanho da janela que sera criada
 #define SCREEN_H 480
@@ -9,7 +10,7 @@ int main( int argc, char* args[] )
     SDL_Event event; //um evento enviado pela SDL
     int quit = 0; //devemos encerrar o programa?
 
-    SDL_Init(SDL_INIT_VIDEO); //inicializar a SDL
+    SDL_Init(0); //inicializar a SDL
     TTF_Init();
     SDL_Window* janela;  
     //janela = SDL_CreateWindow("Primeira janela", 100, 100, 320, 240, 0);
@@ -28,10 +29,10 @@ SDL_Color White = {255, 255, 255};  // this is the color in rgb format, maxing o
 
 //SDL_Surface* surfaceMessage = TTF_RenderText_Solid(sans, "put your text here", White); // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
 
-TTF_RenderText_Solid(sans, "OLA, mundo!", color);
+//TTF_RenderText_Solid(sans, "OLA, mundo!", color);
     while(!quit) //rodar enquanto nao for para encerrar :)
     {
-        while(SDL_PollEvent(&event)) //checar eventos
+        while(SDL_WaitEvent(&event)) //checar eventos
         {
             if(event.type == SDL_QUIT) //fechar a janela?
             {
@@ -58,10 +59,16 @@ TTF_RenderText_Solid(sans, "OLA, mundo!", color);
         }
 
         SDL_Flip(screen); //atualizar a tela
-    }*
+    }*/
 
 		TTF_Quit();
     SDL_Quit(); //encerrar a SDL
 
     return 0;   
-}*/
+}
+
+int pontoDentroRetangulo(SDL_Point *ponto, SDL_Rect *rect){
+	if((ponto->x <= (rect->w+rect->x) && ponto->x >= rect->x) && 
+			(ponto->y <= (rect->h+rect->y) && ponto->y >= rect->y)) return 1;
+	return 0;
+}
