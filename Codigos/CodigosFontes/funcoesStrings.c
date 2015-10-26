@@ -5,19 +5,21 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+//#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 
-
+/*
 // Objetivo: Criar uma string formatada
 // Parametro: O formato que vai ficar a string e os dados necessarios no formato
 // Retorno: Um ponteiro para a string formatada
-char *rsprintf(char *formato, ...){
-	va_list dadosNecessarios;
-	char *strinRet;
-	vsprintf(strinRet, formato, dadosNecessarios);
+char *rsprintf(char *dst, char *formato, ...){
+	//dst = (char *)malloc(strlen(formato) * sizeof(char));
+	//memset(dst, '\0', sizeof(dst));
+	vsprintf(dst, formato, dadosNecessarios);
 	va_end(dadosNecessarios);
-	return strinRet;
-}
+	return dst;
+}*/
 
 
 
@@ -27,6 +29,17 @@ char *rsprintf(char *formato, ...){
 char *rTirarCaracter(char *stringTirarCaracter){
 	stringTirarCaracter[strlen(stringTirarCaracter)-1] = '\0';
 	return stringTirarCaracter;
+}
+
+
+
+// Objetivo: Retirar o quebrador de linhas no final da string
+// Parametro: O endereco da string que ira ser retirado o quebrador de linha
+// Retorno: Um ponteiro para a nova string
+char *rRemoveQuebraLinha(char *stringTirarQuebraLinha){
+	if(stringTirarQuebraLinha[strlen(stringTirarQuebraLinha)-1] == '\n')
+		rTirarCaracter(stringTirarQuebraLinha);
+	return stringTirarQuebraLinha;
 }
 
 #endif /* _FUNCOES_STRINGS_C_ */

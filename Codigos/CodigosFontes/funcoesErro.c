@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <time.h>
 
 #define LOCAL_ARQUIVO_ERROS "Erros/errosProjeto.txt"
@@ -11,7 +12,11 @@
 
 // Objetivo: Salvar no arquivo de erros, uma string
 // Parametro: A string a ser salva
-void salvarErro(char *stringSalvar){
+void salvarErro(char *formato, ...){
+	va_list dadosNecessarios;
+	char *stringSalvar;
+	va_start(dadosNecessarios, formato);
+	vsprintf(stringSalvar, formato, dadosNecessarios);
 	time_t segundosSistema;
 	struct tm *horarioSistemaS;
 	char horarioAtual[63];
@@ -21,6 +26,7 @@ void salvarErro(char *stringSalvar){
 	FILE *arquivoErros = fopen(LOCAL_ARQUIVO_ERROS, "a");
 	fprintf(arquivoErros, "%s: %s\n", horarioAtual, stringSalvar);	
 	fclose(arquivoErros);
+	va_end(dadosNecessarios);
 }
 
 #endif /* _FUNCOES_ERRO_C_ */
