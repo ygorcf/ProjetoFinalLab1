@@ -14,6 +14,60 @@
 #include "includesProjeto.h"
 
 int main(int argc, char* args[]){
+<<<<<<< HEAD
+	inicializarTudo();
+	
+	SDL_Surface* super =  SDL_CreateRGBSurfaceFrom("Texto",
+                                      40,
+                                      10,
+                                      32,
+                                      32,
+                                      0,
+                                      0,
+                                      0,
+                                      0);
+	Janela janelaPrincipal;
+	Painel painelPrincipal;
+	int sair = 0;
+	
+	janelaPrincipal = criarJanela("Projeto Final - Formula 1", 560, 480);
+	painelPrincipal = criarPainel(janelaPrincipal);
+	
+	SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
+	SDL_EventState(SDL_MOUSEMOTION, SDL_KEYUP);
+	SDL_EventState(SDL_MOUSEMOTION, SDL_TEXTEDITING);
+    while(!sair){
+    	switch(checarEventoMenuPrincipal(janelaPrincipal, painelPrincipal)){
+    		case CLICADO_SAIR:
+    			sair = 1;
+    			break;
+    		case CLICADO_FECHAR:
+    			sair = 1;
+    			break;
+    		case CLICADO_PILOTOS:
+					switch(checarEventoMenuPilotos(janelaPrincipal, painelPrincipal)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			break;
+						case CLICADO_NOVO_PILOTO:
+							switch(checarEventoMenuNovoPiloto(janelaPrincipal, painelPrincipal)){
+				    		case CLICADO_FECHAR:
+				    			sair = 1;
+				    			break;
+								default:
+									sair = 0;
+							}
+							break;
+					}
+    			break;
+    		default :
+    			sair = 0;
+			}
+    	atualizarPainel(painelPrincipal);
+    }
+
+	finalizarTudo();
+=======
 	//FILE *arqErros;
 	//arqErros = criaArquivoErros("errosProjeto.txt");
 	inicializarTudo();
@@ -170,5 +224,6 @@ int main(int argc, char* args[]){
 int pontoDentroRetangulo(SDL_Point *ponto, SDL_Rect *rect){
 	if((ponto->x <= (rect->w+rect->x) && ponto->x >= rect->x) && 
 			(ponto->y <= (rect->h+rect->y) && ponto->y >= rect->y)) return 1;
+>>>>>>> a1099dba36c81abaea5f9fda2c9d6edc4151b184
 	return 0;
 }

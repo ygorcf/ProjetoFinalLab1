@@ -1,3 +1,53 @@
+<<<<<<< HEAD
+2015-10-24- 14:21: (null)
+2015-10-24- 14:21: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-24- 14:26: (null)
+2015-10-24- 14:26: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-24- 19:04: (null)
+2015-10-24- 19:04: (null)
+2015-10-24- 19:04: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-24- 19:09: (null)
+2015-10-24- 19:09: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-24- 19:09: (null)
+2015-10-24- 19:09: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-24- 19:10: (null)
+2015-10-24- 19:10: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-24- 19:11: (null)
+2015-10-24- 19:11: (null)
+2015-10-24- 19:37: (null)
+2015-10-24- 19:37: (null)
+2015-10-24- 20:09: (null)
+2015-10-24- 20:09: (null)
+2015-10-24- 20:15: (null)
+2015-10-24- 20:15: (null)
+2015-10-24- 20:15: (null)
+2015-10-24- 20:20: (null)
+2015-10-24- 20:20: (null)
+2015-10-24- 23:24: (null)
+2015-10-24- 23:24: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-24- 23:26: (null)
+2015-10-25- 19:55: (null)
+2015-10-25- 19:55: (null)
+2015-10-25- 19:59: (null)
+2015-10-25- 19:59: (null)
+2015-10-25- 19:59: (null)
+2015-10-25- 22:05: (null)
+2015-10-25- 22:06: (null)
+2015-10-25- 22:07: (null)
+2015-10-25- 22:13: (null)
+2015-10-25- 22:13: (null)
+2015-10-25- 22:13: (null)
+2015-10-25- 22:13: (null)
+2015-10-25- 22:13: (null)
+2015-10-25- 22:13: (null)
+=======
 2015-10-21- 21:33: (null)
 2015-10-21- 21:33: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
 
@@ -286,3 +336,4 @@
 2015-10-21- 23:44: (null)
 2015-10-21- 23:47: (null)
 2015-10-22- 00:10: (null)
+>>>>>>> a1099dba36c81abaea5f9fda2c9d6edc4151b184

@@ -66,13 +66,8 @@ int main(void){
 	else
 	printf("\n- Arquivo .dev criado com SUCESSO!\n");
   
-<<<<<<< HEAD
   printf("\n===================================\n"); 
   printf("\nPressione uma tecla...\n\n");
   getch();
-=======
-  printf("===================================\n"); 
-	//system("PAUSE"); 
->>>>>>> a1099dba36c81abaea5f9fda2c9d6edc4151b184
   return 0;
 }

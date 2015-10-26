@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *rsprintf(char *formato, ...);
 char *rTirarCaracter(char *stringTirarCaracter);
+char *rRemoveQuebraLinha(char *stringTirarQuebraLinha);
 
 #include <CodigosFontes/funcoesStrings.c>
 
