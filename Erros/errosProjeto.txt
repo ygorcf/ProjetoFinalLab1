@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2015-10-24- 14:21: (null)
 2015-10-24- 14:21: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
 
@@ -46,3 +47,293 @@
 2015-10-25- 22:13: (null)
 2015-10-25- 22:13: (null)
 2015-10-25- 22:13: (null)
+=======
+2015-10-21- 21:33: (null)
+2015-10-21- 21:33: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:35: (null)
+2015-10-21- 21:35: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: (null)
+2015-10-21- 21:40: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:42: (null)
+2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:42: (null)
+2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:42: (null)
+2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:42: (null)
+2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:42: (null)
+2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:42: (null)
+2015-10-21- 21:42: (null)
+2015-10-21- 21:42: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: (null)
+2015-10-21- 21:43: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: (null)
+2015-10-21- 21:44: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:46: (null)
+2015-10-21- 21:46: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:47: (null)
+2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:47: (null)
+2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:47: (null)
+2015-10-21- 21:47: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:47: (null)
+2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:47: (null)
+2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:47: (null)
+2015-10-21- 21:47: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:48: (null)
+2015-10-21- 21:48: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:48: (null)
+2015-10-21- 21:48: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:48: (null)
+2015-10-21- 21:48: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 21:50: (null)
+2015-10-21- 21:50: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:50: (null)
+2015-10-21- 21:50: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 21:50: (null)
+2015-10-21- 21:50: (null)
+2015-10-21- 21:50: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 22:56: (null)
+2015-10-21- 22:56: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 23:12: (null)
+2015-10-21- 23:12: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 23:14: (null)
+2015-10-21- 23:14: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+
+2015-10-21- 23:28: (null)
+2015-10-21- 23:28: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:28: (null)
+2015-10-21- 23:28: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:28: (null)
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:29: (null)
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:32: Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:32: (null)
+2015-10-21- 23:35: (null)
+2015-10-21- 23:35: Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:35: (null)
+2015-10-21- 23:35: (null)
+2015-10-21- 23:35: Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'
+
+2015-10-21- 23:35: (null)
+2015-10-21- 23:44: (null)
+2015-10-21- 23:47: (null)
+2015-10-22- 00:10: (null)
+>>>>>>> a1099dba36c81abaea5f9fda2c9d6edc4151b184

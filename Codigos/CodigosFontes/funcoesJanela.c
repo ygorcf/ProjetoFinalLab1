@@ -246,6 +246,7 @@ Componente pintarTextoPainel(char *textoPintar, Painel painelDestino, int posX, 
 		// Verifica se ocorreu um erro ao copiar a textura para o painel
 		if(copiadaSucesso)
 			salvarErro("Erro na funcao 'copiarTexturaPainel' de 'pintarTextoPainel'\n");
+<<<<<<< HEAD
 			*/
 		// Define o painel de destino na estrutura do componente
 		componenteTexto.painelPertencente = painelDestino;
@@ -395,6 +396,7 @@ Componente pintarTabelaPainel(int posX, int posY, int largura, int altura,
 			if(compAux.painelPertencente == NULL){
 				salvarErro("Erro na funcao %d %d 'pintarTabelaPainel' de 'pintarRetanguloCBordasPainel'\n",
 														linha, coluna);
+
 				return compAux;
 			}
 		}
@@ -452,6 +454,7 @@ Componente retirarUltimaLetraTextoPainel(char *texto, Componente componenteTexto
 		  rectAux.w = componenteTexto.area.w - superAux->w;
 		  rectAux.h = superAux->h;
 			//componenteTexto = pintarTextoPainel(texto, componenteTexto.painelPertencente, componenteTexto.area.x, componenteTexto.area.y, FONTE_TEXTO_PRINCIPAL);
+
 		}else{
 		  rectAux = componenteTexto.area;
 		}
@@ -493,11 +496,11 @@ int checarEventoMenuPrincipal(Janela janela, Painel painelDestino){
 	compPilotos = pintarTextoPainel("Pilotos", painelDestino, 10, 40, FONTE_TEXTO_PRINCIPAL, janela);
 	compSair = pintarTextoPainel("SAIR", painelDestino, 10, 460, FONTE_TEXTO_PRINCIPAL, janela);
 	//pintarRetanguloPainel(rect.x, rect.y, rect.w, rect.h, (Cor){0,0,128,255}, painelDestino);
-	
-	
+		
 	SDL_SetRenderDrawColor(painelDestino, 0, 0, 128, 255);
 	SDL_RenderDrawRect(painelDestino, &rect);
 	SDL_SetTextInputRect(&rect);
+
 	atualizarPainel(painelDestino);
 	
 	SDL_Event evento;
@@ -537,6 +540,7 @@ int checarEventoMenuPilotos(Janela janela, Painel painelDestino){
 	compTitulo = pintarTextoPainel("PILOTOS", painelDestino, 200, 10, FONTE_TITULO_PRINCIPAL, janela);
 	compNovoPiloto = pintarTextoPainel("Novo Piloto", painelDestino, 10, 40, FONTE_TEXTO_PRINCIPAL, janela);
 	compVoltar = pintarTextoPainel("VOLTAR", painelDestino, 10, 460, FONTE_TEXTO_PRINCIPAL, janela);
+
 	atualizarPainel(painelDestino);
 	SDL_Event evento;
 	while(!sair){

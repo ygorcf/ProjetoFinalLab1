@@ -14,16 +14,15 @@
 int inicializarTudo(){
 	// Inicializa a SDL_2 e verifica se ocorreu um erro
 	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) != 0){
-		
-		//salvarErro("Erro na funcao 'SDL_Init' de 'inicializarTudo': %s\n", 
-		//				SDL_GetError());
+		salvarErro("Erro na funcao 'SDL_Init' de 'inicializarTudo': %s\n", 
+						SDL_GetError());
 		return 1;
 	}
     
   // Inicializa a SDL_TTF_2 e verifica se ocorreu um erro
 	if(TTF_Init() != 0){
-		//salvarErro(rsprintf("Erro na funcao 'TTF_Init' de 'inicializarTudo': %s\n", 
-		//				TTF_GetError()));
+		salvarErro("Erro na funcao 'TTF_Init' de 'inicializarTudo': %s\n", 
+						TTF_GetError());
 		return 1;
 	}
 	

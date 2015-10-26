@@ -87,6 +87,11 @@ int apresentarTodosPilotos(Componente tabelaDestino){
 	FILE *arquivoPilotos;
 	Piloto pilotoPesquisa, pilotoErro;
 	int ret = 0, linhaTabela;
+<<<<<<< HEAD
+=======
+	Fonte fonte = FONTE_TEXTO_PRINCIPAL;
+	Cor corFonte = {178, 34, 34, 255};
+>>>>>>> a1099dba36c81abaea5f9fda2c9d6edc4151b184
 	
 	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
 	
@@ -100,9 +105,13 @@ int apresentarTodosPilotos(Componente tabelaDestino){
 			salvarErro("Erro ao salvar um piloto!");
 			return 1;
 		}
+<<<<<<< HEAD
 		char stringIdPilotoPesquisa[4];
 		sprintf(stringIdPilotoPesquisa, "%d", pilotoPesquisa.id);
 		pintarDadoTabela(tabelaDestino, linhaTabela, 1, 5, stringIdPilotoPesquisa);
+=======
+		pintarDadoTabela(tabelaDestino, linhaTabela, 1, 5, rsprintf("%d", pilotoPesquisa.id), fonte, corFonte);
+>>>>>>> a1099dba36c81abaea5f9fda2c9d6edc4151b184
 	}
 	fclose(arquivoPilotos);
 	
