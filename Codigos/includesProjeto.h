@@ -7,5 +7,8 @@
 #include <Cabecalhos/tiposDadosJanela.h>
 #include <Cabecalhos/abreArquivos.h>
 #include <Cabecalhos/funcoesJanela.h>
+#include <Cabecalhos/funcoesMenu.h>
+#include <Cabecalhos/funcoesPiloto.h>
+#include <Cabecalhos/funcoesCircuito.h>
 
 #endif

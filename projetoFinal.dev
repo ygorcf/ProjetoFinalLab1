@@ -4,8 +4,8 @@ Name=projetoFinal
 Type=1
 Ver=2
 ObjFiles=
-Includes=G:\PF\ProjetoFinalLab1\include\;G:\PF\ProjetoFinalLab1\Codigos\
-Libs=G:\PF\ProjetoFinalLab1\lib\
+Includes="G:\PF\ProjetoFinalLab1 - Copia\include";"G:\PF\ProjetoFinalLab1 - Copia\Codigos"
+Libs="G:\PF\ProjetoFinalLab1 - Copia\lib"
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
@@ -27,9 +27,9 @@ CommandLine=
 Folders=Cabecalhos,Codigos
 IncludeVersionInfo=0
 SupportXPThemes=0
-CompilerSet=0
-CompilerSettings=0000000000000000000000000
-UnitCount=10
+CompilerSet=3
+CompilerSettings=0000000100000000000000000
+UnitCount=9
 
 [VersionInfo]
 Major=1
@@ -150,16 +150,6 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit13]
-FileName=Codigos\CodigosFontes\funcoesPiloto.c
-CompileCpp=0
-Folder=Codigos
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit14]
 FileName=Codigos\CodigosFontes\funcoesStrings.c
 CompileCpp=0
@@ -172,16 +162,6 @@ BuildCmd=
 
 [Unit15]
 FileName=Codigos\CodigosFontes\iniciaTermina.c
-CompileCpp=0
-Folder=Codigos
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit10]
-FileName=Codigos\CodigosFontes\funcoesPiloto.c
 CompileCpp=0
 Folder=Codigos
 Compile=1

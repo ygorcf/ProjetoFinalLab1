@@ -150,16 +150,6 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit13]
-FileName=Codigos\CodigosFontes\funcoesPiloto.c
-CompileCpp=0
-Folder=Codigos
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit14]
 FileName=Codigos\CodigosFontes\funcoesStrings.c
 CompileCpp=0
@@ -172,16 +162,6 @@ BuildCmd=
 
 [Unit15]
 FileName=Codigos\CodigosFontes\iniciaTermina.c
-CompileCpp=0
-Folder=Codigos
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit10]
-FileName=Codigos\CodigosFontes\funcoesPiloto.c
 CompileCpp=0
 Folder=Codigos
 Compile=1

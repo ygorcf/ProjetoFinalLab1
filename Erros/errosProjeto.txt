@@ -1,339 +1,138 @@
-<<<<<<< HEAD
-2015-10-24- 14:21: (null)
-2015-10-24- 14:21: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-24- 14:26: (null)
-2015-10-24- 14:26: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-24- 19:04: (null)
-2015-10-24- 19:04: (null)
-2015-10-24- 19:04: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-24- 19:09: (null)
-2015-10-24- 19:09: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-24- 19:09: (null)
-2015-10-24- 19:09: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-24- 19:10: (null)
-2015-10-24- 19:10: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-24- 19:11: (null)
-2015-10-24- 19:11: (null)
-2015-10-24- 19:37: (null)
-2015-10-24- 19:37: (null)
-2015-10-24- 20:09: (null)
-2015-10-24- 20:09: (null)
-2015-10-24- 20:15: (null)
-2015-10-24- 20:15: (null)
-2015-10-24- 20:15: (null)
-2015-10-24- 20:20: (null)
-2015-10-24- 20:20: (null)
-2015-10-24- 23:24: (null)
-2015-10-24- 23:24: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+2015-10-30- 17:18: Erro ao ler um piloto!
+2015-10-30- 17:18: Erro ao ler um piloto!
+2015-10-30- 17:19: Erro ao ler um piloto!
+2015-10-30- 17:20: Erro ao ler um piloto!
+2015-10-30- 17:23: Erro ao ler um piloto!
+2015-10-30- 17:24: Erro ao ler um piloto!
+2015-10-30- 17:25: Erro ao ler um piloto!
+2015-10-30- 17:25: Erro ao ler um piloto!
+2015-10-30- 18:21: Erro ao ler um piloto!
+2015-10-30- 18:21: Erro ao ler um piloto!
+2015-10-30- 18:24: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosPilotos'
+
+2015-10-30- 18:24: Erro ao ler um piloto!
+2015-10-30- 18:24: Erro ao ler um piloto!
+2015-10-30- 18:37: Erro ao ler um piloto!
+2015-10-30- 18:39: Erro ao ler um piloto!
+2015-10-30- 18:39: Erro ao ler um piloto!
+2015-10-30- 20:48: Erro ao ler um piloto!
+2015-10-30- 20:49: Erro ao ler um piloto!
+2015-10-30- 21:28: Erro ao ler um piloto!
+2015-10-30- 21:31: Erro ao ler um piloto!
+2015-10-30- 21:31: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+
+2015-10-30- 21:31: Erro ao ler um piloto!
+2015-10-30- 21:31: Erro ao ler um piloto!
+2015-10-30- 21:31: Erro ao ler um piloto!
+2015-10-30- 21:39: Erro ao ler um piloto!
+2015-10-30- 21:39: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+
+2015-10-30- 21:39: Erro ao ler um piloto!
+2015-10-30- 21:39: Erro ao ler um piloto!
+2015-10-30- 21:39: Erro ao ler um piloto!
+2015-10-30- 21:39: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+
+2015-10-30- 21:40: Erro ao ler um piloto!
+2015-10-30- 22:04: Erro ao ler um piloto!
+2015-10-30- 22:04: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+
+2015-10-30- 22:04: Erro ao ler um piloto!
+2015-10-30- 22:04: Erro ao ler um piloto!
+2015-10-30- 22:16: Erro ao ler um piloto!
+2015-10-30- 22:16: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+
+2015-10-30- 22:16: Erro ao ler um piloto!
+2015-10-30- 22:17: Erro ao ler um piloto!
+2015-10-30- 22:17: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+
+2015-10-30- 22:17: Erro ao ler um piloto!
+2015-10-30- 22:17: Erro ao ler um piloto!
+2015-10-30- 22:17: Erro ao ler um piloto!
+2015-10-30- 22:18: Erro ao ler um piloto!
+2015-10-30- 22:18: Erro ao ler um piloto!
+2015-10-30- 22:20: Erro ao ler um piloto!
+2015-10-30- 22:21: Erro ao ler um piloto!
+2015-10-30- 22:21: Erro ao ler um piloto!
+2015-10-30- 22:21: Erro ao ler um piloto!
+2015-10-30- 22:21: Erro ao ler um piloto!
+2015-10-30- 22:21: Erro ao ler um piloto!
+2015-10-30- 22:22: Erro ao ler um piloto!
+2015-10-30- 22:26: Erro ao ler um piloto!
+2015-10-30- 22:26: Erro ao ler um piloto!
+2015-10-30- 22:26: Erro ao ler um piloto!
+2015-10-30- 22:27: Erro ao ler um piloto!
+2015-10-30- 22:28: Erro ao ler um piloto!
+2015-10-30- 22:54: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 22:54: Erro ao ler um circuito!
+2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 22:55: Erro ao ler um circuito!
+2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 22:55: Erro ao ler um circuito!
+2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 22:55: Erro ao ler um circuito!
+2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 22:55: Erro ao ler um circuito!
+2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 22:55: Erro ao ler um circuito!
+2015-10-30- 23:37: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 23:37: Erro ao ler um circuito!
+2015-10-30- 23:37: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 23:37: Erro ao ler um circuito!
+2015-10-30- 23:38: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 23:38: Erro ao ler um circuito!
+2015-10-30- 23:40: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 23:40: Erro ao ler um circuito!
+2015-10-30- 23:40: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 23:40: Erro ao ler um circuito!
+2015-10-30- 23:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-10-30- 23:42: Erro ao ler um circuito!
+2015-10-30- 23:43: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-24- 23:26: (null)
-2015-10-25- 19:55: (null)
-2015-10-25- 19:55: (null)
-2015-10-25- 19:59: (null)
-2015-10-25- 19:59: (null)
-2015-10-25- 19:59: (null)
-2015-10-25- 22:05: (null)
-2015-10-25- 22:06: (null)
-2015-10-25- 22:07: (null)
-2015-10-25- 22:13: (null)
-2015-10-25- 22:13: (null)
-2015-10-25- 22:13: (null)
-2015-10-25- 22:13: (null)
-2015-10-25- 22:13: (null)
-2015-10-25- 22:13: (null)
-=======
-2015-10-21- 21:33: (null)
-2015-10-21- 21:33: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+2015-10-30- 23:43: Erro ao ler um circuito!
+2015-10-30- 23:43: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:35: (null)
-2015-10-21- 21:35: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
+2015-10-30- 23:43: Erro ao ler um circuito!
+2015-10-30- 23:45: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-30- 23:45: Erro ao ler um circuito!
+2015-10-30- 23:46: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-30- 23:46: Erro ao ler um circuito!
+2015-10-30- 23:46: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-30- 23:46: Erro ao ler um circuito!
+2015-10-30- 23:47: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-30- 23:47: Erro ao ler um circuito!
+2015-10-30- 23:47: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-30- 23:47: Erro ao ler um circuito!
+2015-10-31- 00:01: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-10-31- 00:01: Erro ao ler um circuito!
+2015-11-02- 15:03: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-11-02- 15:03: Erro ao ler um circuito!
+2015-11-02- 15:06: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-02- 15:21: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-02- 15:27: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-02- 15:27: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-02- 15:46: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
+2015-11-02- 15:46: Erro ao ler um circuito em 'apresentarTodosCircuitos'!
 
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: (null)
-2015-10-21- 21:40: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:42: (null)
-2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:42: (null)
-2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:42: (null)
-2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:42: (null)
-2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:42: (null)
-2015-10-21- 21:42: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:42: (null)
-2015-10-21- 21:42: (null)
-2015-10-21- 21:42: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: (null)
-2015-10-21- 21:43: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: (null)
-2015-10-21- 21:44: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:46: (null)
-2015-10-21- 21:46: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:47: (null)
-2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:47: (null)
-2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:47: (null)
-2015-10-21- 21:47: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:47: (null)
-2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:47: (null)
-2015-10-21- 21:47: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:47: (null)
-2015-10-21- 21:47: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:48: (null)
-2015-10-21- 21:48: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:48: (null)
-2015-10-21- 21:48: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:48: (null)
-2015-10-21- 21:48: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 21:50: (null)
-2015-10-21- 21:50: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:50: (null)
-2015-10-21- 21:50: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 21:50: (null)
-2015-10-21- 21:50: (null)
-2015-10-21- 21:50: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 22:56: (null)
-2015-10-21- 22:56: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 23:12: (null)
-2015-10-21- 23:12: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 23:14: (null)
-2015-10-21- 23:14: Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'
-
-2015-10-21- 23:28: (null)
-2015-10-21- 23:28: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:28: (null)
-2015-10-21- 23:28: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:28: (null)
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:29: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:29: (null)
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'criarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:32: Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:32: (null)
-2015-10-21- 23:35: (null)
-2015-10-21- 23:35: Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:35: (null)
-2015-10-21- 23:35: (null)
-2015-10-21- 23:35: Erro na funcao 'pintarSuperficie' de 'pintarRetanguloPainel'
-
-2015-10-21- 23:35: (null)
-2015-10-21- 23:44: (null)
-2015-10-21- 23:47: (null)
-2015-10-22- 00:10: (null)
->>>>>>> a1099dba36c81abaea5f9fda2c9d6edc4151b184
+2015-11-02- 15:54: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-02- 15:58: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-02- 15:58: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
