@@ -6,6 +6,9 @@
 
 char *rTirarCaracter(char *stringTirarCaracter);
 char *rRemoveQuebraLinha(char *stringTirarQuebraLinha);
+time_t convertePSegundos(char *data);
+int strENumero(char *strVerificar);
+int validaCamposBrancos(int qtdCampos, ... );
 
 #include <CodigosFontes/funcoesStrings.c>
 

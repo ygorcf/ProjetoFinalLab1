@@ -1,0 +1,2528 @@
+#ifndef _FUNCOES_MENU_C_
+#define _FUNCOES_MENU_C_
+
+#include <Cabecalhos/tiposDadosJanela.h>
+#include <Cabecalhos/funcoesJanela.h>
+#include <Cabecalhos/funcoesPiloto.h>
+#include <Cabecalhos/funcoesCircuito.h>
+#include <Cabecalhos/funcoesMelhorVolta.h>
+#include <stdio.h>
+
+
+
+// Objetivo: Pinta todo o menu principal e espera o usuario escolher uma opcao
+// Parametros: A janela e o painel onde sera pintado o Menu Principal
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuPrincipal(Janela janelaDestino, Painel painelDestino){
+//int pintarMenuPrincipalEEsperaEscolherOpcao(Janela janela, Painel painelDestino){
+	int sair = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compPilotos, compCircuitos, compMelhoresVoltas, compRelatorios, compSair;
+	
+	
+	// Cria a estrutura 'SDL_Event' para guardar todos evento que ocorrem
+	SDL_Event evento;
+	
+	// Loop para nao fechar a janela
+	while(!sair){
+	
+	  // Verifica se e preciso pintar todo o menu
+	  if(pintaMenu){
+	  	pintaMenu = 0;
+	  	
+			// Limpa todo o painel
+			limparPainel(painelDestino);
+			
+			// Pintar o titulo
+			compTitulo.area = pintarTextoPainel("MENU PRINCIPAL", 180, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+			// Pinta as opcoes do menu
+			compPilotos.area = pintarTextoPainel("Pilotos", 10, 40, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compCircuitos.area = pintarTextoPainel("Circuitos", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compMelhoresVoltas.area = pintarTextoPainel("Melhores Voltas", 10, 80, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compRelatorios.area = pintarTextoPainel("Relatorios", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compSair.area = pintarTextoPainel("SAIR", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Atualizar o painel, para aparecer tudo que foi pintado 
+			atualizarPainel(painelDestino);
+		}
+		
+	  // Verifica se ocorreu um evento
+		while(SDL_WaitEvent(&evento)){
+		
+		  // Verifica se o evento que ocorreu e o de fechar a janela
+      if(evento.type == SDL_QUIT){
+    		
+    		// Define o componente que foi clicado
+        compClicado = CLICADO_FECHAR;
+    		
+    		// Define que e para cancelar o loop da janela
+        sair = 1;
+    			
+    		// Sair do loop de verificar um evento
+        break;
+        
+      // Verifica se o evento que ocorreu e o de um clique do mouse
+			} else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'sair'
+    		if(verificarCliqueDentroRetangulo(compSair.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_SAIR;
+    			
+    			// Define que e para cancelar o loop da janela
+    			sair = 1;
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+    			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'Pilotos'
+				} else if(verificarCliqueDentroRetangulo(compPilotos.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_PILOTOS;
+    			
+					switch(checarEventoMenuPilotos(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compCircuitos.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_CIRCUITOS;
+    			
+					switch(checarEventoMenuCircuitos(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compMelhoresVoltas.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_MELHORES_VOLTAS;
+    			
+					switch(checarEventoMenuMelhoresVoltas(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compRelatorios.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_MELHORES_VOLTAS;
+    			
+					switch(checarEventoMenuRelatorios(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				}
+			}
+			
+			// Limpa a memoria utilizada pelo evento atual
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: Pinta todo o menu 'Pilotos' e espera o usuario escolher uma opcao
+// Parametros: A janela e o painel onde sera pintado o Menu 'Pilotos'
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuPilotos(Janela janelaDestino, Painel painelDestino){
+//int pintarMenuPilotosEEsperaEscolherOpcao(Janela janela, Painel painelDestino){
+	int sair = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compNovoPiloto, compTabelaTodosPilotos, compVoltar;
+	Retangulo areaDadosListaPilotos;
+	
+	// Cria a estrutura 'SDL_Event' para guardar todos evento que ocorrem
+	SDL_Event evento;
+	
+	// Loop para nao sair do menu atual
+	while(!sair){
+	
+	  // Verifica se e preciso pintar todo o menu
+		if(pintaMenu){
+			pintaMenu = 0;
+		
+		  // Limpa tudo o que estava pintado no painel
+			limparPainel(painelDestino);
+			
+			// Pinta o titulo
+			compTitulo.area = pintarTextoPainel("PILOTOS", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+    	// Pinta as opcoes do menu		
+			compNovoPiloto.area = pintarTextoPainel("Novo Piloto", 10, 40, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Pinta tabela que ficara todos os pilotos
+			compTabelaTodosPilotos = pintarTabelaPainel(10, 80, 540, 350, COR_TABELA, 5, 10, painelDestino);
+			areaDadosListaPilotos.x = compTabelaTodosPilotos.area.x;
+			areaDadosListaPilotos.y = compTabelaTodosPilotos.area.y + (compTabelaTodosPilotos.area.h/10);
+			areaDadosListaPilotos.w = compTabelaTodosPilotos.area.w;
+			areaDadosListaPilotos.h = compTabelaTodosPilotos.area.h - (compTabelaTodosPilotos.area.h/10);
+			// Pinta o cabecalho da tabela
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 1, "ID", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 2, "NOME", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 3, "IDADE", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 4, "SEXO", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 5, "PAIS", janelaDestino);
+			// Pinta todos os pilotos
+			apresentarTodosPilotos(compTabelaTodosPilotos, janelaDestino);
+			
+    	// Atualizar o painel, para aparecer tudo que foi pintado 
+			atualizarPainel(painelDestino);
+		}
+		
+	  // Verifica se ocorreu um evento
+		while(SDL_WaitEvent(&evento)){
+		
+		  // Verifica se o evento que ocorreu e o de fechar a janela
+      if(evento.type == SDL_QUIT){
+    		
+    		// Define o componente que foi clicado
+	      compClicado = CLICADO_FECHAR;
+    		
+    		// Define que e para cancelar o loop do menu atual
+	      sair = 1;
+    			
+    	  // Sair do loop de verificar um evento
+        break;
+        
+      // Verifica se o evento que ocorreu e o de um clique do mouse
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'voltar'
+    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+    		
+    		  // Define o componente que foi clicado
+	  			compClicado = CLICADO_VOLTAR;
+    		
+    	  	// Define que e para cancelar o loop do menu atual
+	  			sair = 1;
+    			
+    	    // Sair do loop de verificar um evento
+	  			break;
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'novo piloto'
+				} else if(verificarCliqueDentroRetangulo(compNovoPiloto.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_NOVO_PILOTO;
+    			
+    			// Vai para o menu 'Novo pilotos' e verifica seu retorno
+					switch(checarEventoMenuNovoPiloto(janelaDestino, painelDestino)){
+					
+					  // Caso ocorreu um evento de fechar a janela
+		    		case CLICADO_FECHAR:
+		    		  	compClicado = CLICADO_FECHAR;
+    	  	    // Define que e para cancelar o loop do menu atual
+		    			sair = 1;
+    			
+    	        // Sair do loop de verificar um evento
+		    			break;
+		    		
+		    		// Caso ocorra qualquer outro evento
+						default:
+						
+						  // Define que nao e para cancelar o loop do menu atual
+							sair = 0;
+					}
+					
+					// Define que e para repintar o menu 'Pilotos'
+					pintaMenu = 1;
+					
+					// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(areaDadosListaPilotos)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_TABELA_PILOTOS;
+    			/*---------------------------------------------------------------------------------------------------------------------------------------
+    			
+    										 VERIFICAR QUANDO ALTERAR A PAGINACAO
+    			
+    			---------------------------------------------------------------------------------------------------------------------------------------*/
+				int mouseY, mouseX;
+				SDL_GetMouseState(&mouseX, &mouseY);
+				int pilotoEscolhido = (int)(((mouseY - areaDadosListaPilotos.y))/(areaDadosListaPilotos.h/9));
+				checarEventoMenuDescricaoPiloto(pilotoEscolhido, janelaDestino, painelDestino);
+    			/*
+    			// Vai para o menu 'Novo pilotos' e verifica seu retorno
+					switch(checarEventoMenuNovoPiloto(janela, painelDestino)){
+					
+					  // Caso ocorreu um evento de fechar a janela
+		    		case CLICADO_FECHAR:
+		    		  
+    	  	    // Define que e para cancelar o loop do menu atual
+		    			sair = 1;
+    			
+    	        // Sair do loop de verificar um evento
+		    			break;
+		    		
+		    		// Caso ocorra qualquer outro evento
+						default:
+						
+						  // Define que nao e para cancelar o loop do menu atual
+							sair = 0;
+					}*/
+					
+					// Define que e para repintar o menu 'Pilotos'
+					pintaMenu = 1;
+					
+					// Sair do loop de verificar um evento
+    			break;
+				}
+			}
+			
+			// Limpa a memoria utilizada pelo evento atual
+			SDL_FlushEvent(evento.type);
+  	}
+	}
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: Pinta todo o menu 'Pilotos' e espera o usuario escolher uma opcao
+// Parametros: A janela e o painel onde sera pintado o Menu 'Pilotos'
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuNovoPiloto(Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, campoAtivo = 0, pintarTexto = 0;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compNomePiloto, compVoltar, compIdadePiloto, compSexoPilotoM, 
+	compSexoPilotoF, compPaisNatalPiloto, compAtualizar, compCadastrar;
+	char nomePiloto[127], sexoPiloto = 'M', idadePilotoString[4], paisNatal[127];
+	Piloto pilotoCadastrar;
+	//alocarPiloto(&pilotoCadastrar);
+	
+	// Define que nao precisa atualizar nenhum componente
+	compAtualizar.painelPertencente = NULL;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compNomePiloto.area.w = 0;
+	compNomePiloto.area.h = 0;
+	compPaisNatalPiloto.area.w = 0;
+	compPaisNatalPiloto.area.h = 0;
+	compIdadePiloto.area.w = 0;
+	compIdadePiloto.area.h = 0;
+	compNomePiloto.painelPertencente = painelDestino;
+	compPaisNatalPiloto.painelPertencente = painelDestino;
+	compIdadePiloto.painelPertencente = painelDestino;
+	
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	memset(nomePiloto, '\0', sizeof(nomePiloto));
+	memset(idadePilotoString, '\0', sizeof(idadePilotoString));
+	memset(paisNatal, '\0', sizeof(paisNatal));
+	
+	// Limpa tudo o que estava pintado no painel
+	limparPainel(painelDestino);
+	
+	// Pinta o titulo
+	compTitulo.area = pintarTextoPainel("NOVO PILOTO", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o nome dos campos
+	pintarTextoPainel("Nome:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Idade:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Sexo:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Pais Natal:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta opcao de voltar
+	compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o retangulo dos campos de texto
+	compNomePiloto = pintarRetanguloPainel(120, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+	compIdadePiloto = pintarRetanguloPainel(120, 100, 300, 30, COR_PRINCIPAL, painelDestino);
+	compSexoPilotoM = pintarRetanguloPainel(120, 140, 30, 30, COR_SELECIONADO, painelDestino);
+	compSexoPilotoF = pintarRetanguloPainel(170, 140, 30, 30, COR_PRINCIPAL, painelDestino);
+	compPaisNatalPiloto = pintarRetanguloPainel(120, 180, 300, 30, COR_PRINCIPAL, painelDestino);
+	
+	// Pinta as letras das opcoes de sexo
+	pintarTextoPainel("M", (compSexoPilotoM.area.x+10), (compSexoPilotoM.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("F", (compSexoPilotoF.area.x+10), (compSexoPilotoF.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o retangulo e depois o texto da opcao de cadastrar
+	compCadastrar = pintarRetanguloPainel((compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 110), 260, 93, 30, COR_PRINCIPAL, painelDestino);
+	pintarTextoPainel("Cadastrar", (compCadastrar.area.x + 10), (compCadastrar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Atualizar o painel, para aparecer tudo que foi pintado
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compSexoPilotoM.area)){
+					pintarRetanguloPainel(170, 140, 30, 30, COR_PRINCIPAL, painelDestino);
+					pintarRetanguloPainel(120, 140, 30, 30, COR_SELECIONADO, painelDestino);
+					sexoPiloto = 'M';
+        }else if(verificarCliqueDentroRetangulo(compSexoPilotoF.area)){
+					pintarRetanguloPainel(120, 140, 30, 30, COR_PRINCIPAL, painelDestino);
+					pintarRetanguloPainel(170, 140, 30, 30, COR_SELECIONADO, painelDestino);
+					sexoPiloto = 'F';
+        }else if(verificarCliqueDentroRetangulo(compPaisNatalPiloto.area)){
+					compAtualizar = pintarRetanguloPainel((compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 10), compPaisNatalPiloto.area.y, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_PAIS_PILOTO;
+					checarEventoMenuEscolhePais(paisNatal);
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compPaisNatalPiloto.areaAux);
+					compPaisNatalPiloto.areaAux = pintarTextoPainel(paisNatal, (compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 15), compPaisNatalPiloto.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+        }else if(verificarCliqueDentroRetangulo(compCadastrar.area)){
+					/* CADASTRAR USUARIO */
+					pilotoCadastrar.idade = atoi(idadePilotoString);
+					strcpy(pilotoCadastrar.nome, nomePiloto);
+					strcpy(pilotoCadastrar.paisOrigem, paisNatal);
+					pilotoCadastrar.sexo = sexoPiloto;
+					salvarPiloto(pilotoCadastrar);
+					char msgSucss[127];
+					sprintf(msgSucss, "%s cadastrado com sucesso!", pilotoCadastrar.nome);
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Piloto cadastrado",
+                             msgSucss,
+                             janelaDestino);
+				sair = 1;
+				break;
+        }
+			}
+			if(manipularCampoTexto(event, &compNomePiloto, nomePiloto, janelaDestino, 0, 32, 0))
+				compAtualizar = compNomePiloto;
+			if(manipularCampoTexto(event, &compIdadePiloto, idadePilotoString, janelaDestino, 0, 3, 1))
+				compAtualizar = compIdadePiloto;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	return compClicado;
+}
+
+
+
+// Objetivo:
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuEscolhePais(char *strDestinoPaisNatal){
+	int ret = 0, sair = 0, atualizaPainel = 0, campoAtivo = 0, renderText, paisAtual = 0;
+	ComponenteClicado compClicado;
+	Cor corFundo = COR_FUNDO, corPrincipal = COR_PRINCIPAL;
+	FILE *arquivoPaises;
+	Componente compTitulo, compPais;
+	
+	char linha[127], pais[127];
+	
+	arquivoPaises = fopen("Dados/Paises.guyg", "r");
+	if(arquivoPaises == NULL){
+		salvarErro("Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuEscolhePais'\n");
+	}
+	
+	Janela janelaPaises = criarJanela("Lista de Paises", 300, 560);
+	Painel painelPaises = criarPainel(janelaPaises);
+	
+	compTitulo.area = pintarTextoPainel("Paises", 90, 10, FONTE_TITULO_PRINCIPAL, janelaPaises);
+	
+	while(!feof(arquivoPaises)){
+		memset(linha, '\0', sizeof(linha));
+		fgets(linha, 127, arquivoPaises);
+		//strcpy(linha, rRemoveQuebraLinha(linha));
+		rRemoveQuebraLinha(linha);
+		if(strlen(linha) < 1) break;
+		compPais.area = pintarTextoPainel(linha, 10, 60+paisAtual*20, FONTE_TEXTO_PRINCIPAL, janelaPaises);
+		paisAtual++;
+	}
+	fclose(arquivoPaises);
+	
+	atualizarPainel(painelPaises);
+	Retangulo retanguloOpcoesPaises;
+	
+	retanguloOpcoesPaises.x = 10;
+	retanguloOpcoesPaises.y = 60;
+	retanguloOpcoesPaises.w = compPais.area.w;
+	retanguloOpcoesPaises.h = compPais.area.h * paisAtual;
+	
+	SDL_Event evento;
+	while(!sair){
+		while(SDL_WaitEvent(&evento)){
+			if(evento.type == SDL_QUIT){
+				compClicado = CLICADO_SAIR;
+				sair = 1;
+				break;
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+				if(verificarCliqueDentroRetangulo(retanguloOpcoesPaises)){
+					int mouseY, mouseX;
+					SDL_GetMouseState(&mouseX, &mouseY);
+					int paisEscolhido = (int)((((mouseY - retanguloOpcoesPaises.y))/(retanguloOpcoesPaises.h/paisAtual))+1);
+					int qtdLinhas = 0;
+					memset(pais, '\0', sizeof(pais));
+					
+					arquivoPaises = fopen("Dados/Paises.guyg", "r");
+					if(arquivoPaises == NULL){
+						salvarErro("Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuEscolhePais'\n");
+					}
+					
+					while(qtdLinhas < paisEscolhido){
+						fgets(pais, 127, arquivoPaises);
+						qtdLinhas++;
+						if(feof(arquivoPaises)) break;
+					}
+					fclose(arquivoPaises);
+					sair = 1;
+					break;
+				}
+			}
+			atualizarPainel(painelPaises);
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	SDL_DestroyWindow(janelaPaises);
+	rRemoveQuebraLinha(pais);
+	strcpy(strDestinoPaisNatal, pais);
+	return compClicado;
+}
+
+
+
+// Objetivo:
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuDescricaoPiloto(int idPiloto, Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, atualizaPainel = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	FILE *arquivoPilotos;
+	Componente compTitulo, compVoltar, compAlterar, compExcluir;
+	Piloto pilotoDescrever;
+	
+	char linha[127], pais[127];
+	
+	arquivoPilotos = fopen("Dados/Pilotos.guyg", "r");
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuDescricaoPiloto'\n");
+	}
+	
+	fseek(arquivoPilotos, sizeof(Piloto) * idPiloto, SEEK_SET);
+	if(fread(&pilotoDescrever, sizeof(Piloto), 1, arquivoPilotos) != 1){
+		salvarErro("Erro ao ler um piloto!");
+		ret = 1;
+	}
+	fclose(arquivoPilotos);
+	
+	
+	char strIdPiloto[12];
+	char strIdadePiloto[4];
+	char strSexoPiloto[9];
+	sprintf(strIdPiloto, "%d", pilotoDescrever.id);
+	sprintf(strIdadePiloto, "%d", pilotoDescrever.idade);
+		
+	SDL_Event evento;
+	while(!sair){
+		if(pintaMenu){
+			pintaMenu = 0;
+			limparPainel(painelDestino);
+			compTitulo.area = pintarTextoPainel(pilotoDescrever.nome, 90, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("ID:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("IDADE:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("PAIS:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("SEXO:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(strIdPiloto, 80, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(strIdadePiloto, 80, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(pilotoDescrever.paisOrigem, 80, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(pilotoDescrever.sexo == 'M' ? "Masculino" : "Feminino", 80, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compAlterar.area = pintarTextoPainel("Alterar", 90, 265, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compExcluir.area = pintarTextoPainel("Excluir", 210, 265, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			pintarRetanguloPainel(80, 260, compAlterar.area.w + 20, 30, COR_PRINCIPAL, painelDestino);
+			pintarRetanguloPainel(200, 260, compExcluir.area.w + 20, 30, COR_PRINCIPAL, painelDestino);
+			atualizarPainel(painelDestino);
+		}
+		while(SDL_WaitEvent(&evento)){
+			if(evento.type == SDL_QUIT){
+				compClicado = CLICADO_SAIR;
+				sair = 1;
+				break;
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'voltar'
+	    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+	    		
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_VOLTAR;
+	    		
+	    	  	// Define que e para cancelar o loop do menu atual
+		  			sair = 1;
+	    			
+	    	    // Sair do loop de verificar um evento
+		  			break;
+				
+				  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'novo piloto'
+					} else if(verificarCliqueDentroRetangulo(compAlterar.area)){
+	    			
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_ALTERA_PILOTO;
+					
+					checarEventoMenuAlteraPiloto(&pilotoDescrever, janelaDestino, painelDestino);
+					sprintf(strIdPiloto, "%d", pilotoDescrever.id);
+					sprintf(strIdadePiloto, "%d", pilotoDescrever.idade);
+					pintaMenu = 1;
+	    	    // Sair do loop de verificar um evento
+		  			break;
+					} else if(verificarCliqueDentroRetangulo(compExcluir.area)){
+	    			
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_EXCLUI_PILOTO;
+					
+					char msgRet[127];
+					if(excluirPiloto(pilotoDescrever) == 0)
+						sprintf(msgRet, "%s excluido com sucesso!", pilotoDescrever.nome);
+					else
+						sprintf(msgRet, "ERRO ao excluir %s!", pilotoDescrever.nome);
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Excluir Piloto",
+                             msgRet,
+                             janelaDestino);
+					sair = 1;
+					break;
+					}
+				}
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	return compClicado;
+}
+
+
+
+// Objetivo: Pinta todo o menu 'Pilotos' e espera o usuario escolher uma opcao
+// Parametros: A janela e o painel onde sera pintado o Menu 'Pilotos'
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuAlteraPiloto(Piloto *pilotoAlterar, Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, campoAtivo = 0, pintarTexto = 0;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compNomePiloto, compVoltar, compIdadePiloto, compSexoPilotoM, 
+	compSexoPilotoF, compPaisNatalPiloto, compAtualizar, compAlterar;
+	char nomePiloto[127], sexoPiloto, idadePilotoString[4], paisNatal[127];
+	//alocarPiloto(&pilotoCadastrar);
+	
+	// Define que nao precisa atualizar nenhum componente
+	compAtualizar.painelPertencente = NULL;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compNomePiloto.area.w = 0;
+	compNomePiloto.area.h = 0;
+	compPaisNatalPiloto.area.w = 0;
+	compPaisNatalPiloto.area.h = 0;
+	compIdadePiloto.area.w = 0;
+	compIdadePiloto.area.h = 0;
+	compNomePiloto.painelPertencente = painelDestino;
+	compPaisNatalPiloto.painelPertencente = painelDestino;
+	compIdadePiloto.painelPertencente = painelDestino;
+	
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	strcpy(nomePiloto, pilotoAlterar->nome);
+	strcpy(paisNatal, pilotoAlterar->paisOrigem);
+	sprintf(idadePilotoString, "%d", pilotoAlterar->idade);
+	sexoPiloto = pilotoAlterar->sexo;
+	
+	// Limpa tudo o que estava pintado no painel
+	limparPainel(painelDestino);
+	
+	// Pinta o titulo
+	compTitulo.area = pintarTextoPainel("COMPLEMENTAR PILOTO", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o nome dos campos
+	pintarTextoPainel("Nome do Piloto:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Idade do Piloto:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Sexo do Piloto:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Pais natal do Piloto:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta opcao de voltar
+	compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o retangulo dos campos de texto
+	compNomePiloto = pintarRetanguloPainel(120, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+	compIdadePiloto = pintarRetanguloPainel(120, 100, 300, 30, COR_PRINCIPAL, painelDestino);
+	compSexoPilotoM = pintarRetanguloPainel(120, 140, 30, 30, (pilotoAlterar->sexo == 'M') ? COR_SELECIONADO : COR_PRINCIPAL, painelDestino);
+	compSexoPilotoF = pintarRetanguloPainel(170, 140, 30, 30, (pilotoAlterar->sexo == 'F') ? COR_SELECIONADO : COR_PRINCIPAL, painelDestino);
+	compPaisNatalPiloto = pintarRetanguloPainel(120, 180, 300, 30, COR_PRINCIPAL, painelDestino);
+	
+	// Pinta as letras das opcoes de sexo
+	pintarTextoPainel("M", (compSexoPilotoM.area.x+10), (compSexoPilotoM.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("F", (compSexoPilotoF.area.x+10), (compSexoPilotoF.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compNomePiloto.areaAux = pintarTextoPainel(nomePiloto, (compNomePiloto.area.x + compNomePiloto.area.w + 15), compNomePiloto.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compIdadePiloto.areaAux = pintarTextoPainel(idadePilotoString, (compIdadePiloto.area.x + compIdadePiloto.area.w + 15), compIdadePiloto.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compPaisNatalPiloto.areaAux = pintarTextoPainel(paisNatal, (compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 15), compPaisNatalPiloto.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+				
+	
+	// Pinta o retangulo e depois o texto da opcao de cadastrar
+	compAlterar = pintarRetanguloPainel(230, 260, 74, 30, COR_PRINCIPAL, painelDestino);
+	pintarTextoPainel("Alterar", (compAlterar.area.x + 10), (compAlterar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Atualizar o painel, para aparecer tudo que foi pintado
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compSexoPilotoM.area)){
+					pintarRetanguloPainel(170, 140, 30, 30, COR_PRINCIPAL, painelDestino);
+					pintarRetanguloPainel(120, 140, 30, 30, COR_SELECIONADO, painelDestino);
+					sexoPiloto = 'M';
+        }else if(verificarCliqueDentroRetangulo(compSexoPilotoF.area)){
+					pintarRetanguloPainel(120, 140, 30, 30, COR_PRINCIPAL, painelDestino);
+					pintarRetanguloPainel(170, 140, 30, 30, COR_SELECIONADO, painelDestino);
+					sexoPiloto = 'F';
+        }else if(verificarCliqueDentroRetangulo(compPaisNatalPiloto.area)){
+					compAtualizar = pintarRetanguloPainel((compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 10), compPaisNatalPiloto.area.y, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_PAIS_PILOTO;
+					checarEventoMenuEscolhePais(paisNatal);
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compPaisNatalPiloto.areaAux);
+					compPaisNatalPiloto.areaAux = pintarTextoPainel(paisNatal, (compPaisNatalPiloto.area.x + compPaisNatalPiloto.area.w + 15), compPaisNatalPiloto.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+        }else if(verificarCliqueDentroRetangulo(compAlterar.area)){
+					/* COMPLEMENTAR USUARIO */
+					pilotoAlterar->idade = atoi(idadePilotoString);
+					printf("<%c>\n", atoi(idadePilotoString));
+					printf("<%s>\n", idadePilotoString);
+					strcpy(pilotoAlterar->nome, nomePiloto);
+					strcpy(pilotoAlterar->paisOrigem, paisNatal);
+					pilotoAlterar->sexo = sexoPiloto;
+					alterarPiloto(*pilotoAlterar);
+					char msgSucss[127];
+					sprintf(msgSucss, "%s alterado com sucesso!", pilotoAlterar->nome);
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Piloto Alterado",
+                             msgSucss,
+                             janelaDestino);
+				sair = 1;
+				break;
+        }
+			}
+			if(manipularCampoTexto(event, &compNomePiloto, nomePiloto, janelaDestino, 0, 32, 0))
+				compAtualizar = compNomePiloto;
+			if(manipularCampoTexto(event, &compIdadePiloto, idadePilotoString, janelaDestino, 0, 3, 1))
+				compAtualizar = compIdadePiloto;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuCircuitos(Janela janelaDestino, Painel painelDestino){
+	int sair = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compNovoCircuito, compTabelaTodosCircuitos, compVoltar;
+	Retangulo areaDadosListaCircuitos;
+	
+	// Cria a estrutura 'SDL_Event' para guardar todos evento que ocorrem
+	SDL_Event evento;
+	
+	// Loop para nao sair do menu atual
+	while(!sair){
+	
+	  // Verifica se e preciso pintar todo o menu
+		if(pintaMenu){
+			pintaMenu = 0;
+		
+		  // Limpa tudo o que estava pintado no painel
+			limparPainel(painelDestino);
+			
+			// Pinta o titulo
+			compTitulo.area = pintarTextoPainel("CIRCUITOS", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+    	// Pinta as opcoes do menu		
+			compNovoCircuito.area = pintarTextoPainel("Novo Circuito", 10, 40, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Pinta tabela que ficara todos os pilotos
+			compTabelaTodosCircuitos = pintarTabelaPainel(10, 80, 540, 350, COR_TABELA, 5, 10, painelDestino);
+			areaDadosListaCircuitos.x = compTabelaTodosCircuitos.area.x;
+			areaDadosListaCircuitos.y = compTabelaTodosCircuitos.area.y + (compTabelaTodosCircuitos.area.h/10);
+			areaDadosListaCircuitos.w = compTabelaTodosCircuitos.area.w;
+			areaDadosListaCircuitos.h = compTabelaTodosCircuitos.area.h - (compTabelaTodosCircuitos.area.h/10);
+			// Pinta o cabecalho da tabela
+			pintarDadoTabela(compTabelaTodosCircuitos, 1, 1, "ID", janelaDestino);
+			pintarDadoTabela(compTabelaTodosCircuitos, 1, 2, "NOME", janelaDestino);
+			pintarDadoTabela(compTabelaTodosCircuitos, 1, 3, "PAIS", janelaDestino);
+			pintarDadoTabela(compTabelaTodosCircuitos, 1, 4, "TAMANHO", janelaDestino);
+			pintarDadoTabela(compTabelaTodosCircuitos, 1, 5, "MENOR TEMPO", janelaDestino);
+			// Pinta todos os pilotos
+			apresentarTodosCircuitos(compTabelaTodosCircuitos, janelaDestino);
+			
+    	// Atualizar o painel, para aparecer tudo que foi pintado 
+			atualizarPainel(painelDestino);
+		}
+		
+	  // Verifica se ocorreu um evento
+		while(SDL_WaitEvent(&evento)){
+		
+		  // Verifica se o evento que ocorreu e o de fechar a janela
+      if(evento.type == SDL_QUIT){
+    		
+    		// Define o componente que foi clicado
+	      compClicado = CLICADO_FECHAR;
+    		
+    		// Define que e para cancelar o loop do menu atual
+	      sair = 1;
+    			
+    	  // Sair do loop de verificar um evento
+        break;
+        
+      // Verifica se o evento que ocorreu e o de um clique do mouse
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'voltar'
+    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+    		
+    		  // Define o componente que foi clicado
+	  			compClicado = CLICADO_VOLTAR;
+    		
+    	  	// Define que e para cancelar o loop do menu atual
+	  			sair = 1;
+    			
+    	    // Sair do loop de verificar um evento
+	  			break;
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'novo piloto'
+				} else if(verificarCliqueDentroRetangulo(compNovoCircuito.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_NOVO_PILOTO;
+    			
+    			// Vai para o menu 'Novo pilotos' e verifica seu retorno
+					switch(checarEventoMenuNovoCircuito(janelaDestino, painelDestino)){
+					
+					  // Caso ocorreu um evento de fechar a janela
+		    		case CLICADO_FECHAR:
+		    		  
+    	  	    // Define que e para cancelar o loop do menu atual
+		    			sair = 1;
+    			
+    	        // Sair do loop de verificar um evento
+		    			break;
+		    		
+		    		// Caso ocorra qualquer outro evento
+						default:
+						
+						  // Define que nao e para cancelar o loop do menu atual
+							sair = 0;
+					}
+					
+					// Define que e para repintar o menu 'Pilotos'
+					pintaMenu = 1;
+					
+					// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(areaDadosListaCircuitos)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_TABELA_PILOTOS;
+    			/*---------------------------------------------------------------------------------------------------------------------------------------
+    			
+    										 VERIFICAR QUANDO ALTERAR A PAGINACAO
+    			
+    			---------------------------------------------------------------------------------------------------------------------------------------*/
+				int mouseY, mouseX;
+				SDL_GetMouseState(&mouseX, &mouseY);
+				int circuitoEscolhido = (int)(((mouseY - areaDadosListaCircuitos.y))/(areaDadosListaCircuitos.h/9));
+				checarEventoMenuDescricaoCircuito(circuitoEscolhido, janelaDestino, painelDestino);
+    			/*
+    			// Vai para o menu 'Novo pilotos' e verifica seu retorno
+					switch(checarEventoMenuNovoPiloto(janela, painelDestino)){
+					
+					  // Caso ocorreu um evento de fechar a janela
+		    		case CLICADO_FECHAR:
+		    		  
+    	  	    // Define que e para cancelar o loop do menu atual
+		    			sair = 1;
+    			
+    	        // Sair do loop de verificar um evento
+		    			break;
+		    		
+		    		// Caso ocorra qualquer outro evento
+						default:
+						
+						  // Define que nao e para cancelar o loop do menu atual
+							sair = 0;
+					}*/
+					
+					// Define que e para repintar o menu 'Pilotos'
+					pintaMenu = 1;
+					
+					// Sair do loop de verificar um evento
+    			break;
+				}
+			}
+			
+			// Limpa a memoria utilizada pelo evento atual
+			SDL_FlushEvent(evento.type);
+  	}
+	}
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuNovoCircuito(Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, campoAtivo = 0, pintarTexto = 0;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compNomeCircuito, compVoltar, compPaisCircuito, 
+	compTamanhoCircuito, compMenorTempoCircuito, compCadastrar, compAtualizar;
+	char nomeCircuitoString[127], paisCircuitoString[127], tamanhoCircuitoString[10], menorTempoCircuitoString[9];
+	Circuito circuitoCadastrar;
+	
+	// Define que nao precisa atualizar nenhum componente
+	compAtualizar.painelPertencente = NULL;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compNomeCircuito.area.w = 0;
+	compNomeCircuito.area.h = 0;
+	compPaisCircuito.area.w = 0;
+	compPaisCircuito.area.h = 0;
+	compTamanhoCircuito.area.w = 0;
+	compTamanhoCircuito.area.h = 0;
+	compMenorTempoCircuito.area.w = 0;
+	compMenorTempoCircuito.area.h = 0;
+	compNomeCircuito.painelPertencente = painelDestino;
+	compPaisCircuito.painelPertencente = painelDestino;
+	compTamanhoCircuito.painelPertencente = painelDestino;
+	compMenorTempoCircuito.painelPertencente = painelDestino;
+	
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	memset(nomeCircuitoString, '\0', sizeof(nomeCircuitoString));
+	memset(paisCircuitoString, '\0', sizeof(paisCircuitoString));
+	memset(tamanhoCircuitoString, '\0', sizeof(tamanhoCircuitoString));
+	memset(menorTempoCircuitoString, '\0', sizeof(menorTempoCircuitoString));
+	
+	// Limpa tudo o que estava pintado no painel
+	limparPainel(painelDestino);
+	
+	// Pinta o titulo
+	compTitulo.area = pintarTextoPainel("NOVO CIRCUITO", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o nome dos campos
+	pintarTextoPainel("Nome:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Pais:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Tamanho:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Menor tempo:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta opcao de voltar
+	compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o retangulo dos campos de texto
+	compNomeCircuito = pintarRetanguloPainel(150, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+	compPaisCircuito = pintarRetanguloPainel(150, 100, 300, 30, COR_PRINCIPAL, painelDestino);
+	compTamanhoCircuito = pintarRetanguloPainel(150, 140, 300, 30, COR_PRINCIPAL, painelDestino);
+	compMenorTempoCircuito = pintarRetanguloPainel(150, 180, 300, 30, COR_PRINCIPAL, painelDestino);
+	
+	// Pinta o retangulo e depois o texto da opcao de cadastrar
+	compCadastrar = pintarRetanguloPainel(230, 260, 93, 30, COR_PRINCIPAL, painelDestino);
+	pintarTextoPainel("Cadastrar", (compCadastrar.area.x + 10), (compCadastrar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Atualizar o painel, para aparecer tudo que foi pintado
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compPaisCircuito.area)){
+					compAtualizar = pintarRetanguloPainel(150, 100, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_PAIS_CIRCUITO;
+					checarEventoMenuEscolhePais(paisCircuitoString);
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compPaisCircuito.areaAux);
+					compPaisCircuito.areaAux = pintarTextoPainel(paisCircuitoString, (compPaisCircuito.area.x + 15), compPaisCircuito.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+        }else if(verificarCliqueDentroRetangulo(compCadastrar.area)){
+					/* CADASTRAR USUARIO */
+					circuitoCadastrar.tamanho = atoi(tamanhoCircuitoString);
+					strcpy(circuitoCadastrar.nome, nomeCircuitoString);
+					strcpy(circuitoCadastrar.pais, paisCircuitoString);
+					strcpy(circuitoCadastrar.menorTempo, menorTempoCircuitoString);
+					char msgRet[127];
+					if(salvarCircuito(circuitoCadastrar) == 0)
+						sprintf(msgRet, "%s cadastrado com sucesso!", circuitoCadastrar.nome);
+					else
+						sprintf(msgRet, "ERRO ao cadastrar %s!", circuitoCadastrar.nome);
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Novo Circuito",
+                             msgRet,
+                             janelaDestino);
+				sair = 1;
+				break;
+        }
+			}
+			if(manipularCampoTexto(event, &compNomeCircuito, nomeCircuitoString, janelaDestino, 0, 32, 0))
+				compAtualizar = compNomeCircuito;
+			if(manipularCampoTexto(event, &compTamanhoCircuito, tamanhoCircuitoString, janelaDestino, 0, 9, 0))
+				compAtualizar = compTamanhoCircuito;
+			if(manipularCampoTexto(event, &compMenorTempoCircuito, menorTempoCircuitoString, janelaDestino, 0, 8, 0))
+				compAtualizar = compMenorTempoCircuito;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	return compClicado;
+}
+
+
+
+// Objetivo:
+int checarEventoMenuDescricaoCircuito(int idCircuito, Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, atualizaPainel = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	FILE *arquivoCircuitos;
+	Componente compTitulo, compVoltar, compAlterar;
+	Circuito circuitoDescrever;
+	char linha[127], pais[127], strIdCircuito[12], strTamanhoCircuito[13];
+	
+	arquivoCircuitos = fopen("Dados/Circuitos.guyg", "r");
+	if(arquivoCircuitos == NULL){
+		salvarErro("Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuDescricaoCircuito'\n");
+	}
+	
+	fseek(arquivoCircuitos, sizeof(Circuito) * idCircuito, SEEK_SET);
+	if(fread(&circuitoDescrever, sizeof(Circuito), 1, arquivoCircuitos) != 1){
+		salvarErro("Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!");
+		ret = 1;
+	}
+	fclose(arquivoCircuitos);
+	
+	memset(strIdCircuito, '\0', sizeof(strIdCircuito));
+	memset(strTamanhoCircuito, '\0', sizeof(strTamanhoCircuito));
+	
+	sprintf(strIdCircuito, "%d", circuitoDescrever.codigo);
+	sprintf(strTamanhoCircuito, "%d", circuitoDescrever.tamanho);
+		
+	SDL_Event evento;
+	while(!sair){
+		if(pintaMenu){
+			pintaMenu = 0;
+			limparPainel(painelDestino);
+			compTitulo.area = pintarTextoPainel(circuitoDescrever.nome, 90, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("ID:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("PAIS:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("EXTENSÃO:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("MENOR TEMPO:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(strIdCircuito, 140, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(circuitoDescrever.pais, 140, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(strTamanhoCircuito, 140, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(circuitoDescrever.menorTempo, 140, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compAlterar.area = pintarTextoPainel("Alterar", 90, 265, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			pintarRetanguloPainel(80, 260, compAlterar.area.w + 20, 30, COR_PRINCIPAL, painelDestino);
+			atualizarPainel(painelDestino);
+		}
+		while(SDL_WaitEvent(&evento)){
+			if(evento.type == SDL_QUIT){
+				compClicado = CLICADO_SAIR;
+				sair = 1;
+				break;
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'voltar'
+	    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+	    		
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_VOLTAR;
+	    		
+	    	  	// Define que e para cancelar o loop do menu atual
+		  			sair = 1;
+	    			
+	    	    // Sair do loop de verificar um evento
+		  			break;
+				
+				  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'novo piloto'
+					} else if(verificarCliqueDentroRetangulo(compAlterar.area)){
+	    			
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_ALTERA_PILOTO;
+					
+					checarEventoMenuAlteraCircuito(&circuitoDescrever, janelaDestino, painelDestino);
+					sprintf(strIdCircuito, "%d", circuitoDescrever.codigo);
+					sprintf(strTamanhoCircuito, "%d", circuitoDescrever.tamanho);
+					pintaMenu = 1;
+	    	    // Sair do loop de verificar um evento
+		  			break;
+					}
+				}
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuAlteraCircuito(Circuito *circuitoAlterar, Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, campoAtivo = 0, pintarTexto = 0;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compNomeCircuito, compVoltar, compPaisCircuito, compTamanhoCircuito, 
+	compMenorTempoCircuito, compAlterar, compAtualizar, compNomeCircuitoDigitado, compPaisCircuitoDigitado, 
+	compTamanhoCircuitoDigitado, compMenorTempoCircuitoDigitado;
+	char nomeCircuitoString[127], paisCircuitoString[127], tamanhoCircuitoString[10], menorTempoCircuitoString[9];
+	
+	// Define que nao precisa atualizar nenhum componente
+	compAtualizar.painelPertencente = NULL;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compNomeCircuito.area.w = 0;
+	compNomeCircuito.area.h = 0;
+	compPaisCircuito.area.w = 0;
+	compPaisCircuito.area.h = 0;
+	compTamanhoCircuito.area.w = 0;
+	compTamanhoCircuito.area.h = 0;
+	compMenorTempoCircuito.area.w = 0;
+	compMenorTempoCircuito.area.h = 0;
+	compNomeCircuitoDigitado.painelPertencente = painelDestino;
+	compPaisCircuitoDigitado.painelPertencente = painelDestino;
+	compTamanhoCircuitoDigitado.painelPertencente = painelDestino;
+	compMenorTempoCircuitoDigitado.painelPertencente = painelDestino;
+	
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	memset(nomeCircuitoString, '\0', sizeof(nomeCircuitoString));
+	memset(paisCircuitoString, '\0', sizeof(paisCircuitoString));
+	memset(tamanhoCircuitoString, '\0', sizeof(tamanhoCircuitoString));
+	memset(menorTempoCircuitoString, '\0', sizeof(menorTempoCircuitoString));
+	
+	strcpy(nomeCircuitoString, circuitoAlterar->nome);
+	strcpy(paisCircuitoString, circuitoAlterar->pais);
+	strcpy(menorTempoCircuitoString, circuitoAlterar->menorTempo);
+	sprintf(tamanhoCircuitoString, "%d", circuitoAlterar->tamanho);
+	
+	// Limpa tudo o que estava pintado no painel
+	limparPainel(painelDestino);
+	
+	// Pinta o titulo
+	compTitulo.area = pintarTextoPainel("COMPLEMENTAR CIRCUITO", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o nome dos campos
+	compNomeCircuito.area = pintarTextoPainel("Nome:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compPaisCircuito.area = pintarTextoPainel("Pais:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compTamanhoCircuito.area = pintarTextoPainel("Extensão:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compMenorTempoCircuito.area = pintarTextoPainel("Menor tempo:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta opcao de voltar
+	compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o retangulo dos campos de texto
+	compNomeCircuito = pintarRetanguloPainel(150, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+	compPaisCircuito = pintarRetanguloPainel(150, 100, 300, 30, COR_PRINCIPAL, painelDestino);
+	compTamanhoCircuito = pintarRetanguloPainel(150, 140, 300, 30, COR_PRINCIPAL, painelDestino);
+	compMenorTempoCircuito = pintarRetanguloPainel(150, 180, 300, 30, COR_PRINCIPAL, painelDestino);
+	
+	// Pinta as letras das opcoes de sexo
+	compNomeCircuitoDigitado.area = pintarTextoPainel(nomeCircuitoString, (compNomeCircuito.area.x + 15), compNomeCircuito.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compPaisCircuitoDigitado.area = pintarTextoPainel(paisCircuitoString, (compPaisCircuito.area.x + 15), compPaisCircuito.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compTamanhoCircuitoDigitado.area =  pintarTextoPainel(tamanhoCircuitoString, (compTamanhoCircuito.area.x + 15), compTamanhoCircuito.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compMenorTempoCircuitoDigitado.area = pintarTextoPainel(menorTempoCircuitoString, (compMenorTempoCircuito.area.x + 15), compMenorTempoCircuito.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+				
+	
+	// Pinta o retangulo e depois o texto da opcao de cadastrar
+	compAlterar = pintarRetanguloPainel(230, 260, 74, 30, COR_PRINCIPAL, painelDestino);
+	pintarTextoPainel("Alterar", (compAlterar.area.x + 10), (compAlterar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Atualizar o painel, para aparecer tudo que foi pintado
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compPaisCircuito.area)){
+					compAtualizar = pintarRetanguloPainel(150, 100, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_PAIS_CIRCUITO;
+					checarEventoMenuEscolhePais(paisCircuitoString);
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compPaisCircuitoDigitado.area);
+					compPaisCircuitoDigitado.area = pintarTextoPainel(paisCircuitoString, (compPaisCircuito.area.x + 15), compPaisCircuito.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+        }else if(verificarCliqueDentroRetangulo(compAlterar.area)){
+					/* COMPLEMENTAR USUARIO */
+					circuitoAlterar->tamanho = atoi(tamanhoCircuitoString);
+					strcpy(circuitoAlterar->nome, nomeCircuitoString);
+					strcpy(circuitoAlterar->pais, paisCircuitoString);
+					strcpy(circuitoAlterar->menorTempo, menorTempoCircuitoString);
+					char msgRet[127];
+					if(alterarCircuito(*circuitoAlterar) == 0)
+						sprintf(msgRet, "%s alterado com sucesso!", circuitoAlterar->nome);
+					else
+						sprintf(msgRet, "ERRO ao alterar %s!", circuitoAlterar->nome);
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Complementar Circuito",
+                             msgRet,
+                             janelaDestino);
+				sair = 1;
+				break;
+        }
+			}
+			if(manipularCampoTexto(event, &compNomeCircuito, nomeCircuitoString, janelaDestino, 0, 32, 0))
+				compAtualizar = compNomeCircuito;
+			if(manipularCampoTexto(event, &compTamanhoCircuito, tamanhoCircuitoString, janelaDestino, 0, 32, 0))
+				compAtualizar = compTamanhoCircuito;
+			if(manipularCampoTexto(event, &compMenorTempoCircuito, menorTempoCircuitoString, janelaDestino, 0, 32, 0))
+				compAtualizar = compMenorTempoCircuito;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: Pinta todo o menu 'Pilotos' e espera o usuario escolher uma opcao
+// Parametros: A janela e o painel onde sera pintado o Menu 'Pilotos'
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuMelhoresVoltas(Janela janelaDestino, Painel painelDestino){
+//int pintarMenuPilotosEEsperaEscolherOpcao(Janela janela, Painel painelDestino){
+	int sair = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compNovaMelhorVolta, compTabelaTodasMelhoresVotlas, compVoltar;
+	Retangulo areaDadosListaMelhoresVoltas;
+	
+	// Cria a estrutura 'SDL_Event' para guardar todos evento que ocorrem
+	SDL_Event evento;
+	
+	// Loop para nao sair do menu atual
+	while(!sair){
+	
+	  // Verifica se e preciso pintar todo o menu
+		if(pintaMenu){
+			pintaMenu = 0;
+		
+		  // Limpa tudo o que estava pintado no painel
+			limparPainel(painelDestino);
+			
+			// Pinta o titulo
+			compTitulo.area = pintarTextoPainel("MELHORES VOLTAS", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+    	// Pinta as opcoes do menu		
+			compNovaMelhorVolta.area = pintarTextoPainel("Nova Melhor Volta", 10, 40, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Pinta tabela que ficara todos os pilotos
+			compTabelaTodasMelhoresVotlas = pintarTabelaPainel(10, 80, 540, 350, COR_TABELA, 6, 10, painelDestino);
+			areaDadosListaMelhoresVoltas.x = compTabelaTodasMelhoresVotlas.area.x;
+			areaDadosListaMelhoresVoltas.y = compTabelaTodasMelhoresVotlas.area.y + (compTabelaTodasMelhoresVotlas.area.h/10);
+			areaDadosListaMelhoresVoltas.w = compTabelaTodasMelhoresVotlas.area.w;
+			areaDadosListaMelhoresVoltas.h = compTabelaTodasMelhoresVotlas.area.h - (compTabelaTodasMelhoresVotlas.area.h/10);
+			// Pinta o cabecalho da tabela
+			pintarDadoTabela(compTabelaTodasMelhoresVotlas, 1, 1, "ID", janelaDestino);
+			pintarDadoTabela(compTabelaTodasMelhoresVotlas, 1, 2, "PILOTO", janelaDestino);
+			pintarDadoTabela(compTabelaTodasMelhoresVotlas, 1, 3, "CIRCUITO", janelaDestino);
+			pintarDadoTabela(compTabelaTodasMelhoresVotlas, 1, 4, "EQUIPE", janelaDestino);
+			pintarDadoTabela(compTabelaTodasMelhoresVotlas, 1, 5, "DATA", janelaDestino);
+			pintarDadoTabela(compTabelaTodasMelhoresVotlas, 1, 6, "TEMPO", janelaDestino);
+			// Pinta todos os pilotos
+			apresentarTodasMelhoresVoltas(compTabelaTodasMelhoresVotlas, janelaDestino);
+			
+    	// Atualizar o painel, para aparecer tudo que foi pintado 
+			atualizarPainel(painelDestino);
+		}
+		
+	  // Verifica se ocorreu um evento
+		while(SDL_WaitEvent(&evento)){
+		
+		  // Verifica se o evento que ocorreu e o de fechar a janela
+      if(evento.type == SDL_QUIT){
+    		
+    		// Define o componente que foi clicado
+	      compClicado = CLICADO_FECHAR;
+    		
+    		// Define que e para cancelar o loop do menu atual
+	      sair = 1;
+    			
+    	  // Sair do loop de verificar um evento
+        break;
+        
+      // Verifica se o evento que ocorreu e o de um clique do mouse
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'voltar'
+    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+    		
+    		  // Define o componente que foi clicado
+	  			compClicado = CLICADO_VOLTAR;
+    		
+    	  	// Define que e para cancelar o loop do menu atual
+	  			sair = 1;
+    			
+    	    // Sair do loop de verificar um evento
+	  			break;
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'novo piloto'
+				} else if(verificarCliqueDentroRetangulo(compNovaMelhorVolta.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_NOVA_MELHOR_VOLTA;
+    			
+    			// Vai para o menu 'Novo pilotos' e verifica seu retorno
+					switch(checarEventoMenuNovaMelhorVolta(janelaDestino, painelDestino)){
+					
+					  // Caso ocorreu um evento de fechar a janela
+		    		case CLICADO_FECHAR:
+		    		  
+    	  	    // Define que e para cancelar o loop do menu atual
+		    			sair = 1;
+    			
+    	        // Sair do loop de verificar um evento
+		    			break;
+		    		
+		    		// Caso ocorra qualquer outro evento
+						default:
+						
+						  // Define que nao e para cancelar o loop do menu atual
+							sair = 0;
+					}
+					
+					// Define que e para repintar o menu 'Pilotos'
+					pintaMenu = 1;
+					
+					// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(areaDadosListaMelhoresVoltas)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_TABELA_MELHORES_VOLTAS;
+    			/*---------------------------------------------------------------------------------------------------------------------------------------
+    			
+    										 VERIFICAR QUANDO ALTERAR A PAGINACAO
+    			
+    			---------------------------------------------------------------------------------------------------------------------------------------*/
+				int mouseY, mouseX;
+				SDL_GetMouseState(&mouseX, &mouseY);
+				int melhorVoltaEscolhida = (int)(((mouseY - areaDadosListaMelhoresVoltas.y))/(areaDadosListaMelhoresVoltas.h/9));
+				checarEventoMenuDescricaoMelhorVolta(melhorVoltaEscolhida, janelaDestino, painelDestino);
+    			/*
+    			// Vai para o menu 'Novo pilotos' e verifica seu retorno
+					switch(checarEventoMenuNovoPiloto(janela, painelDestino)){
+					
+					  // Caso ocorreu um evento de fechar a janela
+		    		case CLICADO_FECHAR:
+		    		  
+    	  	    // Define que e para cancelar o loop do menu atual
+		    			sair = 1;
+    			
+    	        // Sair do loop de verificar um evento
+		    			break;
+		    		
+		    		// Caso ocorra qualquer outro evento
+						default:
+						
+						  // Define que nao e para cancelar o loop do menu atual
+							sair = 0;
+					}*/
+					
+					// Define que e para repintar o menu 'Pilotos'
+					pintaMenu = 1;
+					
+					// Sair do loop de verificar um evento
+    			break;
+				}
+			}
+			
+			// Limpa a memoria utilizada pelo evento atual
+			SDL_FlushEvent(evento.type);
+  	}
+	}
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuNovaMelhorVolta(Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, campoAtivo = 0, pintarTexto = 0, idPiloto = -1, idCircuito = -1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compPilotoMelhorVolta, compCircuitoMelhorVolta, 
+	compNomeEquiperMelhorVolta, compDataMelhorVolta, compTempoMelhorVolta, 
+	compPilotoMelhorVoltaDigitado, compCircuitoMelhorVoltaDigitado, 
+	compNomeEquiperMelhorVoltaDigitado, compDataMelhorVoltaDigitado, 
+	compTempoMelhorVoltaDigitado, compSair, compCadastrar, compVoltar, compAtualizar;
+	char nomePilotoString[127], nomeCircuitoString[127], nomeEquipeString[127], dataString[11], tempoString[11];
+	MelhorVolta melhorVoltaCadastrar;
+	//alocarPiloto(&pilotoCadastrar);
+	
+	// Define que nao precisa atualizar nenhum componente
+	compAtualizar.painelPertencente = NULL;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compPilotoMelhorVoltaDigitado.area.w = 0;
+	compPilotoMelhorVoltaDigitado.area.h = 0;
+	compCircuitoMelhorVoltaDigitado.area.w = 0;
+	compCircuitoMelhorVoltaDigitado.area.h = 0;
+	compNomeEquiperMelhorVoltaDigitado.area.w = 0;
+	compNomeEquiperMelhorVoltaDigitado.area.h = 0;
+	compDataMelhorVoltaDigitado.area.w = 0;
+	compDataMelhorVoltaDigitado.area.h = 0;
+	compTempoMelhorVoltaDigitado.area.w = 0;
+	compTempoMelhorVoltaDigitado.area.h = 0;
+	compPilotoMelhorVoltaDigitado.painelPertencente = painelDestino;
+	compCircuitoMelhorVoltaDigitado.painelPertencente = painelDestino;
+	compNomeEquiperMelhorVoltaDigitado.painelPertencente = painelDestino;
+	compDataMelhorVoltaDigitado.painelPertencente = painelDestino;
+	compTempoMelhorVoltaDigitado.painelPertencente = painelDestino;
+	
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	memset(nomePilotoString, '\0', sizeof(nomePilotoString));
+	memset(nomeCircuitoString, '\0', sizeof(nomeCircuitoString));
+	memset(nomeEquipeString, '\0', sizeof(nomeEquipeString));
+	memset(dataString, '\0', sizeof(dataString));
+	memset(tempoString, '\0', sizeof(tempoString));
+	
+	// Limpa tudo o que estava pintado no painel
+	limparPainel(painelDestino);
+	
+	// Pinta o titulo
+	compTitulo.area = pintarTextoPainel("NOVA MELHOR VOLTA", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o nome dos campos
+	pintarTextoPainel("Piloto:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Circuito:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Equipe:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Data:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Tempo:", 10, 220, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta opcao de voltar
+	compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o retangulo dos campos de texto
+	compPilotoMelhorVolta = pintarRetanguloPainel(100, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+	compCircuitoMelhorVolta = pintarRetanguloPainel(100, 100, 300, 30, COR_PRINCIPAL, painelDestino);
+	compNomeEquiperMelhorVolta = pintarRetanguloPainel(100, 140, 300, 30, COR_PRINCIPAL, painelDestino);
+	compDataMelhorVolta = pintarRetanguloPainel(100, 180, 300, 30, COR_PRINCIPAL, painelDestino);
+	compTempoMelhorVolta = pintarRetanguloPainel(100, 220, 300, 30, COR_PRINCIPAL, painelDestino);
+	
+	// Pinta o retangulo e depois o texto da opcao de cadastrar
+	compCadastrar = pintarRetanguloPainel(230, 300, 93, 30, COR_PRINCIPAL, painelDestino);
+	pintarTextoPainel("Cadastrar", (compCadastrar.area.x + 10), (compCadastrar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Atualizar o painel, para aparecer tudo que foi pintado
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compPilotoMelhorVolta.area)){
+					compAtualizar = pintarRetanguloPainel(100, compPilotoMelhorVolta.area.y, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_PILOTO_MELHOR_VOLTA;
+					checarEventoMenuEscolhePiloto(nomePilotoString, &idPiloto);
+					//printf("-> %d\n", idPiloto);
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compPilotoMelhorVoltaDigitado.area);
+					compPilotoMelhorVoltaDigitado.area = pintarTextoPainel(nomePilotoString, compPilotoMelhorVolta.area.x + 15, compPilotoMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+				}else if(verificarCliqueDentroRetangulo(compCircuitoMelhorVolta.area)){
+					compAtualizar = pintarRetanguloPainel(100, compCircuitoMelhorVolta.area.y, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_CIRCUITO_MELHOR_VOLTA;
+					checarEventoMenuEscolheCircuito(nomeCircuitoString, &idCircuito);
+					//strcpy(nomeCircuitoString, "Implementando...");
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compCircuitoMelhorVoltaDigitado.area);
+					compCircuitoMelhorVoltaDigitado.area = pintarTextoPainel(nomeCircuitoString, compCircuitoMelhorVolta.area.x + 15, compCircuitoMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+				}else if(verificarCliqueDentroRetangulo(compCadastrar.area)){
+					/* CADASTRAR USUARIO */
+					melhorVoltaCadastrar.idCircuito = idCircuito;
+					melhorVoltaCadastrar.idPiloto = idPiloto;
+					strcpy(melhorVoltaCadastrar.nomeEquipe, nomeEquipeString);
+					strcpy(melhorVoltaCadastrar.data, dataString);
+					strcpy(melhorVoltaCadastrar.tempo, tempoString);
+					char msgRet[127];
+					if(salvarMelhorVolta(melhorVoltaCadastrar) == 0)
+						strcpy(msgRet, "Melhor volta cadastrada com sucesso!");
+					else
+						strcpy(msgRet, "ERRO ao cadastrar melhor volta!");
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Cadastrar Melhor volta",
+                             msgRet,
+                             janelaDestino);
+				sair = 1;
+				break;
+        }
+			}
+		  if(manipularCampoTexto(event, &compNomeEquiperMelhorVolta, nomeEquipeString, janelaDestino, 0, 32, 0))
+				compAtualizar = compNomeEquiperMelhorVolta;
+			if(manipularCampoTexto(event, &compDataMelhorVolta, dataString, janelaDestino, 0, 11, 1))
+				compAtualizar = compDataMelhorVolta;
+			if(manipularCampoTexto(event, &compTempoMelhorVolta, tempoString, janelaDestino, 0, 11, 1))
+				compAtualizar = compTempoMelhorVolta;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	return compClicado;
+}
+
+
+
+// Objetivo:
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuEscolhePiloto(char *strDestinoNomePiloto, int *intDestinoIdPiloto){
+	int ret = 0, sair = 0, atualizaPainel = 0, campoAtivo = 0, renderText, pilotoAtual = 0;
+	ComponenteClicado compClicado;
+	FILE *arquivoPilotos;
+	Componente compTitulo, compPiloto;
+	Piloto pilotoApresentar, pilotoEscolhido;
+	Janela janelaPilotos;
+	Painel painelPilotos;
+	char linha[127], piloto[127];
+	
+	arquivoPilotos = fopen("Dados/Pilotos.guyg", "r");
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuEscolhePiloto'\n");
+	}
+	
+	janelaPilotos = criarJanela("Lista de Pilotos", 300, 560);
+	painelPilotos = criarPainel(janelaPilotos);
+	
+	compTitulo.area = pintarTextoPainel("Pilotos", 90, 10, FONTE_TITULO_PRINCIPAL, janelaPilotos);
+	
+	while(!feof(arquivoPilotos)){
+		if(fread(&pilotoApresentar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			if(!feof(arquivoPilotos)){
+				salvarErro("Erro ao ler um piloto em 'checarEventoMenuEscolhePiloto'!\n");
+				//ret = 1;
+			}
+			break;
+		}else{
+			compPiloto.area = pintarTextoPainel(pilotoApresentar.nome, 10, 60+pilotoAtual*20, FONTE_TEXTO_PRINCIPAL, janelaPilotos);
+			pilotoAtual++;
+		}
+	}
+	fclose(arquivoPilotos);
+	
+	atualizarPainel(painelPilotos);
+	Retangulo retanguloOpcoesPilotos;
+	
+	retanguloOpcoesPilotos.x = 10;
+	retanguloOpcoesPilotos.y = 60;
+	retanguloOpcoesPilotos.w = compPiloto.area.w;
+	retanguloOpcoesPilotos.h = compPiloto.area.h * pilotoAtual;
+	
+	SDL_Event evento;
+	while(!sair){
+		while(SDL_WaitEvent(&evento)){
+			if(evento.type == SDL_QUIT){
+				compClicado = CLICADO_SAIR;
+				sair = 1;
+				break;
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+				if(verificarCliqueDentroRetangulo(retanguloOpcoesPilotos)){
+					int mouseY, mouseX;
+					SDL_GetMouseState(&mouseX, &mouseY);
+					int pilotoEscolhidoClique = (int)(((mouseY - retanguloOpcoesPilotos.y))/(retanguloOpcoesPilotos.h/pilotoAtual));
+					
+					pilotoEscolhido = pesquisarPiloto(pilotoEscolhidoClique);
+					sair = 1;
+					break;
+				}
+			}
+			atualizarPainel(painelPilotos);
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	SDL_DestroyWindow(janelaPilotos);
+	strcpy(strDestinoNomePiloto, pilotoEscolhido.nome);
+	*intDestinoIdPiloto = pilotoEscolhido.id;
+	return compClicado;
+}
+
+
+
+// Objetivo:
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuEscolheCircuito(char *strDestinoNomeCircuito, int *intDestinoIdCircuito){
+	int sair = 0, atualizaPainel = 0, circuitoAtual = 0;
+	ComponenteClicado compClicado;
+	FILE *arquivoCircuitos;
+	Componente compTitulo, compCircuito;
+	Circuito circuitoApresentar, circuitoEscolhido;
+	Janela janelaCircuitos;
+	Painel painelCircuitos;
+	Retangulo retanguloOpcoesCircuitos;
+	
+	arquivoCircuitos = fopen("Dados/Circuitos.guyg", "r");
+	if(arquivoCircuitos == NULL){
+		salvarErro("Erro ao abrir o arquivo dos circuitos de 'checarEventoMenuEscolheCircuito'\n");
+	}
+	
+	janelaCircuitos = criarJanela("Lista de Circuitos", 300, 560);
+	painelCircuitos = criarPainel(janelaCircuitos);
+	
+	compTitulo.area = pintarTextoPainel("Circuitos", 90, 10, FONTE_TITULO_PRINCIPAL, janelaCircuitos);
+	
+	while(!feof(arquivoCircuitos)){
+		if(fread(&circuitoApresentar, sizeof(Circuito), 1, arquivoCircuitos) != 1){
+			if(!feof(arquivoCircuitos)){
+				salvarErro("Erro ao ler um circuito em 'checarEventoMenuEscolheCircuito'!\n");
+				//ret = 1;
+			}
+			break;
+		}else{
+			compCircuito.area = pintarTextoPainel(circuitoApresentar.nome, 10, 60+circuitoAtual*20, FONTE_TEXTO_PRINCIPAL, janelaCircuitos);
+			circuitoAtual++;
+		}
+	}
+	fclose(arquivoCircuitos);
+	
+	atualizarPainel(painelCircuitos);
+	
+	retanguloOpcoesCircuitos.x = 10;
+	retanguloOpcoesCircuitos.y = 60;
+	retanguloOpcoesCircuitos.w = compCircuito.area.w;
+	retanguloOpcoesCircuitos.h = compCircuito.area.h * circuitoAtual;
+	
+	SDL_Event evento;
+	while(!sair){
+		while(SDL_WaitEvent(&evento)){
+			if(evento.type == SDL_QUIT){
+				compClicado = CLICADO_SAIR;
+				sair = 1;
+				break;
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+				if(verificarCliqueDentroRetangulo(retanguloOpcoesCircuitos)){
+					int mouseY, mouseX, circuitoEscolhidoClique;
+					SDL_GetMouseState(&mouseX, &mouseY);
+					circuitoEscolhidoClique = (int)(((mouseY - retanguloOpcoesCircuitos.y))/(retanguloOpcoesCircuitos.h/circuitoAtual));
+					
+					circuitoEscolhido = pesquisarCircuitoPId(circuitoEscolhidoClique);
+					sair = 1;
+					break;
+				}
+			}
+			atualizarPainel(painelCircuitos);
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	SDL_DestroyWindow(janelaCircuitos);
+	strcpy(strDestinoNomeCircuito, circuitoEscolhido.nome);
+	*intDestinoIdCircuito = circuitoEscolhido.codigo;
+	return compClicado;
+}
+
+
+
+// Objetivo:
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuDescricaoMelhorVolta(int idMelhorVolta, Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, atualizaPainel = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	FILE *arquivoMelhoresVoltas;
+	Componente compTitulo, compVoltar, compAlterar, compExcluir;
+	MelhorVolta melhorVoltaDescrever;
+	char linha[127], pais[127];
+	
+	arquivoMelhoresVoltas = fopen("Dados/MelhoresVoltas.guyg", "r");
+	if(arquivoMelhoresVoltas == NULL){
+		salvarErro("Erro ao abrir o arquivo das melhores voltas de 'checarEventoMenuDescricaoMelhorVolta'\n");
+	}else{
+		fseek(arquivoMelhoresVoltas, sizeof(MelhorVolta) * idMelhorVolta, SEEK_SET);
+		if(fread(&melhorVoltaDescrever, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
+			salvarErro("Erro ao ler uma melhor volta em 'checarEventoMenuDescricaoMelhorVolta'!");
+			ret = 1;
+		}
+	}
+	fclose(arquivoMelhoresVoltas);
+	
+	
+	char strIdMelhorVolta[12];
+	Piloto pilotoApresentar;
+	Circuito circuitoApresentar;
+	sprintf(strIdMelhorVolta, "%d", melhorVoltaDescrever.id);
+	pilotoApresentar = pesquisarPiloto(melhorVoltaDescrever.idPiloto);
+	circuitoApresentar = pesquisarCircuitoPId(melhorVoltaDescrever.idCircuito);
+		
+	SDL_Event evento;
+	while(!sair){
+		if(pintaMenu){
+			pintaMenu = 0;
+			limparPainel(painelDestino);
+			compTitulo.area = pintarTextoPainel("Melhor Volta", 90, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("ID:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("PILOTO:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("CIRCUITO:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("EQUIPE:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("DATA:", 10, 220, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel("TEMPO:", 10, 260, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(strIdMelhorVolta, 120, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(pilotoApresentar.nome, 120, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(circuitoApresentar.nome, 120, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(melhorVoltaDescrever.nomeEquipe, 120, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(melhorVoltaDescrever.data, 120, 220, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			pintarTextoPainel(melhorVoltaDescrever.tempo, 120, 260, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compAlterar.area = pintarTextoPainel("Alterar", 90, 305, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compExcluir.area = pintarTextoPainel("Excluir", 210, 305, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			pintarRetanguloPainel(80, 300, compAlterar.area.w + 20, 30, COR_PRINCIPAL, painelDestino);
+			pintarRetanguloPainel(200, 300, compExcluir.area.w + 20, 30, COR_PRINCIPAL, painelDestino);
+			atualizarPainel(painelDestino);
+		}
+		while(SDL_WaitEvent(&evento)){
+			if(evento.type == SDL_QUIT){
+				compClicado = CLICADO_SAIR;
+				sair = 1;
+				break;
+			}else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'voltar'
+	    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+	    		
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_VOLTAR;
+	    		
+	    	  	// Define que e para cancelar o loop do menu atual
+		  			sair = 1;
+	    			
+	    	    // Sair do loop de verificar um evento
+		  			break;
+				
+				  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'novo piloto'
+					} else if(verificarCliqueDentroRetangulo(compAlterar.area)){
+	    			
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_ALTERA_MELHOR_VOLTA;
+					
+					checarEventoMenuAlteraMelhorVolta(&melhorVoltaDescrever, janelaDestino, painelDestino);
+					sprintf(strIdMelhorVolta, "%d", melhorVoltaDescrever.id);
+					pilotoApresentar = pesquisarPiloto(melhorVoltaDescrever.idPiloto);
+					circuitoApresentar = pesquisarCircuitoPId(melhorVoltaDescrever.idCircuito);
+					pintaMenu = 1;
+	    	    // Sair do loop de verificar um evento
+		  			break;
+					} else if(verificarCliqueDentroRetangulo(compExcluir.area)){
+	    			
+	    		  // Define o componente que foi clicado
+		  			compClicado = CLICADO_EXCLUI_MELHOR_VOLTA;
+					
+					char msgRet[127];
+					if(excluirMelhorVolta(melhorVoltaDescrever) == 0)
+						strcpy(msgRet, "Melhor volta excluida com sucesso!");
+					else
+						strcpy(msgRet, "ERRO ao excluir melhor volta!");
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Excluir Melhor volta",
+                             msgRet,
+                             janelaDestino);
+					sair = 1;
+					break;
+					}
+				}
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	return compClicado;
+}
+
+
+
+// Objetivo: Pinta todo o menu 'Pilotos' e espera o usuario escolher uma opcao
+// Parametros: A janela e o painel onde sera pintado o Menu 'Pilotos'
+// Retorno: O numero do componente que foi clicado, de acordo com a 'enum ComponenteClicado'
+int checarEventoMenuAlteraMelhorVolta(MelhorVolta *melhorVoltaAlterar, Janela janelaDestino, Painel painelDestino){
+	int ret = 0, sair = 0, campoAtivo = 0, pintarTexto = 0, idPiloto = -1, idCircuito = -1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compPilotoMelhorVolta, compCircuitoMelhorVolta, 
+	compNomeEquiperMelhorVolta, compDataMelhorVolta, compTempoMelhorVolta, 
+	compPilotoMelhorVoltaDigitado, compCircuitoMelhorVoltaDigitado, 
+	compNomeEquiperMelhorVoltaDigitado, compDataMelhorVoltaDigitado, 
+	compTempoMelhorVoltaDigitado, compSair, compAlterar, compVoltar, 
+	compAtualizar, compExcluir;
+	char nomePilotoString[127], nomeCircuitoString[127], nomeEquipeString[127], dataString[11], tempoString[11];
+	Piloto pilotoMelhorVolta;
+	Circuito circuitoMelhorVolta;
+	
+	// Define que nao precisa atualizar nenhum componente
+	compAtualizar.painelPertencente = NULL;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compPilotoMelhorVolta.areaAux.w = 0;
+	compPilotoMelhorVolta.areaAux.h = 0;
+	compCircuitoMelhorVolta.areaAux.w = 0;
+	compCircuitoMelhorVolta.areaAux.h = 0;
+	compNomeEquiperMelhorVolta.areaAux.w = 0;
+	compNomeEquiperMelhorVolta.areaAux.h = 0;
+	compDataMelhorVolta.areaAux.w = 0;
+	compDataMelhorVolta.areaAux.h = 0;
+	compTempoMelhorVolta.areaAux.w = 0;
+	compTempoMelhorVolta.areaAux.h = 0;
+	compPilotoMelhorVolta.painelPertencente = painelDestino;
+	compCircuitoMelhorVolta.painelPertencente = painelDestino;
+	compNomeEquiperMelhorVolta.painelPertencente = painelDestino;
+	compDataMelhorVolta.painelPertencente = painelDestino;
+	compTempoMelhorVolta.painelPertencente = painelDestino;
+
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	memset(nomeEquipeString, '\0', sizeof(nomeEquipeString));
+	memset(dataString, '\0', sizeof(dataString));
+	memset(tempoString, '\0', sizeof(tempoString));
+	
+	strcpy(nomeEquipeString, melhorVoltaAlterar->nomeEquipe);
+	strcpy(dataString, melhorVoltaAlterar->data);
+	strcpy(tempoString, melhorVoltaAlterar->tempo);
+	idPiloto = melhorVoltaAlterar->idPiloto;
+	idCircuito = melhorVoltaAlterar->idCircuito;
+	pilotoMelhorVolta = pesquisarPiloto(idPiloto);
+	circuitoMelhorVolta = pesquisarCircuitoPId(idCircuito);
+	
+	// Limpa tudo o que estava pintado no painel
+	limparPainel(painelDestino);
+	
+	// Pinta o titulo
+	compTitulo.area = pintarTextoPainel("COMPLEMENTAR MELHOR VOLTA", 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o nome dos campos
+	pintarTextoPainel("Piloto:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Circuito:", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Equipe:", 10, 140, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Data:", 10, 180, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel("Tempo:", 10, 220, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta opcao de voltar
+	compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Pinta o retangulo dos campos de texto
+	compPilotoMelhorVolta = pintarRetanguloPainel(100, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+	compCircuitoMelhorVolta = pintarRetanguloPainel(100, 100, 300, 30, COR_PRINCIPAL, painelDestino);
+	compNomeEquiperMelhorVolta = pintarRetanguloPainel(100, 140, 300, 30, COR_PRINCIPAL, painelDestino);
+	compDataMelhorVolta = pintarRetanguloPainel(100, 180, 300, 30, COR_PRINCIPAL, painelDestino);
+	compTempoMelhorVolta = pintarRetanguloPainel(100, 220, 300, 30, COR_PRINCIPAL, painelDestino);
+	
+	// Pinta as letras das opcoes de sexo
+	compPilotoMelhorVolta.areaAux = pintarTextoPainel(pilotoMelhorVolta.nome, compPilotoMelhorVolta.area.x + 15, compPilotoMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compCircuitoMelhorVolta.areaAux = pintarTextoPainel(circuitoMelhorVolta.nome, compCircuitoMelhorVolta.area.x + 15, compCircuitoMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compNomeEquiperMelhorVolta.areaAux = pintarTextoPainel(nomeEquipeString, compNomeEquiperMelhorVolta.area.x + 15, compNomeEquiperMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compDataMelhorVolta.areaAux = pintarTextoPainel(dataString, compDataMelhorVolta.area.x + 15, compDataMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	compTempoMelhorVolta.areaAux = pintarTextoPainel(tempoString, compTempoMelhorVolta.area.x + 15, compTempoMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+				
+	
+	// Pinta o retangulo e depois o texto da opcao de cadastrar
+	compAlterar = pintarRetanguloPainel(230, 300, 74, 30, COR_PRINCIPAL, painelDestino);
+	pintarTextoPainel("Alterar", (compAlterar.area.x + 10), (compAlterar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	
+	// Atualizar o painel, para aparecer tudo que foi pintado
+	atualizarPainel(painelDestino);
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compPilotoMelhorVolta.area)){
+					compAtualizar = pintarRetanguloPainel(100, compPilotoMelhorVolta.area.y, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_PILOTO_MELHOR_VOLTA;
+					checarEventoMenuEscolhePiloto(nomePilotoString, &idPiloto);
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compPilotoMelhorVolta.areaAux);
+					compPilotoMelhorVoltaDigitado.area = pintarTextoPainel(nomePilotoString, compPilotoMelhorVolta.area.x + 15, compPilotoMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+				}else if(verificarCliqueDentroRetangulo(compCircuitoMelhorVolta.area)){
+					compAtualizar = pintarRetanguloPainel(100, compCircuitoMelhorVolta.area.y, 300, 30, COR_SELECIONADO, painelDestino);
+					compClicado = CLICADO_CIRCUITO_MELHOR_VOLTA;
+					checarEventoMenuEscolheCircuito(nomeCircuitoString, &idCircuito);
+					SDL_SetRenderDrawColor(painelDestino, 255, 255, 255, 255);
+					SDL_RenderFillRect(painelDestino, &compCircuitoMelhorVolta.areaAux);
+					compCircuitoMelhorVoltaDigitado.area = pintarTextoPainel(nomeCircuitoString, compCircuitoMelhorVolta.area.x + 15, compCircuitoMelhorVolta.area.y+5, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+				}else if(verificarCliqueDentroRetangulo(compAlterar.area)){
+					/* COMPLEMENTAR USUARIO */
+					melhorVoltaAlterar->idCircuito = idCircuito;
+					melhorVoltaAlterar->idPiloto = idPiloto;
+					strcpy(melhorVoltaAlterar->nomeEquipe, nomeEquipeString);
+					strcpy(melhorVoltaAlterar->data, dataString);
+					strcpy(melhorVoltaAlterar->tempo, tempoString);
+					char msgRet[127];
+					if(alterarMelhorVolta(*melhorVoltaAlterar) == 0)
+						strcpy(msgRet, "Melhor volta alterada com sucesso!");
+					else
+						strcpy(msgRet, "ERRO ao alterar melhor volta!");
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             "Alterar Melhor volta",
+                             msgRet,
+                             janelaDestino);
+				sair = 1;
+				break;
+        }
+			}
+			if(manipularCampoTexto(event, &compNomeEquiperMelhorVolta, nomeEquipeString, janelaDestino, 0, 32, 0))
+				compAtualizar = compNomeEquiperMelhorVolta;
+			if(manipularCampoTexto(event, &compDataMelhorVolta, dataString, janelaDestino, 0, 32, 0))
+				compAtualizar = compDataMelhorVolta;
+			if(manipularCampoTexto(event, &compTempoMelhorVolta, tempoString, janelaDestino, 0, 32, 0))
+				compAtualizar = compTempoMelhorVolta;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuRelatorios(Janela janelaDestino, Painel painelDestino){
+//int pintarMenuPrincipalEEsperaEscolherOpcao(Janela janela, Painel painelDestino){
+	int sair = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compR1, compR2, compR3, compR4, compR5, compVoltar;
+	
+	
+	// Cria a estrutura 'SDL_Event' para guardar todos evento que ocorrem
+	SDL_Event evento;
+	
+	// Loop para nao fechar a janela
+	while(!sair){
+	
+	  // Verifica se e preciso pintar todo o menu
+	  if(pintaMenu){
+	  	pintaMenu = 0;
+	  	
+			// Limpa todo o painel
+			limparPainel(painelDestino);
+			
+			// Pintar o titulo
+			compTitulo.area = pintarTextoPainel("RELATORIOS", 180, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+			// Pinta as opcoes do menu
+			compR1.area = pintarTextoPainel("R1", 10, 40, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compR2.area = pintarTextoPainel("R2", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compR3.area = pintarTextoPainel("R3", 10, 80, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compR4.area = pintarTextoPainel("R4", 10, 100, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compR5.area = pintarTextoPainel("R5", 10, 120, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Atualizar o painel, para aparecer tudo que foi pintado 
+			atualizarPainel(painelDestino);
+		}
+		
+	  // Verifica se ocorreu um evento
+		while(SDL_WaitEvent(&evento)){
+		
+		  // Verifica se o evento que ocorreu e o de fechar a janela
+      if(evento.type == SDL_QUIT){
+    		
+    		// Define o componente que foi clicado
+        compClicado = CLICADO_FECHAR;
+    		
+    		// Define que e para cancelar o loop da janela
+        sair = 1;
+    			
+    		// Sair do loop de verificar um evento
+        break;
+        
+      // Verifica se o evento que ocorreu e o de um clique do mouse
+			} else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'sair'
+    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_VOLTAR;
+    			
+    			// Define que e para cancelar o loop da janela
+    			sair = 1;
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+    			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'Pilotos'
+				} else if(verificarCliqueDentroRetangulo(compR1.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_RELATORIO_1;
+    				
+					switch(checarEventoMenuRelatorio1(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compR2.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_RELATORIO_2;
+    			/*
+					switch(checarEventoMenuCircuitos(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}*/INFO_IMPLEMENTANDO(janelaDestino);
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compR3.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_RELATORIO_3;
+    			/*
+					switch(checarEventoMenuMelhoresVoltas(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}*/INFO_IMPLEMENTANDO(janelaDestino);
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compR4.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_RELATORIO_4;
+    			/*
+					switch(checarEventoMenuMelhoresVoltas(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}*/INFO_IMPLEMENTANDO(janelaDestino);
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compR5.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_RELATORIO_5;
+    			/*
+					switch(checarEventoMenuMelhoresVoltas(janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}*/INFO_IMPLEMENTANDO(janelaDestino);
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				}
+			}
+			
+			// Limpa a memoria utilizada pelo evento atual
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuRelatorio1(Janela janelaDestino, Painel painelDestino){
+//int pintarMenuPrincipalEEsperaEscolherOpcao(Janela janela, Painel painelDestino){
+	int sair = 0, pintaMenu = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compPilotos, compCircuitos, compMelhoresVoltas, 
+	compVoltar;
+	
+	
+	// Cria a estrutura 'SDL_Event' para guardar todos evento que ocorrem
+	SDL_Event evento;
+	
+	// Loop para nao fechar a janela
+	while(!sair){
+	
+	  // Verifica se e preciso pintar todo o menu
+	  if(pintaMenu){
+	  	pintaMenu = 0;
+	  	
+			// Limpa todo o painel
+			limparPainel(painelDestino);
+			
+			// Pintar o titulo
+			compTitulo.area = pintarTextoPainel("RELATORIO 1", 180, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+			// Pinta as opcoes do menu
+			compPilotos.area = pintarTextoPainel("Pilotos", 10, 40, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compCircuitos.area = pintarTextoPainel("Circuitos", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compMelhoresVoltas.area = pintarTextoPainel("Melhores Voltas", 10, 80, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Atualizar o painel, para aparecer tudo que foi pintado 
+			atualizarPainel(painelDestino);
+		}
+		
+	  // Verifica se ocorreu um evento
+		while(SDL_WaitEvent(&evento)){
+		
+		  // Verifica se o evento que ocorreu e o de fechar a janela
+      if(evento.type == SDL_QUIT){
+    		
+    		// Define o componente que foi clicado
+        compClicado = CLICADO_FECHAR;
+    		
+    		// Define que e para cancelar o loop da janela
+        sair = 1;
+    			
+    		// Sair do loop de verificar um evento
+        break;
+        
+      // Verifica se o evento que ocorreu e o de um clique do mouse
+			} else if(evento.type == SDL_MOUSEBUTTONUP){
+			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'sair'
+    		if(verificarCliqueDentroRetangulo(compVoltar.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_VOLTAR;
+    			
+    			// Define que e para cancelar o loop da janela
+    			sair = 1;
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+    			
+			  // Verifica se no clique do mouse, o mouse estava dentro do retangulo de 'Pilotos'
+				} else if(verificarCliqueDentroRetangulo(compPilotos.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_PILOTOS;
+    			
+					switch(checarEventoMenuRelatorio1Consulta(0, janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compCircuitos.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_CIRCUITOS;
+    			
+					switch(checarEventoMenuRelatorio1Consulta(1, janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+							break;
+					}
+    			
+    			// Sair do loop de verificar um evento
+    			break;
+				} else if(verificarCliqueDentroRetangulo(compMelhoresVoltas.area)){
+    		
+    		  // Define o componente que foi clicado
+    			compClicado = CLICADO_MELHORES_VOLTAS;
+    			
+					switch(checarEventoMenuRelatorio1Consulta(2, janelaDestino, painelDestino)){
+	    			case CLICADO_FECHAR:
+		    			sair = 1;
+		    			compClicado = CLICADO_FECHAR;
+		    			break;
+						case CLICADO_VOLTAR:
+							pintaMenu = 1;
+		    			sair = 1;
+		    			compClicado = CLICADO_VOLTAR;
+							break;
+					}
+    		 
+    			// Sair do loop de verificar um evento
+    			break;
+				}
+			}
+			
+			// Limpa a memoria utilizada pelo evento atual
+			SDL_FlushEvent(evento.type);
+		}
+	}
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuRelatorio1Consulta(int tipoRelatorio, Janela janelaDestino, Painel painelDestino){
+	int sair = 0, campoAtivo = 0, pintarTexto = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compCampoPesquisa, compTabelaResultado, compPesquisar, 
+	compVoltar, compAtualizar;
+	char pesquisaString[127], tituloString[28];
+	Piloto pilotoPesquisado;
+	Circuito circuitoPesquisado;
+	MelhorVolta melhorVoltaPesquisada;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compCampoPesquisa.areaAux.w = 0;
+	compCampoPesquisa.areaAux.h = 0;
+	compCampoPesquisa.painelPertencente = painelDestino;
+
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	memset(pesquisaString, '\0', sizeof(pesquisaString));
+	strcpy(tituloString, "Relatorio 1 ");
+	
+	if(tipoRelatorio == 0) strcat(tituloString, "Pilotos");
+	else if(tipoRelatorio == 1) strcat(tituloString, "Circuitos");
+	else strcat(tituloString, "Melhores Voltas");
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		if(pintarTexto){
+			pintarTexto = 0;
+			
+			// Limpa tudo o que estava pintado no painel
+			limparPainel(painelDestino);
+			
+			// Pinta o titulo
+			compTitulo.area = pintarTextoPainel(tituloString, 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+			// Pinta o nome dos campos
+			pintarTextoPainel("Chave Única:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Pinta opcao de voltar
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Pinta o retangulo dos campos de texto
+			compCampoPesquisa = pintarRetanguloPainel(120, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+			
+			// Pinta o retangulo e depois o texto da opcao de cadastrar
+			compPesquisar = pintarRetanguloPainel(440, 300, 74, 30, COR_PRINCIPAL, painelDestino);
+			pintarTextoPainel("Pesquisar", (compPesquisar.area.x + 10), (compPesquisar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Atualizar o painel, para aparecer tudo que foi pintado
+			atualizarPainel(painelDestino);
+		}
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compPesquisar.area)){
+					/* CONSULTAR */
+					char msgRet[127];
+					int idPesquisar, retPesquisa = -1;
+
+					idPesquisar = atoi(pesquisaString);
+					if(tipoRelatorio == 0){
+						pilotoPesquisado = pesquisarPilotoPId(idPesquisar);
+						if(pilotoPesquisado.id != -1){
+							strcpy(msgRet, "Encontrado um Piloto!");
+							sair = 1;
+						} else
+							strcpy(msgRet, "Não encontrado nenhum Piloto!");
+					}	else if(tipoRelatorio == 2){
+						circuitoPesquisado = pesquisarCircuitoPId(idPesquisar);
+						if(circuitoPesquisado.codigo != -1){
+							strcpy(msgRet, "Encontrado um Circuito!");
+							sair = 1;
+						} else
+							strcpy(msgRet, "Não encontrado nenhum Circuito!");
+					}	else {
+						melhorVoltaPesquisada = pesquisarMelhorVolta(idPesquisar);
+						if(melhorVoltaPesquisada.id != -1){
+							strcpy(msgRet, "Encontrada uma Melhor Volta!");
+							sair = 1;
+						} else
+							strcpy(msgRet, "Não encontrada nenhuma Melhor Volta!");
+					}
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             tituloString,
+                             msgRet,
+                             janelaDestino);
+				//sair = 1;
+				pintarTexto = 1;
+				break;
+        }
+			}
+			if(manipularCampoTexto(event, &compCampoPesquisa, pesquisaString, janelaDestino, 0, 9, 1))
+				compAtualizar = compCampoPesquisa;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	if(pintarTexto){
+		if(tipoRelatorio == 0){
+			checarEventoMenuDescricaoPiloto(pilotoPesquisado.id, janelaDestino, painelDestino);
+			compClicado = CLICADO_VOLTAR;
+		} else if(tipoRelatorio == 1){
+			checarEventoMenuDescricaoCircuito(circuitoPesquisado.codigo, janelaDestino, painelDestino);
+			compClicado = CLICADO_VOLTAR;
+		}	else if(tipoRelatorio == 2){
+			checarEventoMenuDescricaoMelhorVolta(melhorVoltaPesquisada.id, janelaDestino, painelDestino);
+			compClicado = CLICADO_VOLTAR;
+		}
+	}
+	
+	return compClicado;
+}
+
+
+
+// Objetivo: 
+int checarEventoMenuRelatorio2(Janela janelaDestino, Painel painelDestino){
+	int sair = 0, campoAtivo = 0, pintarTexto = 1;
+	ComponenteClicado compClicado;
+	Componente compTitulo, compCampoPesquisa, compTabelaResultado, compPesquisar, 
+	compVoltar, compAtualizar;
+	char pesquisaString[127], tituloString[12];
+	Piloto *pilotosPesquisados;
+	
+	// Define que a largura e altura utilizadas pelas strings de nome e pais natal do piloto sao 0 (zero)
+	compCampoPesquisa.areaAux.w = 0;
+	compCampoPesquisa.areaAux.h = 0;
+	compCampoPesquisa.painelPertencente = painelDestino;
+
+	// Limpa a memoria utilizada pelo nome, idade e pais natal do piloto
+	memset(pesquisaString, '\0', strlen(pesquisaString));
+	memset(tituloString, '\0', strlen(tituloString));
+	strcpy(tituloString, "Relatorio 2");
+	
+	SDL_Event event;
+	SDL_StartTextInput();
+	while(!sair){
+		if(pintarTexto){
+			pintarTexto = 0;
+			
+			// Limpa tudo o que estava pintado no painel
+			limparPainel(painelDestino);
+			
+			// Pinta o titulo
+			compTitulo.area = pintarTextoPainel(tituloString, 200, 10, FONTE_TITULO_PRINCIPAL, janelaDestino);
+			
+			// Pinta o nome dos campos
+			pintarTextoPainel("Nome:", 10, 60, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Pinta opcao de voltar
+			compVoltar.area = pintarTextoPainel("Voltar", 10, 460, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Pinta o retangulo dos campos de texto
+			compCampoPesquisa = pintarRetanguloPainel(120, 60, 300, 30, COR_PRINCIPAL, painelDestino);
+			
+			compTabelaResultado = pintarTabelaPainel(10, 80, 540, 350, COR_TABELA, 5, 10, painelDestino);
+			areaDadosListaPilotos.x = compTabelaTodosPilotos.area.x;
+			areaDadosListaPilotos.y = compTabelaTodosPilotos.area.y + (compTabelaTodosPilotos.area.h/10);
+			areaDadosListaPilotos.w = compTabelaTodosPilotos.area.w;
+			areaDadosListaPilotos.h = compTabelaTodosPilotos.area.h - (compTabelaTodosPilotos.area.h/10);
+			// Pinta o cabecalho da tabela
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 1, "ID", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 2, "NOME", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 3, "IDADE", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 4, "SEXO", janelaDestino);
+			pintarDadoTabela(compTabelaTodosPilotos, 1, 5, "PAIS", janelaDestino);
+			
+			// Pinta o retangulo e depois o texto da opcao de cadastrar
+			compPesquisar = pintarRetanguloPainel(440, 300, 74, 30, COR_PRINCIPAL, painelDestino);
+			pintarTextoPainel("Pesquisar", (compPesquisar.area.x + 10), (compPesquisar.area.y+5), FONTE_TEXTO_PRINCIPAL, janelaDestino);
+			
+			// Atualizar o painel, para aparecer tudo que foi pintado
+			atualizarPainel(painelDestino);
+		}
+		while(SDL_WaitEvent(&event)){
+			if(event.type == SDL_QUIT){
+				compClicado = CLICADO_FECHAR;
+				sair = 1;
+				break;
+			}else if(event.type == SDL_MOUSEBUTTONUP){
+				if(compAtualizar.painelPertencente != NULL){
+					atualizarBordaComponente(&compAtualizar);
+				}
+				if(verificarCliqueDentroRetangulo(compVoltar.area)){
+					compClicado = CLICADO_VOLTAR;
+		      sair = 1;
+		      break;
+				}else if(verificarCliqueDentroRetangulo(compPesquisar.area)){
+					/* CONSULTAR */
+					char msgRet[127];
+					int idPesquisar, retPesquisa = -1;
+
+					retPesquisa = pesquisarPilotoPNome(pesquisaString, pilotosPesquisados);
+					if(retPesquisa > 0){
+						sprintf(msgRet, "Encontrado(s) %d Piloto(s)!", retPesquisa);
+					} else {
+							strcpy(msgRet, "Não encontrado nenhum Piloto!");
+					}
+					SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+                             tituloString,
+                             msgRet,
+                             janelaDestino);
+				//sair = 1;
+				pintarTexto = 1;
+				break;
+        }
+			}
+			if(manipularCampoTexto(event, &compCampoPesquisa, pesquisaString, janelaDestino, 0, 9, 1))
+				compAtualizar = compCampoPesquisa;
+			atualizarPainel(painelDestino);
+			SDL_FlushEvent(event.type);
+		}
+	}
+  SDL_StopTextInput();
+	
+	if(pintarTexto){
+		if(tipoRelatorio == 0){
+			checarEventoMenuDescricaoPiloto(pilotoPesquisado.id, janelaDestino, painelDestino);
+			compClicado = CLICADO_VOLTAR;
+		} else if(tipoRelatorio == 1){
+			checarEventoMenuDescricaoCircuito(circuitoPesquisado.codigo, janelaDestino, painelDestino);
+			compClicado = CLICADO_VOLTAR;
+		}	else if(tipoRelatorio == 2){
+			checarEventoMenuDescricaoMelhorVolta(melhorVoltaPesquisada.id, janelaDestino, painelDestino);
+			compClicado = CLICADO_VOLTAR;
+		}
+	}
+	
+	return compClicado;
+}
+
+
+#endif /* _FUNCOES_MENU_C_ */

@@ -4,14 +4,14 @@ Name=projetoFinal
 Type=1
 Ver=2
 ObjFiles=
-Includes=G:\PF\ProjetoFinalLab1\include\;G:\PF\ProjetoFinalLab1\Codigos\
-Libs=G:\PF\ProjetoFinalLab1\lib\
+Includes=G:\PF\ProjetoFinalLab1\include;G:\PF\ProjetoFinalLab1\Codigos
+Libs=G:\PF\ProjetoFinalLab1\lib
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
-Linker=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lm_@@_
+Linker=-Wall -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 IsCpp=0
 Icon=
 ExeOutput=
@@ -27,9 +27,9 @@ CommandLine=
 Folders=Cabecalhos,Codigos
 IncludeVersionInfo=0
 SupportXPThemes=0
-CompilerSet=0
-CompilerSettings=0000000000000000000000000
-UnitCount=10
+CompilerSet=3
+CompilerSettings=0000000100000000000000000
+UnitCount=13
 
 [VersionInfo]
 Major=1
@@ -141,19 +141,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit12]
-FileName=Codigos\CodigosFontes\funcoesJanela.c
+FileName=Codigos\Cabecalhos\funcoesMenu.h
 CompileCpp=0
-Folder=Codigos
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit13]
-FileName=Codigos\CodigosFontes\funcoesPiloto.c
-CompileCpp=0
-Folder=Codigos
+Folder=Cabecalhos
 Compile=1
 Link=1
 Priority=1000
@@ -181,9 +171,29 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit10]
-FileName=Codigos\CodigosFontes\funcoesPiloto.c
+FileName=Codigos\Cabecalhos\funcoesCircuito.h
 CompileCpp=0
-Folder=Codigos
+Folder=Cabecalhos
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit11]
+FileName=Codigos\Cabecalhos\funcoesMelhorVolta.h
+CompileCpp=0
+Folder=Cabecalhos
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit13]
+FileName=Codigos\Cabecalhos\funcoesValidacao.h
+CompileCpp=0
+Folder=Cabecalhos
 Compile=1
 Link=1
 Priority=1000

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include <time.h>
 //#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
@@ -40,6 +41,65 @@ char *rRemoveQuebraLinha(char *stringTirarQuebraLinha){
 	if(stringTirarQuebraLinha[strlen(stringTirarQuebraLinha)-1] == '\n')
 		rTirarCaracter(stringTirarQuebraLinha);
 	return stringTirarQuebraLinha;
+}
+
+
+
+// Objetivo: 
+time_t convertePSegundos(char *data){
+  int dia = atoi(strtok(data, "/"));
+  int mes = atoi(strtok(NULL, "/"));
+  int ano = atoi(strtok(NULL, "/"));
+  time_t segundosData;
+  struct tm dataTm;
+  dataTm.tm_mday = dia;
+  dataTm.tm_mon = mes;
+  dataTm.tm_year = ano;
+  dataTm.tm_min = 0;
+  dataTm.tm_sec = 0;
+  dataTm.tm_hour = 0;
+  
+  if((segundosData = mktime(&dataTm)) == -1)
+    salvarErro("Erro ao converter data para segundos em 'converteParaSegundos'\n");
+  
+  return segundosData;
+}
+
+
+
+// Objetivo: 
+int strENumero(char *strVerificar){
+  int ret = 1, posicaoStr;
+  
+  for(posicaoStr = 0; posicaoStr < strlen(strVerificar); posicaoStr++){
+    if(!isdigit(strVerificar[posicaoStr])){
+      ret = 0;
+      break;
+    }
+  }
+  
+  return ret;
+}
+// Objetivo: Validar todos os campos, para ver se estão vazios.
+// Parâmetros: Endereço da memória que contenha a string de 1 campo e se desejar, mais endereços que contenham strings de outros campos.
+// Retorno: 1(inválido) ou 0(válido).
+int validaCamposBrancos(int qtdCampos, ... ){
+	va_list campos;
+	va_start(campos, qtdCampos);
+	char *tmp = (char *)malloc(127 * sizeof(char));
+	int x = 0, ret = 1;
+	
+	while (x < qtdCampos){
+		tmp = va_arg(campos, char*);
+		if(strlen(tmp) < 1){
+			ret = 0;
+			break;
+		}
+		x++;
+	}
+	va_end(campos);
+	
+	return ret;  
 }
 
 #endif /* _FUNCOES_STRINGS_C_ */
