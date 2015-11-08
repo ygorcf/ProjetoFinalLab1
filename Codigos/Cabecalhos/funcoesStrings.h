@@ -6,7 +6,8 @@
 
 char *rTirarCaracter(char *stringTirarCaracter);
 char *rRemoveQuebraLinha(char *stringTirarQuebraLinha);
-time_t convertePSegundos(char *data);
+time_t converteDataPSegundos(char *data);
+time_t converteTempoPMilesimosSegundo(char *tempo);
 int strENumero(char *strVerificar);
 int validaCamposBrancos(int qtdCampos, ... );
 

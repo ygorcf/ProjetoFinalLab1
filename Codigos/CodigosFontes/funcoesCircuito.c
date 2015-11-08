@@ -80,26 +80,26 @@ int pesquisarCircuitoPId(int idPesquisar, Circuito *circuitoEncontrado){
 
 
 //Objetivo:
-void apresentarCircuitosPesquisados(Circuito *circuitosApresentar, int qtdCircuitos, Componente tabelaDestino, Janela janelaDestino){
-  int circuitoAtual = 0;
-	char stringIdCircuito[9], stringTamanhoCircuito[21], stringIdPiloto[8];
-	Piloto pilotoMelhorVolta;
+void apresentarCircuitosPesquisados(Circuito *circuitosApresentar, int inicioVetor, int qtdCircuitos, Componente tabelaDestino, Janela janelaDestino){
+  int circuitoAtual = inicioVetor, linhaTabela = 2, qtdLinhas;
+	char stringIdCircuito[9], stringTamanhoCircuito[21], stringIdPiloto[9];
+	qtdLinhas = tabelaDestino.area.h/tabelaDestino.areaAux.h;
 	
-	
-	while(circuitoAtual < qtdCircuitos){
+	for(linhaTabela = 0; linhaTabela < qtdLinhas; linhaTabela++){
 		if(strcmp(circuitosApresentar[circuitoAtual].menorTempo, "-") == 0)
 			strcpy(stringIdPiloto, "-");
 		else
-			sprintf(stringIdPiloto, "%d", circuitosApresentar[circuitoAtual].idPiloto);
-  	sprintf(stringIdCircuito, "%u", circuitosApresentar[circuitoAtual].codigo);
+			sprintf(stringIdPiloto, "%-8d", circuitosApresentar[circuitoAtual].idPiloto);
+  	sprintf(stringIdCircuito, "%-8u", circuitosApresentar[circuitoAtual].codigo);
   	sprintf(stringTamanhoCircuito, "%-20lf", circuitosApresentar[circuitoAtual].tamanho);
-  	pintarDadoTabela(tabelaDestino, (circuitoAtual + 2), 1, stringIdCircuito, janelaDestino);
-  	pintarDadoTabela(tabelaDestino, (circuitoAtual + 2), 2, circuitosApresentar[circuitoAtual].nome, janelaDestino);
-  	pintarDadoTabela(tabelaDestino, (circuitoAtual + 2), 3, circuitosApresentar[circuitoAtual].pais, janelaDestino);
-  	pintarDadoTabela(tabelaDestino, (circuitoAtual + 2), 4, stringTamanhoCircuito, janelaDestino);
-  	pintarDadoTabela(tabelaDestino, (circuitoAtual + 2), 5, circuitosApresentar[circuitoAtual].menorTempo, janelaDestino);
-  	pintarDadoTabela(tabelaDestino, (circuitoAtual + 2), 6, stringIdPiloto, janelaDestino);
+  	pintarDadoTabela(tabelaDestino, (linhaTabela + 2), 1, stringIdCircuito, janelaDestino);
+  	pintarDadoTabela(tabelaDestino, (linhaTabela + 2), 2, circuitosApresentar[circuitoAtual].nome, janelaDestino);
+  	pintarDadoTabela(tabelaDestino, (linhaTabela + 2), 3, circuitosApresentar[circuitoAtual].pais, janelaDestino);
+  	pintarDadoTabela(tabelaDestino, (linhaTabela + 2), 4, stringTamanhoCircuito, janelaDestino);
+  	pintarDadoTabela(tabelaDestino, (linhaTabela + 2), 5, circuitosApresentar[circuitoAtual].menorTempo, janelaDestino);
+  	pintarDadoTabela(tabelaDestino, (linhaTabela + 2), 6, stringIdPiloto, janelaDestino);
   	circuitoAtual++;
+		if(circuitoAtual >= qtdCircuitos) break;
   }
 }
 
@@ -232,7 +232,7 @@ int alterarCircuito(Circuito circuitoAlterar){
 
 
 //Objetivo:
-int pesquisarCircuitoPNome(char *nomePesquisar, Circuito *circuitosEncontrados){
+int pesquisarCircuitoPNome(char *nomePesquisar, Circuito **circuitosEncontrados){
 	FILE *arquivoCircuitos;
 	Circuito circuitoPesquisar, circuitoErro;
 	int qtdCircuitosEncontrados = 0;
@@ -250,8 +250,8 @@ int pesquisarCircuitoPNome(char *nomePesquisar, Circuito *circuitosEncontrados){
 				break;
 			}else{
 			  if(strstr(circuitoPesquisar.nome, nomePesquisar) != NULL){
-			    circuitosEncontrados = (Circuito *)(realloc(circuitosEncontrados, (qtdCircuitosEncontrados+1) * sizeof(Circuito)));
-			    *(circuitosEncontrados + qtdCircuitosEncontrados) = circuitoPesquisar;
+			    *circuitosEncontrados = (Circuito *)(realloc(*circuitosEncontrados, (qtdCircuitosEncontrados+1) * sizeof(Circuito)));
+			    *(*circuitosEncontrados + qtdCircuitosEncontrados) = circuitoPesquisar;
 			    qtdCircuitosEncontrados++;
 			  }
 			}
@@ -265,28 +265,37 @@ int pesquisarCircuitoPNome(char *nomePesquisar, Circuito *circuitosEncontrados){
 
 
 //Objetivo:
-int apresentarRelatorio4(Circuito *circuitosApresentar, int qtdCircuitos, Componente tabelaDestino, Janela janelaDestino){
-  int circuitoAtual = 0, ret = 0;
+int apresentarRelatorio4(Circuito *circuitosApresentar, int inicioVetor, int qtdCircuitos, Componente tabelaDestino, Janela janelaDestino){
+  int circuitoAtual = inicioVetor, ret = 0, qtdLinhas, linhaTabela;
   MelhorVolta melhorVoltaCircuitoAtual;
-  Piloto pilotoMelhorVoltaCircuitoAtual;
-	char stringIdCircuito[8], stringTamanhoCircuito[10];
+  Piloto pilotoCircuitoAtual;
+	char stringIdCircuito[8], stringTamanhoCircuito[10], stringIdPiloto[8], stringNomePiloto[10];
+	qtdLinhas = tabelaDestino.area.h/tabelaDestino.areaAux.h;
   
-	while(circuitoAtual < qtdCircuitos){
-		sprintf(stringIdCircuito, "%d", circuitosApresentar[circuitoAtual].codigo);
-		sprintf(stringTamanhoCircuito, "%d", circuitosApresentar[circuitoAtual].tamanho);
-		melhorVoltaCircuitoAtual = pesquisarMelhorVoltaPCircuito(circuitosApresentar[circuitoAtual]);
-		if(pesquisarPilotoPId(melhorVoltaCircuitoAtual.idPiloto, &pilotoMelhorVoltaCircuitoAtual) < 0){
-			salvarErro("Erro ao pesquisar um piloto em 'apresentarRelatorio4'\n");
-			ret = -1;
+	for(linhaTabela = 0; linhaTabela < qtdLinhas; linhaTabela++){
+		sprintf(stringIdCircuito, "%-7d", circuitosApresentar[circuitoAtual].codigo);
+		sprintf(stringTamanhoCircuito, "%-20lf", circuitosApresentar[circuitoAtual].tamanho);
+		strcpy(stringIdPiloto, "-");
+		strcpy(stringNomePiloto, "-");
+		if(strcmp(circuitosApresentar[circuitoAtual].menorTempo, "-") != 0){
+			if(pesquisarPilotoPId(circuitosApresentar[circuitoAtual].idPiloto, &pilotoCircuitoAtual) <= 0){
+				salvarErro("Erro ao pesquisar um piloto em 'apresentarRelatorio4'\n");
+				ret = -1;
+			}else{
+				sprintf(stringIdPiloto, "%-7d", circuitosApresentar[circuitoAtual].idPiloto);
+				strncpy(stringNomePiloto, pilotoCircuitoAtual.nome, 9);
+			}
 		}
 		
-		pintarDadoTabela(tabelaDestino, circuitoAtual + 2, 1, stringIdCircuito, janelaDestino);
-		pintarDadoTabela(tabelaDestino, circuitoAtual + 2, 2, circuitosApresentar[circuitoAtual].nome, janelaDestino);
-		pintarDadoTabela(tabelaDestino, circuitoAtual + 2, 3, circuitosApresentar[circuitoAtual].pais, janelaDestino);
-		pintarDadoTabela(tabelaDestino, circuitoAtual + 2, 4, stringTamanhoCircuito, janelaDestino);
-		pintarDadoTabela(tabelaDestino, circuitoAtual + 2, 5, circuitosApresentar[circuitoAtual].menorTempo, janelaDestino);
-		pintarDadoTabela(tabelaDestino, circuitoAtual + 2, 6, pilotoMelhorVoltaCircuitoAtual.nome, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela + 2, 1, stringIdCircuito, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela + 2, 2, circuitosApresentar[circuitoAtual].nome, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela + 2, 3, circuitosApresentar[circuitoAtual].pais, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela + 2, 4, stringTamanhoCircuito, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela + 2, 5, circuitosApresentar[circuitoAtual].menorTempo, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela + 2, 6, stringIdPiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela + 2, 7, stringNomePiloto, janelaDestino);
 		circuitoAtual++;
+		if(circuitoAtual >= qtdCircuitos) break;
 	}
 	
 	return ret;

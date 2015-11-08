@@ -131,19 +131,22 @@ int pesquisarPilotoPNome(char *nomePesquisar, Piloto **pilotosEncontrados){
 
 
 //Objetivo:
-void apresentarPilotosPesquisados(Piloto *pilotosApresentar, int qtdPilotos, Componente tabelaDestino, Janela janelaDestino){
-  int pilotoAtual = 0;
-	char stringIdPiloto[9], stringIdadePiloto[8], stringSexoPiloto[3];
-	while(pilotoAtual < qtdPilotos){
-		sprintf(stringIdPiloto, "%u", pilotosApresentar[pilotoAtual].id);
-		sprintf(stringIdadePiloto, "%u", pilotosApresentar[pilotoAtual].idade);
+void apresentarPilotosPesquisados(Piloto *pilotosApresentar, int inicioVetor, int qtdPilotos, Componente tabelaDestino, Janela janelaDestino){
+  int pilotoAtual = inicioVetor, linhaTabela, qtdLinhas;
+	char stringIdPiloto[9], stringIdadePiloto[4], stringSexoPiloto[3];
+	qtdLinhas = tabelaDestino.area.h/tabelaDestino.areaAux.h;
+	
+	for(linhaTabela = 0; linhaTabela < qtdLinhas; linhaTabela++){
+		sprintf(stringIdPiloto, "%-8u", pilotosApresentar[pilotoAtual].id);
+		sprintf(stringIdadePiloto, "%3u", pilotosApresentar[pilotoAtual].idade);
 		sprintf(stringSexoPiloto, "%c", pilotosApresentar[pilotoAtual].sexo);
-		pintarDadoTabela(tabelaDestino, (pilotoAtual + 2), 1, stringIdPiloto, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (pilotoAtual + 2), 2, pilotosApresentar[pilotoAtual].nome, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (pilotoAtual + 2), 3, stringIdadePiloto, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (pilotoAtual + 2), 4, stringSexoPiloto, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (pilotoAtual + 2), 5, pilotosApresentar[pilotoAtual].paisOrigem, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela+2, 1, stringIdPiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela+2, 2, pilotosApresentar[pilotoAtual].nome, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela+2, 3, stringIdadePiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela+2, 4, stringSexoPiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela+2, 5, pilotosApresentar[pilotoAtual].paisOrigem, janelaDestino);
 		pilotoAtual++;
+		if(pilotoAtual >= qtdPilotos) break;
 	}
 }
 
@@ -364,114 +367,46 @@ int excluirPiloto(Piloto pilotoExcluir){
 
 
 //Objetivo:
-int pesquisarPilotoPCircuito(int idCircuitoPesquisar,char *dataPesquisar, Piloto *pilotosEncontrados){
-	FILE *arquivoPilotos;
+int pesquisarPilotosCircuito(Circuito circuitoPilotoPesquisar, char *dataPesquisar, Piloto **pilotosEncontrados){
 	Piloto pilotoPesquisar;
 	int qtdPilotosEncontrados = 0;
 	FILE *arquivoMelhoresVoltas;
 	MelhorVolta melhorVoltaPesquisada;
-	pilotosEncontrados = NULL;
 	
-	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
-	if(idCircuitoPesquisar <= 0){
-		salvarErro("Erro id do circuito invalido em 'pesquisarPilotoPCircuito'\n");
+	arquivoMelhoresVoltas = fopen(LOCAL_ARQUIVO_MELHORES_VOLTAS, "rb");
+	if(arquivoMelhoresVoltas == NULL){
+		salvarErro("Erro ao abrir arquivo de melhores voltas em 'pesquisarPilotosCircuito'\n");
 		qtdPilotosEncontrados = -1;
 	}else{
-	  if(strlen(dataPesquisar) < 11 && strlen(dataPesquisar) > 0){
-		  salvarErro("Erro data invalida em 'pesquisarPilotoPCircuito'\n");
-		  qtdPilotosEncontrados = -2;
-	  }else{
-	    if(arquivoPilotos == NULL){
-		    salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'pesquisarPilotoPCircuito'\n");
-		    qtdPilotosEncontrados = -3;
-	    }else{
-		    while(!feof(arquivoPilotos)){
-			    if(fread(&pilotoPesquisar, sizeof(Piloto), 1, arquivoPilotos) != 1){
-				    if(!feof(arquivoPilotos)){
-					    salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPilotoPCircuito'\n");
-					    qtdPilotosEncontrados = -4;
-				    }
-				    break;
-			    }else{
-	          arquivoMelhoresVoltas = fopen(LOCAL_ARQUIVO_MELHORES_VOLTAS, "rb");
-	          if(arquivoMelhoresVoltas == NULL){
-		          salvarErro("Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarPilotoPCircuito'\n");
-		          qtdPilotosEncontrados = -5;
-		          break;
-	          }else{
-		          while(!feof(arquivoMelhoresVoltas)){
-			          if(fread(&melhorVoltaPesquisada, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
-				          if(!feof(arquivoMelhoresVoltas)){
-					          salvarErro("Erro ao ler uma melhor volta em 'pesquisarPilotoPCircuito'!");
-					          qtdPilotosEncontrados = -6;
-				          }
-				          break;
-			          }else{
-			            if(melhorVoltaPesquisada.idPiloto == pilotoPesquisar.id && melhorVoltaPesquisada.idCircuito == idCircuitoPesquisar){
-			              if(strlen(dataPesquisar) == 0 || (strlen(dataPesquisar) == 11 && strcmp(melhorVoltaPesquisada.data, dataPesquisar) == 0)){
-			                pilotosEncontrados = (Piloto *)(realloc(pilotosEncontrados, (qtdPilotosEncontrados+1) * sizeof(Piloto)));
-			                *(pilotosEncontrados + qtdPilotosEncontrados) = pilotoPesquisar;
-			                qtdPilotosEncontrados++;
-			              }
-			            }
-			          }
-		          }
-	          }
-	          fclose(arquivoMelhoresVoltas);
-			    }
-		    }
-	    }
-	  }
-	}
-	fclose(arquivoPilotos);
-	
-	return qtdPilotosEncontrados;
-}
-
-
-
-//Objetivo:
-int pesquisarPilotoPMelhorVolta(char *nomeEquipePesquisar, char *dataInicio, char *dataFim, Piloto *pilotosEncontrados){
-	FILE *arquivoPilotos;
-	Piloto pilotoPesquisar, pilotoErro;
-	MelhorVolta melhorVoltaPiloto;
-	int qtdPilotosEncontrados = 0;
-	time_t dataInicioSegundos, dataFimSegundos, dataMelhorVoltaSegundos;
-	
-	dataInicioSegundos = convertePSegundos(dataInicio);
-	dataFimSegundos = convertePSegundos(dataFim);
-	
-	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
-	pilotoErro.id = 0;
-	pilotoErro.idade = 0;
-	//pilotoErro.nome = "ERRO";
-	//pilotoErro.paisOrigem = "ERRO";
-	pilotoErro.sexo = 'E';
-	
-	if(arquivoPilotos == NULL){
-		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'pesquisarPilotoPMelhorVolta'\n");
-		qtdPilotosEncontrados = -1;
-	}else{
-		while(!feof(arquivoPilotos)){
-			if(fread(&pilotoPesquisar, sizeof(Piloto), 1, arquivoPilotos) != 1){
-				if(!feof(arquivoPilotos)){
-					salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPilotoPMelhorVolta'\n");
+		while(1){
+			if(fread(&melhorVoltaPesquisada, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
+				if(!feof(arquivoMelhoresVoltas)){
+					salvarErro("Erro ao ler melhor volta em 'pesquisarPilotosCircuito'\n");
 					qtdPilotosEncontrados = -2;
 				}
 				break;
 			}else{
-			  melhorVoltaPiloto = pesquisarMelhorVoltaPPiloto(pilotoPesquisar);
-			  dataMelhorVoltaSegundos = convertePSegundos(melhorVoltaPiloto.data);
-			  if(difftime(dataInicioSegundos, dataMelhorVoltaSegundos) <= 0 && difftime(dataFimSegundos, dataMelhorVoltaSegundos) <= 0 && strcmp(melhorVoltaPiloto.nomeEquipe, nomeEquipePesquisar) == 0){
-          pilotosEncontrados = (Piloto *)(realloc(pilotosEncontrados, (qtdPilotosEncontrados+1) * sizeof(Piloto)));
-          *(pilotosEncontrados + qtdPilotosEncontrados) = pilotoPesquisar;
-          qtdPilotosEncontrados++;
-        }
+				if(melhorVoltaPesquisada.idCircuito == circuitoPilotoPesquisar.codigo){
+					if(strcmp(circuitoPilotoPesquisar.menorTempo, "-") != 0){
+						if(pesquisarPilotoPId(circuitoPilotoPesquisar.idPiloto, &pilotoPesquisar) != 1){
+							salvarErro("Erro ao pesquisar piloto em 'pesquisarPilotosCircuito'\n");
+							qtdPilotosEncontrados = -3;
+						}else{
+							if(strlen(dataPesquisar) == 0 || (strlen(dataPesquisar) == 10 && strcmp(dataPesquisar, melhorVoltaPesquisada.data) == 0)){
+								*pilotosEncontrados = (Piloto*)(realloc(*pilotosEncontrados, (qtdPilotosEncontrados+1) * sizeof(Piloto)));
+								*(*pilotosEncontrados+qtdPilotosEncontrados) = pilotoPesquisar;
+								qtdPilotosEncontrados++;
+							}
+						}
+					}
+				}
 			}
 		}
+		if(fclose(arquivoMelhoresVoltas) != 0){
+			salvarErro("Erro ao fechar arquivo de  melhores voltas em 'pesquisarPilotosCircuito'\n");
+			qtdPilotosEncontrados = -4;
+		}
 	}
-	
-	fclose(arquivoPilotos);
 	
 	return qtdPilotosEncontrados;
 }
