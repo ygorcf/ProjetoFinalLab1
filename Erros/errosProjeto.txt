@@ -1,148 +1,124 @@
-2015-11-07- 20:20: Erro ler os dados do arquivo com os dados dos pilotos de 'alterarPiloto'
+2015-11-08- 16:21: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:21: Erro ler os dados do arquivo com os dados dos pilotos de 'alterarPiloto'
+2015-11-08- 16:21: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-07- 20:26: Erro ler os dados do arquivo com os dados dos pilotos de 'alterarPiloto'
+2015-11-08- 16:21: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:32: Erro ao pesquisar o pilotos em 'checarEventoMenuDescricaoPiloto'
+2015-11-08- 16:21: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-07- 20:45: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 16:21: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:45: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 16:21: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-07- 20:50: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 16:22: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:50: Erro ao abrir o arquivo dos circuitos de 'checarEventoMenuDescricaoCircuito'
+2015-11-08- 16:22: Erro ao abrir arquivo de melhores voltas em 'pesquisarPilotosCircuito'
 
-2015-11-07- 20:50: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 16:24: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:52: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 16:24: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-07- 20:55: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-08- 16:24: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:55: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-08- 16:42: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:56: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-08- 16:42: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-07- 20:56: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-08- 16:45: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 20:58: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-08- 16:47: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 21:21: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-08- 16:53: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 23:33: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+2015-11-08- 16:55: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 23:33: Erro ao abrir o arquivo das melhores voltas de 'checarEventoMenuDescricaoMelhorVolta'
+2015-11-08- 16:56: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-07- 23:33: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+2015-11-08- 17:01: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 17:09: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 17:18: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 17:28: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:42: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+2015-11-08- 17:28: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 17:31: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:43: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+2015-11-08- 17:31: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:43: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:50: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+2015-11-08- 17:52: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:52: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:53: Erro ao ler os dados de uma melhor volta de 'verificarMelhorVoltaJaCadastrada'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 17:54: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:38: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:38: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:39: Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 18:42: Erro ao ler os dados de um piloto de 'pesquisarCircuitoPNome'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:17: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:17: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:17: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:17: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 19:18: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:50: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+2015-11-08- 19:18: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:18: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:18: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:25: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:25: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+2015-11-08- 19:25: Erro ao converter data para segundos em 'converteParaSegundos'
 
-2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
-
-2015-11-08- 00:52: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
-
-2015-11-08- 00:52: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
-
-2015-11-08- 00:52: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
-
-2015-11-08- 00:54: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
-
-2015-11-08- 00:54: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
-
-2015-11-08- 00:54: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
-
-2015-11-08- 00:55: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
-
-2015-11-08- 00:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
-
-2015-11-08- 00:56: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
-
-2015-11-08- 00:57: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
-
-2015-11-08- 00:57: Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuEscolhePais'
-
-2015-11-08- 00:57: Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuEscolhePais'
+2015-11-08- 19:25: Erro ao converter data para segundos em 'converteParaSegundos'
 

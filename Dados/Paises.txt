@@ -1,0 +1,26 @@
+01 Brasil
+02 Japao
+03 Dinamarca
+04 Mexico
+05 Estados Unidos
+06 Canada
+07 Reino Unido
+08 Alemanha
+09 Italia
+10 Australia
+11 Malasia
+12 China
+13 Bahrein
+14 Espanha
+15 Monaco
+16 Inglaterra
+17 Austria
+18 Hungria
+19 Belgica
+20 Cingapura
+21 Russia
+22 Abu Dhabi
+23 Finlandia
+24 Franca
+25 Suecia
+26 Venezuela

@@ -46,6 +46,7 @@ typedef struct {
 	Retangulo area;
 	Retangulo areaAux;
 	int ativo;
+	int ocorreuErro;
 } Componente;
 
 typedef enum componentesClique {

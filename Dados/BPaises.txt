@@ -1,6 +1,0 @@
-01 Brasil
-02 Japao
-03 India
-04 Mexico
-05 Estados Unidos
-06 Canada

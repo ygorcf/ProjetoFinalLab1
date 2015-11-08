@@ -316,8 +316,8 @@ int pintarSuperficie(Superficie superficiePintar, Cor corPintar){
 Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Cor cor, 
 																	Painel painelDestino){
 	Componente comp;
-	// Inicializa o 'painelPertencente' como NULL para ser uma flag de erro
-	comp.painelPertencente = NULL;
+	comp.ocorreuErro = 1;
+	comp.painelPertencente = painelDestino;
 	
 	// Define a area do retangulo
 	comp.area.x = posX;
@@ -330,19 +330,17 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 														cor.r, // Quantidade de vermelho
 														cor.g, // Quantidade de verde
 														cor.b, // Quantidade de azul
-														cor.opacidade) != 0){ // Opacidade da cor
+														cor.opacidade) != 0) // Opacidade da cor
   	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'\n");
-		return comp;
+	else{
+		// Desenha o retangulo e verifica se ocorreu um erro ao desenha-lo
+		if(SDL_RenderDrawRect(painelDestino, // O painel onde sera pintado o retangulo
+		                       &comp.area) != 0) // O retangulo que sera pintado
+		  salvarErro("Erro na funcao 'SDL_RenderDrawRect' de 'pintarRetanguloPainel'\n");
+		else{
+			comp.ocorreuErro = 0;
+		}
 	}
-	
-	// Desenha o retangulo e verifica se ocorreu um erro ao desenha-lo
-	if(SDL_RenderDrawRect(painelDestino, // O painel onde sera pintado o retangulo
-	                       &comp.area) != 0){ // O retangulo que sera pintado
-	  salvarErro("Erro na funcao 'SDL_RenderDrawRect' de 'pintarRetanguloPainel'\n");
-		return comp;
-	}
-	
-	comp.painelPertencente = painelDestino;
 	
 	return comp;
 }
@@ -696,7 +694,7 @@ int manipularCampoTexto(SDL_Event *e, Componente *c, char *txt, Janela j, int mi
 		}
 	} else if( e->type == SDL_TEXTINPUT ){
     if( !( ( e->text.text[ 0 ] == 'c' || e->text.text[ 0 ] == 'C' ) && ( e->text.text[ 0 ] == 'v' || e->text.text[ 0 ] == 'V' ) && SDL_GetModState() & KMOD_CTRL ) ){
-      if(c->ativo == 1 && strlen(txt) <= max){
+      if(c->ativo == 1 && strlen(txt) < max){
 				if(strlen(txt) < max && (tipo <= 1 && tipo >= 3) ? strENumero(e->text.text) != 0 : 1){
 					strcat(txt, e->text.text);
 					memset(e->text.text, '\0', strlen(e->text.text) * sizeof(e->text.text));
@@ -734,6 +732,7 @@ void inicializarComponente(Componente *componenteInicializar, Painel painelDesti
 	componenteInicializar->areaAux.h = 0;
 	componenteInicializar->painelPertencente = painelDestino;
 	componenteInicializar->ativo = 0;
+	componenteInicializar->ocorreuErro = 0;
 }
 
 #endif /* _FUNCOES_JANELA_C_ */

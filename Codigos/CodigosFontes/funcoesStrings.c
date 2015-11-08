@@ -46,7 +46,7 @@ char *rRemoveQuebraLinha(char *stringTirarQuebraLinha){
 
 
 // Objetivo: 
-time_t convertePSegundos(char *data){
+time_t converteDataPSegundos(char *data){
   int dia = atoi(strtok(data, "/"));
   int mes = atoi(strtok(NULL, "/"));
   int ano = atoi(strtok(NULL, "/"));
@@ -63,6 +63,19 @@ time_t convertePSegundos(char *data){
     salvarErro("Erro ao converter data para segundos em 'converteParaSegundos'\n");
   
   return segundosData;
+}
+
+
+
+// Objetivo: 
+time_t converteTempoPMilesimosSegundo(char *tempo){
+  int minutos = atoi(strtok(tempo, ":"));
+  int segundos = atoi(strtok(NULL, "'"));
+  int milesimos = atoi(strtok(NULL, "'"));
+  
+	time_t segundosTempo = (minutos * 60 * 1000) + milesimos + (segundos * 1000);
+  
+	return segundosTempo;
 }
 
 
