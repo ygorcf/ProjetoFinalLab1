@@ -1,138 +1,148 @@
-2015-10-30- 17:18: Erro ao ler um piloto!
-2015-10-30- 17:18: Erro ao ler um piloto!
-2015-10-30- 17:19: Erro ao ler um piloto!
-2015-10-30- 17:20: Erro ao ler um piloto!
-2015-10-30- 17:23: Erro ao ler um piloto!
-2015-10-30- 17:24: Erro ao ler um piloto!
-2015-10-30- 17:25: Erro ao ler um piloto!
-2015-10-30- 17:25: Erro ao ler um piloto!
-2015-10-30- 18:21: Erro ao ler um piloto!
-2015-10-30- 18:21: Erro ao ler um piloto!
-2015-10-30- 18:24: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosPilotos'
+2015-11-07- 20:20: Erro ler os dados do arquivo com os dados dos pilotos de 'alterarPiloto'
 
-2015-10-30- 18:24: Erro ao ler um piloto!
-2015-10-30- 18:24: Erro ao ler um piloto!
-2015-10-30- 18:37: Erro ao ler um piloto!
-2015-10-30- 18:39: Erro ao ler um piloto!
-2015-10-30- 18:39: Erro ao ler um piloto!
-2015-10-30- 20:48: Erro ao ler um piloto!
-2015-10-30- 20:49: Erro ao ler um piloto!
-2015-10-30- 21:28: Erro ao ler um piloto!
-2015-10-30- 21:31: Erro ao ler um piloto!
-2015-10-30- 21:31: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+2015-11-07- 20:21: Erro ler os dados do arquivo com os dados dos pilotos de 'alterarPiloto'
 
-2015-10-30- 21:31: Erro ao ler um piloto!
-2015-10-30- 21:31: Erro ao ler um piloto!
-2015-10-30- 21:31: Erro ao ler um piloto!
-2015-10-30- 21:39: Erro ao ler um piloto!
-2015-10-30- 21:39: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+2015-11-07- 20:26: Erro ler os dados do arquivo com os dados dos pilotos de 'alterarPiloto'
 
-2015-10-30- 21:39: Erro ao ler um piloto!
-2015-10-30- 21:39: Erro ao ler um piloto!
-2015-10-30- 21:39: Erro ao ler um piloto!
-2015-10-30- 21:39: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+2015-11-07- 20:32: Erro ao pesquisar o pilotos em 'checarEventoMenuDescricaoPiloto'
 
-2015-10-30- 21:40: Erro ao ler um piloto!
-2015-10-30- 22:04: Erro ao ler um piloto!
-2015-10-30- 22:04: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+2015-11-07- 20:45: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 22:04: Erro ao ler um piloto!
-2015-10-30- 22:04: Erro ao ler um piloto!
-2015-10-30- 22:16: Erro ao ler um piloto!
-2015-10-30- 22:16: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+2015-11-07- 20:45: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 22:16: Erro ao ler um piloto!
-2015-10-30- 22:17: Erro ao ler um piloto!
-2015-10-30- 22:17: Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'
+2015-11-07- 20:50: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 22:17: Erro ao ler um piloto!
-2015-10-30- 22:17: Erro ao ler um piloto!
-2015-10-30- 22:17: Erro ao ler um piloto!
-2015-10-30- 22:18: Erro ao ler um piloto!
-2015-10-30- 22:18: Erro ao ler um piloto!
-2015-10-30- 22:20: Erro ao ler um piloto!
-2015-10-30- 22:21: Erro ao ler um piloto!
-2015-10-30- 22:21: Erro ao ler um piloto!
-2015-10-30- 22:21: Erro ao ler um piloto!
-2015-10-30- 22:21: Erro ao ler um piloto!
-2015-10-30- 22:21: Erro ao ler um piloto!
-2015-10-30- 22:22: Erro ao ler um piloto!
-2015-10-30- 22:26: Erro ao ler um piloto!
-2015-10-30- 22:26: Erro ao ler um piloto!
-2015-10-30- 22:26: Erro ao ler um piloto!
-2015-10-30- 22:27: Erro ao ler um piloto!
-2015-10-30- 22:28: Erro ao ler um piloto!
-2015-10-30- 22:54: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:50: Erro ao abrir o arquivo dos circuitos de 'checarEventoMenuDescricaoCircuito'
 
-2015-10-30- 22:54: Erro ao ler um circuito!
-2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:50: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 22:55: Erro ao ler um circuito!
-2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:52: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 22:55: Erro ao ler um circuito!
-2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:55: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
 
-2015-10-30- 22:55: Erro ao ler um circuito!
-2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:55: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
 
-2015-10-30- 22:55: Erro ao ler um circuito!
-2015-10-30- 22:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:56: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
 
-2015-10-30- 22:55: Erro ao ler um circuito!
-2015-10-30- 23:37: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:56: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
 
-2015-10-30- 23:37: Erro ao ler um circuito!
-2015-10-30- 23:37: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 20:58: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
 
-2015-10-30- 23:37: Erro ao ler um circuito!
-2015-10-30- 23:38: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 21:21: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
 
-2015-10-30- 23:38: Erro ao ler um circuito!
-2015-10-30- 23:40: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 23:33: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
 
-2015-10-30- 23:40: Erro ao ler um circuito!
-2015-10-30- 23:40: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 23:33: Erro ao abrir o arquivo das melhores voltas de 'checarEventoMenuDescricaoMelhorVolta'
 
-2015-10-30- 23:40: Erro ao ler um circuito!
-2015-10-30- 23:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-07- 23:33: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
 
-2015-10-30- 23:42: Erro ao ler um circuito!
-2015-10-30- 23:43: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 23:43: Erro ao ler um circuito!
-2015-10-30- 23:43: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 23:43: Erro ao ler um circuito!
-2015-10-30- 23:45: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 23:45: Erro ao ler um circuito!
-2015-10-30- 23:46: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:42: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
 
-2015-10-30- 23:46: Erro ao ler um circuito!
-2015-10-30- 23:46: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:42: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
 
-2015-10-30- 23:46: Erro ao ler um circuito!
-2015-10-30- 23:47: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:43: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
 
-2015-10-30- 23:47: Erro ao ler um circuito!
-2015-10-30- 23:47: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:43: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
 
-2015-10-30- 23:47: Erro ao ler um circuito!
-2015-10-31- 00:01: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:47: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
 
-2015-10-31- 00:01: Erro ao ler um circuito!
-2015-11-02- 15:03: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
 
-2015-11-02- 15:03: Erro ao ler um circuito!
-2015-11-02- 15:06: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
-2015-11-02- 15:21: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
-2015-11-02- 15:27: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
-2015-11-02- 15:27: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
-2015-11-02- 15:46: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
 
-2015-11-02- 15:46: Erro ao ler um circuito em 'apresentarTodosCircuitos'!
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
 
-2015-11-02- 15:54: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
-2015-11-02- 15:58: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
-2015-11-02- 15:58: Erro ao ler um circuito em 'checarEventoMenuDescricaoCircuito'!
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:47: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-11-08- 00:50: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+
+2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:51: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:52: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:52: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+
+2015-11-08- 00:52: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:54: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+
+2015-11-08- 00:54: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:54: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-11-08- 00:55: Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'
+
+2015-11-08- 00:55: Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosCircuitos'
+
+2015-11-08- 00:56: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:57: Erro abrir o arquivo com os dados dos pilotos de 'pesquisarTodosPilotos'
+
+2015-11-08- 00:57: Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuEscolhePais'
+
+2015-11-08- 00:57: Erro ao abrir o arquivo dos paises 'fopen' de 'checarEventoMenuEscolhePais'
+

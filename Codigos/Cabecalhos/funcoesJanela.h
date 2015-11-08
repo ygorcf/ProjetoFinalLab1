@@ -26,6 +26,8 @@ int limparPainel(Painel painelLimpar);
 int verificarCliqueDentroRetangulo(Retangulo rect);
 int atualizarBordaComponente(Componente *compAtualizar);
 //void limparMemPainel(Painel painelLimpar);
+int manipularCampoTexto(SDL_Event *e, Componente *c, char *txt, Janela j, int min, int max, int tipo);
+void inicializarComponente(Componente *componenteInicializar, Painel painelDestino);
 
 #include <CodigosFontes/funcoesJanela.c>
 

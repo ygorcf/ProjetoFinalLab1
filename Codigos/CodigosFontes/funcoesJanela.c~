@@ -2,7 +2,7 @@
 #define _FUNCOES_JANELA_C_
 
 #include <Cabecalhos/tiposDadosJanela.h>
-#include <Cabecalhos/funcoesMenu.h>
+//#include <Cabecalhos/funcoesMenu.h>
 #include <stdio.h>
 
 
@@ -23,8 +23,7 @@ Janela criarJanela(char *tituloJanela, int largura, int altura){
 	
 	//Verifica se ocorreu um erro ao criar a janela
 	if(jan == NULL)
-		salvarErro("Erro na funcao 'SDL_CreateWindow' de 'criarJanela': %s\n", 
-						SDL_GetError());
+		salvarErro("Erro na funcao 'SDL_CreateWindow' de 'criarJanela': \n");
   
 	return jan;					
 }
@@ -42,14 +41,12 @@ Painel criarPainel(Janela janela){
 	
 	//Verifica se ocorreu um erro ao criar o painel
 	if(painel == NULL)
-		salvarErro("Erro na funcao 'SDL_CreateRenderer' de 'criarPainel': %s\n", 
-						SDL_GetError());
+		salvarErro("Erro na funcao 'SDL_CreateRenderer' de 'criarPainel'\n");
 	
 	// Pinta o fundo do painel com a cor branca e verifica se ocorreu um erro ao 
 	//	pintar o fundo
-	if(alteraCorFundoPainel(painel, BRANCO) != 0){
-  	salvarErro("Erro na funcao 'alteraCorFundoPainel' de 'criarPainel': %s\n", 
-						SDL_GetError());
+	if(alteraCorFundoPainel(painel, COR_FUNDO) != 0){
+  	salvarErro("Erro na funcao 'alteraCorFundoPainel' de 'criarPainel'\n");
 		return NULL;
 	}
 	
@@ -71,15 +68,14 @@ int alteraCorFundoPainel(Painel painelAlterarCor, Cor novaCor){
 														novaCor.g, // Quantidade de verde
 														novaCor.b, // Quantidade de azul
 														novaCor.opacidade) != 0){ // Opacidade da cor
-  	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'alteraCorFundoPainel': %s\n", 
-						SDL_GetError());
+  	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'alteraCorFundoPainel'\n");
 		return 1;
 	}
+	
   // Pinta o fundo do painel com a nova cor e verifica se ocorreu um erro ao 
   // pinta-lo com essa cor
   if(SDL_RenderClear(painelAlterarCor) != 0){
-  	salvarErro("Erro na funcao 'SDL_RenderClear' de 'alteraCorFundoPainel': %s\n", 
-						SDL_GetError());
+  	salvarErro("Erro na funcao 'SDL_RenderClear' de 'alteraCorFundoPainel'\n");
 		return 1;
 	}
 	
@@ -101,8 +97,7 @@ Fonte abrirFonte(char *localFonte, int tamanhoFonte){
 	
 	// Verifica se ocorreu um erro ao abrir a fonte
 	if(fonte == NULL)
-		salvarErro("Erro na funcao 'TTF_OpenFont' de 'abrirFonte': %s\n", 
-						TTF_GetError());
+		salvarErro("Erro na funcao 'TTF_OpenFont' de 'abrirFonte'\n");
 	
 	return fonte;
 }
@@ -122,8 +117,7 @@ Superficie textoParaSuperficie(char *texto, Fonte fonteTexto){
 	
 	// Verifica se ocorreu um erro ao transformar o text em superficie
 	if(superficeTexto == NULL) 
-		salvarErro("Erro na funcao 'TTF_RenderText_Solid' de 'textoParaSuperficie': %s\n", 
-						TTF_GetError());
+		salvarErro("Erro na funcao 'TTF_RenderText_Solid' de 'textoParaSuperficie'\n");
 	
 	// Limpa a memoria utilizada pela fonte
 	TTF_CloseFont(fonteTexto);
@@ -146,8 +140,7 @@ Textura superficieParaTextura(Painel painelDestino, Superficie superficieTransfo
 	
 	// Verifica se ocorreu um erro ao criar a textura
 	if(novaTextura == NULL) 
-		salvarErro("Erro na funcao 'SDL_CreateTextureFromSurface' de 'superficieParaTextura': %s\n", 
-						SDL_GetError());
+		salvarErro("Erro na funcao 'SDL_CreateTextureFromSurface' de 'superficieParaTextura'\n");
 	
 	return novaTextura;
 }
@@ -180,8 +173,7 @@ int copiarTexturaPainel(Painel painelDestino, Textura texturaCopiar,
 	
 	// Verifica se ocorreu um erro ao copiar a textura
 	if(res != 0)
-		salvarErro("Erro na funcao 'SDL_RenderCopyEx' de 'copiarTexturaPainel': %s\n", 
-						SDL_GetError());
+		salvarErro("Erro na funcao 'SDL_RenderCopyEx' de 'copiarTexturaPainel'\n");
 	
 	return res;
 }
@@ -201,11 +193,10 @@ void atualizarPainel(Painel painelAtualizar){
 //              Y de onde ficara o texto, a fonte do texto e a janela onde ficara o texto
 // Retorno: A estrutura Componente contendo dados do texto no painel e se ocorreu um erro
 //           o atributo 'painelPertencente' da estrutura estara setado como NULL
-Componente pintarTextoPainel(char *textoPintar, int posX, int posY, Fonte fonteTexto, 
+Retangulo pintarTextoPainel(char *textoPintar, int posX, int posY, Fonte fonteTexto, 
 															Janela janelaDestino){
-	Componente componenteTexto;
+	Retangulo retanguloTexto = {0,0,0,0};
 	// Inicializa o 'painelPertencente' como NULL para ser uma flag de erro
-	componenteTexto.painelPertencente == NULL;
 	
 	if(strlen(textoPintar) > 0){
 		Superficie super;
@@ -216,14 +207,14 @@ Componente pintarTextoPainel(char *textoPintar, int posX, int posY, Fonte fonteT
 		// Verifica se ocorreu um erro ao criar a superficie
 		if(super == NULL){
 			salvarErro("Erro na funcao 'textoParaSuperficie' de 'pintarTextoPainel'\n");
-      return componenteTexto;
+      return retanguloTexto;
     }
 		
 		// Define as coordenadas da area ocupada pelo texto dentro do painel
-		componenteTexto.area.x = posX;
-		componenteTexto.area.y = posY;
-		componenteTexto.area.h = super->h;
-		componenteTexto.area.w = super->w;
+		retanguloTexto.x = posX;
+		retanguloTexto.y = posY;
+		retanguloTexto.h = super->h;
+		retanguloTexto.w = super->w;
 		
 		// Pega a superficie da janela de destino
 		Superficie sJanela = SDL_GetWindowSurface(janelaDestino);
@@ -232,7 +223,7 @@ Componente pintarTextoPainel(char *textoPintar, int posX, int posY, Fonte fonteT
 		                 NULL, // O retangulo que sera copiado da superficie ou NULL para 
 		                       //  toda superficie
 		                 sJanela, // A superficie de destino
-		                 &componenteTexto.area); // O retangulo onde sera copiada a 
+		                 &retanguloTexto); // O retangulo onde sera copiada a 
 		                                         //  primeira superficie
 		// Atualiza a superficie da janela
 		SDL_UpdateWindowSurface(janelaDestino);
@@ -243,24 +234,23 @@ Componente pintarTextoPainel(char *textoPintar, int posX, int posY, Fonte fonteT
 		sJanela = 0;
 		super = 0;
 	}
-	
+	/*
 	// Cria um painel auxiliar e seta ele com o painel da janela
 	Painel painelJanela = SDL_GetRenderer(janelaDestino);
 	
 	// Verifica se ocorreu erro ao receber o painel auxiliar
 	if(painelJanela == NULL){
-	  salvarErro("Erro na funcao 'SDL_GetRenderer' de 'pintarTextoPainel': %s\n", 
-						SDL_GetError());
+	  salvarErro("Erro na funcao 'SDL_GetRenderer' de 'pintarTextoPainel'\n");
     return componenteTexto;
 	}
-	
+	*/
 	// Define o painel do componente do texto com o painel auxiliar
-	componenteTexto.painelPertencente == painelJanela;
+	//componenteTexto.painelPertencente == painelJanela;
 	
 	// Limpar a memoria utilizada pelo painel auxiliar
-	limparMemPainel(painelJanela);
+	//limparMemPainel(painelJanela);
 	
-	return componenteTexto;
+	return retanguloTexto;
 }
 
 
@@ -283,8 +273,7 @@ Superficie criarSuperficie(int largura, int altura){
 	
 	// Verificar se ocorreu um erro ao criar a superficie
 	if(super == NULL)	
-		salvarErro("Erro na funcao 'SDL_CreateRGBSurface' de 'criarSuperficie': %s\n", 
-						SDL_GetError());
+		salvarErro("Erro na funcao 'SDL_CreateRGBSurface' de 'criarSuperficie'\n");
 	
 	return super;
 }
@@ -311,8 +300,7 @@ int pintarSuperficie(Superficie superficiePintar, Cor corPintar){
 	
 	// Verifica se ocorreu erro ao pintar a superficie
 	if(ret != 0)
-		salvarErro("Erro na funcao 'SDL_FillRect' de 'pintarSuperficie': %s\n", 
-						SDL_GetError());
+		salvarErro("Erro na funcao 'SDL_FillRect' de 'pintarSuperficie'\n");
 	
 	return ret;
 }
@@ -343,16 +331,14 @@ Componente pintarRetanguloPainel(int posX, int posY, int largura, int altura, Co
 														cor.g, // Quantidade de verde
 														cor.b, // Quantidade de azul
 														cor.opacidade) != 0){ // Opacidade da cor
-  	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel': %s\n", 
-						SDL_GetError());
+  	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'pintarRetanguloPainel'\n");
 		return comp;
 	}
 	
 	// Desenha o retangulo e verifica se ocorreu um erro ao desenha-lo
 	if(SDL_RenderDrawRect(painelDestino, // O painel onde sera pintado o retangulo
 	                       &comp.area) != 0){ // O retangulo que sera pintado
-	  salvarErro("Erro na funcao 'SDL_RenderDrawRect' de 'pintarRetanguloPainel': %s\n", 
-						SDL_GetError());
+	  salvarErro("Erro na funcao 'SDL_RenderDrawRect' de 'pintarRetanguloPainel'\n");
 		return comp;
 	}
 	
@@ -389,17 +375,17 @@ Componente pintarTabelaPainel(int posX, int posY, int largura, int altura, Cor c
 	 *
 	 */
 	// Pinta um retangulo para ser a borda de fora da tabela
-	comp = pintarRetanguloPainel(posX, posY, largura, altura, corBorda, painelDestino);
+	/*comp = pintarRetanguloPainel(posX, posY, largura, altura, corBorda, painelDestino);
 	
 	// Verifica se ocorreu um erro ao pintar o retangulo da borda de fora da tabela
 	if(comp.painelPertencente == NULL){
 		salvarErro("Erro na funcao 1 'pintarRetanguloPainel' de 'pintarRetanguloCBordasPainel'\n");
 		return comp;
-	}
+	}*/
 	
 	// Cria um retangulo contendo as coordenadas da tabela sem a borda de fora
-	Retangulo areaTabelaSBorda = {posX + larguraBorda, posY + larguraBorda, 
-																 largura - (larguraBorda*2), altura - (larguraBorda*2)};
+	Retangulo areaTabelaSBorda = {posX + 1, posY + 1, 
+																 largura - 2, altura - 2};
   /*
 	comp.area.x = posX + larguraBorda;
 	comp.area.y = posY + larguraBorda;
@@ -408,98 +394,88 @@ Componente pintarTabelaPainel(int posX, int posY, int largura, int altura, Cor c
 	*/
 	
 	// Calcula a largura e a altura de cada celula da tabela
-	larguraCelula = areaTabelaSBorda.w / qtdColunas;
-	alturaCelula = areaTabelaSBorda.h / qtdLinhas;
+	larguraCelula = largura / qtdColunas;
+	alturaCelula = altura / qtdLinhas;
 	
 	// Ira pintar cada retangulo da tabela
 	for(linhaAtual = 1; linhaAtual <= qtdLinhas; linhaAtual++){ // FOR das linhas
 		for(colunaAtual = 1; colunaAtual <= qtdColunas; colunaAtual++){ // FOR das colunas
 		  /*  PROBLEMA CALCULA DUAS VEZES A LARGURA E A ALTURA DAS CELULAS  */
-			if(linhaAtual == qtdLinhas && (areaTabelaSBorda.y + (alturaCelula * linhaAtual) - 
-					(posY + areaTabelaSBorda.h)) < 0){
+			if(linhaAtual == qtdLinhas && (posY + (alturaCelula * linhaAtual) - 
+					(posY + altura)) < 0){
 				celulaH = (altura / qtdLinhas) + 
-											 (-1 * (areaTabelaSBorda.y + (alturaCelula * linhaAtual) - 
-											 (posY + areaTabelaSBorda.h)));
+									 (-1 * (posY + (alturaCelula * linhaAtual) - 
+									 (posY + altura)));
 			}else{
-				celulaH = areaTabelaSBorda.h / qtdLinhas;
+				celulaH = altura / qtdLinhas;
 			}
-			if(colunaAtual == qtdColunas && (areaTabelaSBorda.x + (larguraCelula * colunaAtual) - 
-					(posX + areaTabelaSBorda.w)) < 0){
+			if(colunaAtual == qtdColunas && (posX + (larguraCelula * colunaAtual) - 
+					(posX + largura)) < 0){
 				celulaW = (largura / qtdColunas) + 
-											 (-1 * (areaTabelaSBorda.x + (larguraCelula * colunaAtual) - 
-											 (posX + areaTabelaSBorda.w)));
+									 (-1 * (posX + (larguraCelula * colunaAtual) - 
+									 (posX + largura)));
 			}else{
-				celulaW = areaTabelaSBorda.w / qtdColunas;
+				celulaW = largura / qtdColunas;
 			}
 			
 			// Pinta uma celula da tabela
-			compAux = pintarRetanguloPainel((areaTabelaSBorda.x + (larguraCelula * 
-																			 (colunaAtual -1))),
-																			 (areaTabelaSBorda.y + (alturaCelula * 
-																			 (linhaAtual -1))),
-																			 celulaW,
-																			 celulaH, 
+			compAux = pintarRetanguloPainel((posX + (larguraCelula * 
+																			 (colunaAtual -1))-1),
+																			 (posY + (alturaCelula * 
+																			 (linhaAtual -1))-1),
+																			 celulaW+1,
+																			 celulaH+1, 
 																			 corBorda,
 																			 painelDestino);
 			// Verifica se ocorreu um erro ao pintar a ultima celula da tabela
 			if(compAux.painelPertencente == NULL){
-				salvarErro("Erro na funcao %d %d 'pintarTabelaPainel' de 'pintarRetanguloCBordasPainel'\n",
-														linhaAtual, colunaAtual);
+				char strErr[127];
+				sprintf(strErr, "Erro na funcao %d %d 'pintarTabelaPainel' de 'pintarRetanguloCBordasPainel'\n", linhaAtual, colunaAtual);
+				salvarErro(strErr);
 				return compAux;
 			}
 		}
+		if(linhaAtual < qtdLinhas) comp.areaAux = compAux.area;
 	}
 	
 	comp.painelPertencente = painelDestino;
-	/*
+	
 	comp.area.x = posX;
 	comp.area.y = posY;
 	comp.area.w = largura;
 	comp.area.h = altura;
-	*/
-	comp.areaAux = compAux.area;
 	
 	return comp;	
 }
 
 
-/*
+
 // Objetivo: 
 Componente pintarDadoTabela(Componente tabelaDestino, int linhaTabela, int colunaTabela, 
 														 char *dado, Janela janelaDestino){
 	int larguraCelula, alturaCelula, posXDado, posYDado, larguraDado, alturaDado;
 	Superficie superficieDado;
 	Cor corTexto = COR_PRINCIPAL;
+	char dadoAlterado[13];
 	
-	printf("===============\n");
-	printf("-<%d>\n", tabelaDestino);
-	printf("-<%d>\n", tabelaDestino.area.x);
-	printf("-<%d>\n", tabelaDestino.areaAux.x);
-	printf("-<%d>\n", tabelaDestino.area.y);
-	printf("-<%d>\n", tabelaDestino.areaAux.y);
-	printf("-<%d>\n", tabelaDestino.area.w);
-	printf("-<%d>\n", tabelaDestino.areaAux.w);
-	printf("-<%d>\n", tabelaDestino.area.h);
-	printf("-<%d>\n", tabelaDestino.areaAux.h);
-	superficieDado = textoParaSuperficie(dado, FONTE_TEXTO_PRINCIPAL);
+	memset(dadoAlterado, '\0', sizeof(dadoAlterado));
+	strncpy(dadoAlterado, dado, 8);
+	if(strlen(dado) > 8) strcat(dadoAlterado, "...");
+	
+	superficieDado = textoParaSuperficie(dadoAlterado, FONTE_TEXTO_PRINCIPAL);
 	larguraDado = superficieDado->w;
 	alturaDado = superficieDado->h;
-	limparSuperficie(superficieDado);
+	limparMemSuperficie(superficieDado);	
 	larguraCelula = tabelaDestino.areaAux.w;
-	printf("FOI\n");
 	alturaCelula = tabelaDestino.areaAux.h;
-	printf("FOI\n");
 	posXDado = tabelaDestino.area.x + (larguraCelula * (colunaTabela - 1)) + 
 							((larguraCelula - larguraDado) / 2);
-	printf("FOI\n");
 	posYDado = tabelaDestino.area.y + (alturaCelula * (linhaTabela - 1)) + 
 							((alturaCelula - alturaDado) / 2);
-	printf("FOI\n");
-	//pintarTextoPainel()
-	pintarTextoPainel(dado, posXDado, posYDado, FONTE_TEXTO_PRINCIPAL, janelaDestino);
+	pintarTextoPainel(dadoAlterado, posXDado, posYDado, FONTE_TEXTO_PRINCIPAL, janelaDestino);
 	
 }
-*/
+
 
 
 // Objetivo: Apagar a ultima letra de uma string
@@ -510,7 +486,7 @@ Componente pintarDadoTabela(Componente tabelaDestino, int linhaTabela, int colun
 //           se ocorrer um erro o atributo 'painelPertencente' da estrutura estara 
 //           setado como NULL
 Componente retirarUltimaLetraTextoPainel(char *texto, Componente componenteTexto){
-	Cor corFundo = COR_FUNDO;
+	Cor corFundo = COR_SELECIONADO;
 	
 	// Define o 'painelPertencente' como NULL para ser uma flag de erro
 	/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -523,7 +499,6 @@ Componente retirarUltimaLetraTextoPainel(char *texto, Componente componenteTexto
 	// Inicializa um retangulo com as coordenadas do texto
 	Retangulo rectAux = {componenteTexto.area.x,componenteTexto.area.y,
 												componenteTexto.area.w,componenteTexto.area.h};
-	
 	// Verifica se e necessario apagar uma letra da tela
 	if(strlen(texto) < 33 && strlen(texto) > 0){
 	  // Se for necessario, cria a superficie do novo texto (texto sem o ultimo 
@@ -539,8 +514,7 @@ Componente retirarUltimaLetraTextoPainel(char *texto, Componente componenteTexto
 		// Limpa o espaco na memoria utilizado pela superficie
 		limparMemSuperficie(superAux);
 	}
-	
-	
+		
 	// Define a cor do retangulo que apagara a ultima letra e verifica se ocorreu um 
 	//  erro ao definir essa cor
   if(SDL_SetRenderDrawColor(componenteTexto.painelPertencente, // Painel que sera
@@ -550,17 +524,16 @@ Componente retirarUltimaLetraTextoPainel(char *texto, Componente componenteTexto
 														corFundo.g, // Quantidade de verde
 														corFundo.b, // Quantidade de azul
 														corFundo.opacidade) != 0){ // Opacidade da cor
-  	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'retirarUltimaLetraTextoPainel': %s\n", 
-						SDL_GetError());
+  	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'retirarUltimaLetraTextoPainel': \n");
 		return componenteTexto;
 	}
 	
 	// Prenche o retangulo no painel e verifica se ocorreu erro ao preenche-lo
-	if(SDL_RenderFillRect(componenteTexto.painelPertencente, // O painel onde o retangulo 
-	                                                      //  sera preenchido
+	if(SDL_RenderFillRect(componenteTexto.painelPertencente, // O painel onde o 
+	                                                         //  retangulo sera 
+	                                                         //  preenchido
 	                    &rectAux) != 0){ // As coordenadas do retangulo
-  	salvarErro("Erro na funcao 'SDL_RenderFillRect' de 'retirarUltimaLetraTextoPainel': %s\n", 
-						SDL_GetError());
+  	salvarErro("Erro na funcao 'SDL_RenderFillRect' de 'retirarUltimaLetraTextoPainel'\n");
 		return componenteTexto;
 	}
 	
@@ -572,11 +545,79 @@ Componente retirarUltimaLetraTextoPainel(char *texto, Componente componenteTexto
 
 
 
+// Objetivo: Apagar a ultima letra de uma string
+// Parametros: O endereco da string que contem o texto que será retirada a ultima 
+//              letra, a estrutura Componente que contem informacoes sobre o texto
+//              no painel
+// Retorno: A estrutura Componente contendo informacoes sobre o texto no painel ou 
+//           se ocorrer um erro o atributo 'painelPertencente' da estrutura estara 
+//           setado como NULL
+Componente retirarUltimaLetraTextoPainel2(char *texto, Componente *componenteTexto){
+	Cor corFundo = COR_FUNDO;
+	
+	// Define o 'painelPertencente' como NULL para ser uma flag de erro
+	/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+	//             ALTERAR A ESTRUTURA COMPONENTE PARA TER UMA FLAG DE ERRO
+	/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+	// Retira o ultimo caracter da string
+	rTirarCaracter(texto);
+	
+	// Inicializa um retangulo com as coordenadas do texto
+	Retangulo rectAux = {componenteTexto->areaAux.x,componenteTexto->areaAux.y,
+												componenteTexto->areaAux.w,componenteTexto->areaAux.h};
+	// Verifica se e necessario apagar uma letra da tela
+	if(strlen(texto) < 33 && strlen(texto) > 0){
+	  // Se for necessario, cria a superficie do novo texto (texto sem o ultimo 
+	  //  caracter)
+		Superficie superAux = textoParaSuperficie(texto, FONTE_TEXTO_PRINCIPAL);
+		
+		// Define as novas coordenadas do texto
+		rectAux.x = componenteTexto->areaAux.x + superAux->w;
+		rectAux.y = componenteTexto->areaAux.y;
+		rectAux.w = componenteTexto->areaAux.w - superAux->w;
+		rectAux.h = superAux->h;
+		
+		// Limpa o espaco na memoria utilizado pela superficie
+		limparMemSuperficie(superAux);
+	}
+		
+	// Define a cor do retangulo que apagara a ultima letra e verifica se ocorreu um 
+	//  erro ao definir essa cor
+  if(SDL_SetRenderDrawColor(componenteTexto->painelPertencente, // Painel que sera
+                                                               //  pintado o 
+                                                               //  retangulo
+														corFundo.r, // Quantidade de vermelho
+														corFundo.g, // Quantidade de verde
+														corFundo.b, // Quantidade de azul
+														corFundo.opacidade) != 0){ // Opacidade da cor
+  	salvarErro("Erro na funcao 'SDL_SetRenderDrawColor' de 'retirarUltimaLetraTextoPainel': \n");
+		return *componenteTexto;
+	}
+	
+	// Prenche o retangulo no painel e verifica se ocorreu erro ao preenche-lo
+	if(SDL_RenderFillRect(componenteTexto->painelPertencente, // O painel onde o 
+	                                                         //  retangulo sera 
+	                                                         //  preenchido
+	                    &rectAux) != 0){ // As coordenadas do retangulo
+  	salvarErro("Erro na funcao 'SDL_RenderFillRect' de 'retirarUltimaLetraTextoPainel'\n");
+		return *componenteTexto;
+	}
+	
+	// Atualiza o painel
+	atualizarPainel(componenteTexto->painelPertencente);
+	
+	return *componenteTexto;
+}
+
+
+
 // Objetivo: Limpar todo o painel, pintando-o com a cor de fundo novamente
 // Parametro: O painel que sera limpo
 // Retorno: 0 - Se a funcao executar com sucesso
 //					1 - Se ocorrer um erro
 int limparPainel(Painel painelLimpar){
+	
   // Pinta todo painel com a cor de fundo padrao
   if(alteraCorFundoPainel(painelLimpar, COR_FUNDO) != 0){
   	salvarErro("Erro na funcao 'alteraCorFundoPainel' de 'limparPainel'\n");
@@ -588,30 +629,94 @@ int limparPainel(Painel painelLimpar){
 
 
 
-// Objetivo:
-int verificarCliqueDentroRetangulo(Retangulo rect){
+// Objetivo: Verificar se quando ocorreu um clique o mouse estava dentro de um 
+//            retangulo
+// Parametro: O retangulo que sera verificado se o mouse estava dentro
+// Retorno: 0 - Se o mouse esta fora do retangulo
+//					1 - Se o mouse esta dentro do retangulo
+int verificarCliqueDentroRetangulo(Retangulo retanguloInterseccao){
+  // Cria uma estrutura 'SDL_Point' que contem as coordenadas de um ponto, no
+  //  caso as coordenadas do mouse
   SDL_Point posMouse;
+  
+  // Pega a posicao do mouse
   SDL_GetMouseState(&posMouse.x, &posMouse.y);
-	if((posMouse.x <= (rect.w+rect.x) && posMouse.x >= rect.x) && 
-			(posMouse.y <= (rect.h+rect.y) && posMouse.y >= rect.y)) return 1;
+  
+  // Verifica se as coordenas do mouse estao dentro do retangulo ou nao
+	if((posMouse.x <= (retanguloInterseccao.w+retanguloInterseccao.x) && 
+	    posMouse.x >= retanguloInterseccao.x) && 
+			(posMouse.y <= (retanguloInterseccao.h+retanguloInterseccao.y) && 
+			posMouse.y >= retanguloInterseccao.y)) return 1;
 	return 0;
 }
 
 
 
-// Objetivo: 
+// Objetivo: Atulizar a cor da borda de um Componente
+// Parametro: A estrutura Componente que contem informacoes sobre o
+//             componente a ser atualizado no painel
+// Retorno: 0 - Se a funcao executar com sucesso
+//					1 - Se ocorrer um erro
 int atualizarBordaComponente(Componente *compAtualizar){
-	pintarRetanguloPainel(compAtualizar->area.x, compAtualizar->area.y, 300, 30, COR_PRINCIPAL, compAtualizar->painelPertencente);
+  Componente componenteAuxAtualizar;
+	
+	// Redesenha um retangulo com a cor principal
+	componenteAuxAtualizar = pintarRetanguloPainel(compAtualizar->area.x, compAtualizar->area.y, 300, 30, COR_PRINCIPAL, compAtualizar->painelPertencente);
+	
+	if(componenteAuxAtualizar.painelPertencente == NULL){
+  	salvarErro("Erro na funcao 'pintarRetanguloPainel' de 'atualizarBordaComponente'\n");
+		return 1;
+	}
+	
 	compAtualizar->painelPertencente = NULL;
+	
+	return 0;
 }
 
 
-
+/*
 // Objetivo: Limpar a memoria utilizada pelo painel
 // Parametro: O painel a ser limpado
 void limparMemPainel(Painel painelLimpar){
 	SDL_DestroyRenderer(painelLimpar);
 }
+*/
 
+
+int manipularCampoTexto(SDL_Event e, Componente *c, char *txt, Janela j, int min, int max, int tipo){
+	int pintarTexto = 0, atualizarComp = 0;
+	if(e.type == SDL_MOUSEBUTTONUP){
+		if(verificarCliqueDentroRetangulo(c->area)){
+			pintarRetanguloPainel(c->area.x, c->area.y, c->area.w, c->area.h, COR_SELECIONADO, c->painelPertencente);
+			if(strlen(txt) <= max && strlen(txt) > min)
+				c->areaAux = pintarTextoPainel(txt, c->area.x + 15, c->area.y+5, FONTE_TEXTO_PRINCIPAL, j);
+			c->ativo = 1;
+			atualizarComp = 1;
+		}
+		pintarTexto = 1;
+	}else if( e.type == SDL_KEYDOWN ){
+			  	if( e.key.keysym.sym == SDLK_BACKSPACE){
+	          	if(c->ativo == 1){
+	          		if(strlen(txt) > 0){
+									retirarUltimaLetraTextoPainel2(txt, c);
+								}
+							}
+					}
+	} else if( e.type == SDL_TEXTINPUT ){
+		    if( !( ( e.text.text[ 0 ] == 'c' || e.text.text[ 0 ] == 'C' ) && ( e.text.text[ 0 ] == 'v' || e.text.text[ 0 ] == 'V' ) && SDL_GetModState() & KMOD_CTRL ) ){
+		      if(c->ativo == 1){
+						if(strlen(txt) < max && (tipo == 1) ? atoi(e.text.text) != 0 : 1)
+							strcat(txt, e.text.text);
+					}
+				}
+				pintarTexto = 1;
+	}
+	if(pintarTexto){
+  	if(strlen(txt) <= max && strlen(txt) > min)
+			c->areaAux = pintarTextoPainel(txt, c->area.x + 15, c->area.y+5, FONTE_TEXTO_PRINCIPAL, j);
+		pintarTexto = 0;
+	}
+	return atualizarComp;
+}
 
 #endif /* _FUNCOES_JANELA_C_ */

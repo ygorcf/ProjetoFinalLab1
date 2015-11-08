@@ -10,5 +10,6 @@
 #include <Cabecalhos/funcoesMenu.h>
 #include <Cabecalhos/funcoesPiloto.h>
 #include <Cabecalhos/funcoesCircuito.h>
+#include <Cabecalhos/funcoesMelhorVolta.h>
 
 #endif

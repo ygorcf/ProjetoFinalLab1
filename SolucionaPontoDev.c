@@ -53,14 +53,14 @@ int main(void){
 	
   while(!feof(arqDadosDev) && erro != 1){
     fgets(linha, 127, arqDadosDev);
-    if(strstr(linha, "Includes=\"") != NULL){
+    if(strncmp(linha, "Includes=", 9) == 0){
       strcpy(linha, "Includes=\"");
       strcat(linha, dir);
       strcat(linha, "include\";\"");
       strcat(linha, dir);
       strcat(linha, "Codigos\"\n");
       printf("- Alterado com sucesso linha dos includes!\n");
-    }else if(strstr(linha, "Libs=\"") != NULL){
+    }else if(strncmp(linha, "Libs=", 5) == 0){
       strcpy(linha, "Libs=\"");
       strcat(linha, dir);
       strcat(linha, "lib\"\n");

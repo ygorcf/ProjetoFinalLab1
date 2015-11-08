@@ -24,39 +24,10 @@ int main(int argc, char* args[]){
 	painelPrincipal = criarPainel(janelaPrincipal);
 	
 	SDL_EventState(SDL_MOUSEMOTION, SDL_IGNORE);
-	SDL_EventState(SDL_MOUSEMOTION, SDL_KEYUP);
-	SDL_EventState(SDL_MOUSEMOTION, SDL_TEXTEDITING);
-    while(!sair){
-    	switch(checarEventoMenuPrincipal(janelaPrincipal, painelPrincipal)){
-    		case CLICADO_SAIR:
-    			sair = 1;
-    			break;
-    		case CLICADO_FECHAR:
-    			sair = 1;
-    			break;
-    		case CLICADO_PILOTOS:
-					switch(checarEventoMenuPilotos(janelaPrincipal, painelPrincipal)){
-	    			case CLICADO_FECHAR:
-		    			sair = 1;
-		    			break;
-						case CLICADO_NOVO_PILOTO:
-							break;
-					}
-    			break;
-    		case CLICADO_CIRCUITOS:
-					switch(checarEventoMenuCircuitos(janelaPrincipal, painelPrincipal)){
-	    			case CLICADO_FECHAR:
-		    			sair = 1;
-		    			break;
-						case CLICADO_NOVO_CIRCUITO:
-							break;
-					}
-    			break;
-    		default :
-    			sair = 0;
-			}
-    	atualizarPainel(painelPrincipal);
-    }
+	SDL_EventState(SDL_KEYUP, SDL_IGNORE);
+	SDL_EventState(SDL_TEXTEDITING, SDL_IGNORE);
+	SDL_EventState(SDL_MOUSEBUTTONDOWN, SDL_IGNORE);
+	checarEventoMenuPrincipal(janelaPrincipal, painelPrincipal);
 
 	finalizarTudo();
 	return 0;

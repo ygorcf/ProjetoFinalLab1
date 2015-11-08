@@ -1,0 +1,511 @@
+#ifndef _FUNCOES_PILOTO_C_
+#define _FUNCOES_PILOTO_C_
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <includesProjeto.h>
+#include <time.h>
+
+/*
+
+
+// Objetivo: Alocar a quantidade de memória necessaria para uma nova estrutura do 
+//						tipo piloto
+// Retorno: A estrutura do novo piloto que foi alocado
+void alocarPiloto(Piloto *pilotoAlocar){
+	pilotoAlocar->nome = (char *)(malloc(255 * sizeof(char)));
+	pilotoAlocar->paisOrigem = (char *)(malloc(255 * sizeof(char)));
+	pilotoAlocar = (Piloto *)(malloc(1 * sizeof(Piloto)));
+}*/
+
+
+
+// Objetivo: Salvar no arquivo dos pilotos, os dados de mais um piloto
+// Parametro: A estrutura contendo os dados do piloto a ser salvo
+// Retorno: 0 - se o piloto foi salvo ou 1 - caso ocorrer um erro
+int salvarPiloto(Piloto pilotoCadastrar){
+	FILE *arquivoPilotos = NULL;
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "ab");
+	int pilotoJaCadastrado = verificarPilotoJaCadastrado(pilotoCadastrar), ret = 0;
+	if(pilotoJaCadastrado == 0){
+		fseek(arquivoPilotos, 0, SEEK_END);
+		pilotoCadastrar.id = ftell(arquivoPilotos)/sizeof(Piloto);
+		//pilotoCadastrar.id = obtemUltimoIdCadastradoPiloto();
+		//pilotoCadastrar.id++;
+		
+		if(arquivoPilotos == NULL){
+			salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'salvarPiloto'\n");
+			ret = 1;
+		}
+		
+		if(fwrite(&pilotoCadastrar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			salvarErro("Erro ao salvar os dados de um piloto de 'salvarPiloto'\n");
+			ret = 1;
+		}
+		
+	} else if(pilotoJaCadastrado < 0){
+		salvarErro("Erro na funcao 'verificarPilotoJaCadastrado' de 'salvarPiloto'\n");
+		ret = 1;
+	}
+	fclose(arquivoPilotos);
+	
+	return ret;
+}
+
+
+
+//Objetivo:
+Piloto pesquisarPilotoPId(int idPesquisar){
+	FILE *arquivoPilotos;
+	Piloto pilotoPesquisar, pilotoErro;
+	int ret = 0;
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	pilotoErro.id = 0;
+	pilotoErro.idade = 0;
+	//pilotoErro.nome = "ERRO";
+	//pilotoErro.paisOrigem = "ERRO";
+	pilotoErro.sexo = 'E';
+	
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'pesquisarPiloto'\n");
+		ret = 1;
+	}else{
+		while(!feof(arquivoPilotos)){
+			if(fread(&pilotoPesquisar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+				if(!feof(arquivoPilotos)){
+					salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPiloto'\n");
+					ret = 1;
+				}
+				break;
+			}
+			if(pilotoPesquisar.id == idPesquisar)
+				break;
+		}
+	}
+	
+	fclose(arquivoPilotos);
+	
+	return ((ret == 0) ? pilotoPesquisar : pilotoErro);
+}
+
+
+
+//Objetivo:
+int pesquisarPilotoPNome(char *nomePesquisar, Piloto *pilotosEncontrados){
+	FILE *arquivoPilotos;
+	Piloto pilotoPesquisar, *pilotosEncontrados;
+	int qtdPilotosEncontrados = 0;
+	pilotosEncontrados = NULL;
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'pesquisarPilotoPNome'\n");
+		qtdPilotosEncontrados = -1;
+	}else{
+		while(!feof(arquivoPilotos)){
+			if(fread(&pilotoPesquisar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+				if(!feof(arquivoPilotos)){
+					salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPilotoPNome'\n");
+					qtdPilotosEncontrados = -2;
+				}
+				break;
+			}else{
+			  if(strstr(pilotoPesquisar.nome, nomePesquisar) != NULL){
+			    pilotosEncontrados = (Piloto *)(realloc(pilotosEncontrados, (qtdPilotosEncontrados+1) * sizeof(Piloto)));
+			    *(pilotosEncontrados + qtdPilotosEncontrados) = pilotoPesquisar;
+			    qtdPilotosEncontrados++;
+			  }
+			}
+		}
+	}
+	
+	fclose(arquivoPilotos);
+	
+	return qtdPilotosEncontrados;
+}
+
+
+
+//Objetivo:
+void apresentarPilotosPesquisados(Piloto *pilotosApresentar, int qtdPilotos, Componente tabelaDestino, Janela janelaDestino){
+  int pilotoAtual = 0;
+	while(pilotoAtual < qtdPilotos){
+			char stringIdPiloto[9], stringIdadePiloto[4], stringSexoPiloto[3];
+			sprintf(stringIdPiloto, "%d", pilotosApresentar[pilotoAtual].id);
+			sprintf(stringIdadePiloto, "%d", pilotosApresentar[pilotoAtual].idade);
+			sprintf(stringSexoPiloto, "%c", pilotosApresentar[pilotoAtual].sexo);
+			pintarDadoTabela(tabelaDestino, (qtdPilotos + 2), 1, stringIdPiloto, janelaDestino);
+			pintarDadoTabela(tabelaDestino, (qtdPilotos + 2), 2, pilotosApresentar[pilotoAtual].nome, janelaDestino);
+			pintarDadoTabela(tabelaDestino, (qtdPilotos + 2), 3, stringIdadePiloto, janelaDestino);
+			pintarDadoTabela(tabelaDestino, (qtdPilotos + 2), 4, stringSexoPiloto, janelaDestino);
+			pintarDadoTabela(tabelaDestino, (qtdPilotos + 2), 5, pilotosApresentar[pilotoAtual].paisOrigem, janelaDestino);
+			qtdPilotos++;
+	}
+}
+
+
+
+// Objetivo:
+int apresentarTodosPilotos(Componente tabelaDestino, Janela janelaDestino){
+	FILE *arquivoPilotos;
+	Piloto pilotoApresentar, pilotoErro;
+	Piloto *todosPilotos = NULL;
+	int linhaTabela = 2, ret = 0, qtdPilotos = 0, contadorPilotos;
+	char stringIdPiloto[4], stringIdadePiloto[4], stringSexoPiloto[3];
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosPilotos'\n");
+		ret = 1;
+	}
+	/*
+	while(!feof(arquivoPilotos)){
+		if(fread(&pilotoApresentar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			if(!feof(arquivoPilotos)){
+				salvarErro("Erro ao ler um piloto em 'apresentarTodosPilotos'!\n");
+				ret = 1;
+			}
+			break;
+		}else{
+			printf("1\n");
+			todosPilotos = (Piloto *)(realloc(todosPilotos, qtdPilotos * sizeof(Piloto)));
+			printf("2\n");
+			*(todosPilotos+qtdPilotos-1) = pilotoApresentar;
+			printf("3\n");
+			qtdPilotos++;
+			printf("4\n");
+		}
+	}
+	printf("5\n");
+	for(contadorPilotos = 0; contadorPilotos < qtdPilotos; contadorPilotos++){
+		sprintf(stringIdPiloto, "%d", (todosPilotos+contadorPilotos)->id);
+		sprintf(stringIdadePiloto, "%d", (todosPilotos+contadorPilotos)->idade);
+		sprintf(stringSexoPiloto, "%c", (todosPilotos+contadorPilotos)->sexo);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 1, stringIdPiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 2, (todosPilotos+contadorPilotos)->nome, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 3, stringIdadePiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 4, stringSexoPiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 5, (todosPilotos+contadorPilotos)->paisOrigem, janelaDestino);
+		linhaTabela++;
+	}*/
+	
+	while(!feof(arquivoPilotos)){
+		if(fread(&pilotoApresentar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			if(!feof(arquivoPilotos)){
+				salvarErro("Erro ao ler um piloto em 'apresentarTodosPilotos'!\n");
+				ret = 1;
+			}
+			break;
+		}else{
+			char stringIdPiloto[4], stringIdadePiloto[4], stringSexoPiloto[3];
+			sprintf(stringIdPiloto, "%d", pilotoApresentar.id);
+			sprintf(stringIdadePiloto, "%d", pilotoApresentar.idade);
+			sprintf(stringSexoPiloto, "%c", pilotoApresentar.sexo);
+			pintarDadoTabela(tabelaDestino, linhaTabela, 1, stringIdPiloto, janelaDestino);
+			pintarDadoTabela(tabelaDestino, linhaTabela, 2, pilotoApresentar.nome, janelaDestino);
+			pintarDadoTabela(tabelaDestino, linhaTabela, 3, stringIdadePiloto, janelaDestino);
+			pintarDadoTabela(tabelaDestino, linhaTabela, 4, stringSexoPiloto, janelaDestino);
+			pintarDadoTabela(tabelaDestino, linhaTabela, 5, pilotoApresentar.paisOrigem, janelaDestino);
+			linhaTabela++;
+		}
+	}
+	/*
+	for(linhaTabela = 2; !feof(arquivoPilotos); linhaTabela++){
+		if(fread(&pilotoApresentar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			salvarErro("Erro ao ler um piloto!");
+			return 1;
+		}
+		char stringIdPiloto[4], stringIdadePiloto[4], stringSexoPiloto[3];
+		sprintf(stringIdPiloto, "%d", pilotoApresentar.id);
+		sprintf(stringIdadePiloto, "%d", pilotoApresentar.idade);
+		sprintf(stringSexoPiloto, "%c", pilotoApresentar.sexo);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 1, stringIdPiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 2, pilotoApresentar.nome, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 3, stringIdadePiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 4, stringSexoPiloto, janelaDestino);
+		pintarDadoTabela(tabelaDestino, linhaTabela, 5, pilotoApresentar.paisOrigem, janelaDestino);
+		//pintarDadoTabela((Componente){tabelaDestino.painelPertencente, tabelaDestino.area, tabelaDestino.areaAux}, linhaTabela, 1, stringIdPilotoPesquisa);
+	}*/
+	fclose(arquivoPilotos);
+	
+	return ret;
+}
+
+
+
+// Objetivo:
+int verificarPilotoJaCadastrado(Piloto pilotoVerificar){
+	FILE *arqPilotos;
+	Piloto pilotoPesquisa;
+	int pilotoJaCadastrado = 0;
+	
+	arqPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	if(ftell(arqPilotos) == 0) return 0;
+	if(arqPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'verificarPilotoJaCadastrado'\n");
+		pilotoJaCadastrado -1;
+	}
+	while(!feof(arqPilotos) && ftell(arqPilotos)>0){
+		if(fread(&pilotoPesquisa, sizeof(Piloto), 1, arqPilotos) != 1){
+			salvarErro("Erro ao ler os dados de um piloto de 'verificarPilotoJaCadastrado'\n");
+			pilotoJaCadastrado -2;
+		}
+		if(pilotoPesquisa.idade == pilotoVerificar.idade && pilotoPesquisa.nome == pilotoVerificar.nome && 
+				pilotoPesquisa.paisOrigem == pilotoVerificar.paisOrigem && pilotoPesquisa.sexo == pilotoVerificar.sexo){
+			pilotoJaCadastrado = 1;
+			break;
+		}
+	}
+	fclose(arqPilotos);
+	
+	return pilotoJaCadastrado;
+}
+
+
+
+// Objetivo:
+int obtemUltimoIdCadastradoPiloto(){
+	FILE *arqPilotos;
+	Piloto pilotoPesquisa;
+	int ultimoIdCadastrado = 0;
+	
+	arqPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	
+	if(errno == 2){
+		//fclose(fopen(LOCAL_ARQUIVO_PILOTOS, "wb"));
+		fclose(arqPilotos);
+		ultimoIdCadastrado = 0;
+	}
+	if(arqPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'apresentarTodosPilotos'\n");
+		ultimoIdCadastrado = -1;
+	}
+	if(ftell(arqPilotos) == 0) return 0;
+	
+	fseek(arqPilotos, sizeof(Piloto), SEEK_END);
+	if(fread(&pilotoPesquisa, sizeof(Piloto), 1, arqPilotos) != 1){
+		salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPiloto'\n");
+		ultimoIdCadastrado = -2;
+	}else{
+		ultimoIdCadastrado = pilotoPesquisa.id;
+	}
+	
+	return ultimoIdCadastrado;
+}
+
+
+
+// Objetivo: 
+int alterarPiloto(Piloto pilotoAlterar){
+	FILE *arquivoPilotos = NULL;
+	int ret = 0;
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "r+b");
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'alterarPiloto'\n");
+		ret = 1;
+	}	
+	int idAtualPilotArquivoTemporario = 0;
+	
+	fseek(arquivoPilotos, pilotoAlterar.id * sizeof(Piloto), SEEK_SET);
+	if(fwrite(&pilotoAlterar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+		salvarErro("Erro ao salvar os dados alterados no arquivo temporario de um piloto em 'alterarPiloto'\n");
+		ret = 1;
+	}
+	
+	fclose(arquivoPilotos);
+	
+	return ret;
+}
+
+
+
+// Objetivo: 
+int excluirPiloto(Piloto pilotoExcluir){
+	FILE *arquivoPilotos = NULL, *arquivoPilotosTemporario;
+	int ret = 0;
+	Piloto pilotoTemporario;
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	arquivoPilotosTemporario = fopen(LOCAL_ARQUIVO_PILOTOS_TMP, "wb");
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'excluirPiloto'\n");
+		ret = 1;
+	}
+	if(arquivoPilotosTemporario == NULL){
+		salvarErro("Erro abrir o arquivo temporario para excluir um dos pilotos de 'excluirPiloto'\n");
+		ret = 1;
+	}	
+	int idAtualPilotArquivoTemporario = 0;
+	while(!feof(arquivoPilotos)){
+		if(fread(&pilotoTemporario, sizeof(Piloto), 1, arquivoPilotos) != 1){
+			if(!feof(arquivoPilotos)){
+				salvarErro("Erro ao ler os dados do arquivo de um piloto em 'excluirPiloto'\n");
+				ret = 1;
+			}
+			break;
+		}else{
+		  if(idAtualPilotArquivoTemporario > pilotoExcluir.id){
+		    pilotoTemporario.id = pilotoTemporario.id - 1;
+		  }		    
+			if(idAtualPilotArquivoTemporario != pilotoExcluir.id){
+				if(fwrite(&pilotoTemporario, sizeof(Piloto), 1, arquivoPilotosTemporario) != 1){
+					salvarErro("Erro ao salvar os dados alterados no arquivo temporario de um piloto em 'excluirPiloto'\n");
+					ret = 1;
+					break;
+				}
+			}
+			idAtualPilotArquivoTemporario++;
+		}
+	}
+	if(fclose(arquivoPilotos) != 0){		
+		salvarErro("Erro ao fechar o arquivo de pilotos em 'excluirPiloto'\n");
+		ret = 1;
+	}else{
+		if(fclose(arquivoPilotosTemporario) != 0){
+			salvarErro("Erro ao fechar o arquivo temporario de pilotos em 'excluirPiloto'\n");
+			ret = 1;
+		}else{
+			if(remove(LOCAL_ARQUIVO_PILOTOS) != 0){
+				salvarErro("Erro ao remover o arquivo de pilotos em 'excluirPiloto'\n");
+				ret = 1;
+			}else{
+				if(rename(LOCAL_ARQUIVO_PILOTOS_TMP, LOCAL_ARQUIVO_PILOTOS) != 0){
+					salvarErro("Erro ao renomear o arquivo temporario de pilotos em 'excluirPiloto'\n");
+					ret = 1;
+				}
+			}
+		}
+	}
+	
+	return ret;
+}
+
+
+
+//Objetivo:
+int pesquisarPilotoPCircuito(int idCircuitoPesquisar,char *dataPesquisar, Piloto *pilotosEncontrados){
+	FILE *arquivoPilotos;
+	Piloto pilotoPesquisar, *pilotosEncontrados;
+	int qtdPilotosEncontrados = 0;
+	FILE *arquivoMelhoresVoltas;
+	MelhorVolta melhorVoltaPesquisada;
+	pilotosEncontrados = NULL;
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	if(idCircuitoPesquisar <= 0){
+		salvarErro("Erro id do circuito invalido em 'pesquisarPilotoPCircuito'\n");
+		qtdPilotosEncontrados = -1;
+	}else{
+	  if(strlen(dataPesquisar) < 11 && strlen(dataPesquisar) > 0){
+		  salvarErro("Erro data invalida em 'pesquisarPilotoPCircuito'\n");
+		  qtdPilotosEncontrados = -2;
+	  }else{
+	    if(arquivoPilotos == NULL){
+		    salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'pesquisarPilotoPCircuito'\n");
+		    qtdPilotosEncontrados = -3;
+	    }else{
+		    while(!feof(arquivoPilotos)){
+			    if(fread(&pilotoPesquisar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+				    if(!feof(arquivoPilotos)){
+					    salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPilotoPCircuito'\n");
+					    qtdPilotosEncontrados = -4;
+				    }
+				    break;
+			    }else{
+	          arquivoMelhoresVoltas = fopen(LOCAL_ARQUIVO_MELHORES_VOLTAS, "rb");
+	          if(arquivoMelhoresVoltas == NULL){
+		          salvarErro("Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarPilotoPCircuito'\n");
+		          qtdPilotosEncontrados = -5;
+		          break;
+	          }else{
+		          while(!feof(arquivoMelhoresVoltas)){
+			          if(fread(&melhorVoltaPesquisada, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
+				          if(!feof(arquivoMelhoresVoltas)){
+					          salvarErro("Erro ao ler uma melhor volta em 'pesquisarPilotoPCircuito'!");
+					          qtdPilotosEncontrados = -6;
+				          }
+				          break;
+			          }else{
+			            if(melhorVoltaPesquisada.idPiloto == pilotoPesquisar.id && melhorVoltaPesquisada.idCircuito == idCircuitoPesquisar){
+			              if(strlen(dataPesquisar) == 0 || (dataPesquisar == 11 && strcmp(melhorVoltaPesquisada.data, dataPesquisar) == 0){
+			                pilotosEncontrados = (Piloto *)(realloc(pilotosEncontrados, (qtdPilotosEncontrados+1) * sizeof(Piloto)));
+			                *(pilotosEncontrados + qtdPilotosEncontrados) = pilotoPesquisar;
+			                qtdPilotosEncontrados++;
+			              }
+			            }
+			          }
+		          }
+	          }
+	          fclose(arquivoMelhoresVoltas);
+			    }
+		    }
+	    }
+	  }
+	}
+	fclose(arquivoPilotos);
+	
+	return qtdPilotosEncontrados;
+}
+
+
+
+//Objetivo:
+int pesquisarPilotoPMelhorVolta(char *nomeEquipePesquisar, char *dataInicio, char *dataFim, Piloto *pilotosEncontrados){
+	FILE *arquivoPilotos;
+	Piloto pilotoPesquisar, pilotoErro;
+	MelhorVolta melhorVoltaPiloto;
+	int qtdPilotosEncontrados = 0;
+	time_t dataInicioSegundos, dataFimSegundos, dataMelhorVoltaSegundos;
+	
+	dataInicioSegundos = convertePSegundos(dataInicio);
+	dataFimSegundos = convertePSegundos(dataFim);
+	
+	// difftime(1, 2) 2 - 1
+	
+	arquivoPilotos = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
+	pilotoErro.id = 0;
+	pilotoErro.idade = 0;
+	//pilotoErro.nome = "ERRO";
+	//pilotoErro.paisOrigem = "ERRO";
+	pilotoErro.sexo = 'E';
+	
+	if(arquivoPilotos == NULL){
+		salvarErro("Erro abrir o arquivo com os dados dos pilotos de 'pesquisarPilotoPMelhorVolta'\n");
+		qtdPilotosEncontrados = -1;
+	}else{
+		while(!feof(arquivoPilotos)){
+			if(fread(&pilotoPesquisar, sizeof(Piloto), 1, arquivoPilotos) != 1){
+				if(!feof(arquivoPilotos)){
+					salvarErro("Erro ao ler os dados de um piloto de 'pesquisarPilotoPMelhorVolta'\n");
+					qtdPilotosEncontrados = -2;
+				}
+				break;
+			}else{
+			  melhorVoltaPiloto = pesquisarMelhorVoltaPPiloto(pilotoPesquisar);
+			  dataMelhorVoltaSegundos = convertePSegundos(melhorVoltaPiloto.data);
+			  if(difftime(dataInicioSegundos, dataMelhorVoltaSegundos) <= 0 && difftime(dataFimSegundos, dataMelhorVoltaSegundos) <= 0 && strcmp(melhorVoltaPiloto.nomeEquipe, nomeEquipePesquisar) == 0){
+          pilotosEncontrados = (Piloto *)(realloc(pilotosEncontrados, (qtdPilotosEncontrados+1) * sizeof(Piloto)));
+          *(pilotosEncontrados + qtdPilotosEncontrados) = pilotoPesquisar;
+          qtdPilotosEncontrados++;
+        }
+			}
+		}
+	}
+	
+	fclose(arquivoPilotos);
+	
+	return qtdPilotosEncontrados;
+}
+
+
+/*
+int comparacaoOrdenar(const void * piloto1, const void * piloto2){
+	return ( strncmp((char*)piloto1.nome, (char*)piloto2.nome, 1) );
+}
+*/
+#endif /* _FUNCOES_PILOTO_C_ */

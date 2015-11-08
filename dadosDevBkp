@@ -4,8 +4,8 @@ Name=projetoFinal
 Type=1
 Ver=2
 ObjFiles=
-Includes=E:\PF\ProjetoFinalLab1\include;E:\PF\ProjetoFinalLab1\Codigos
-Libs=E:\PF\ProjetoFinalLab1\lib
+Includes=D:\PF\ProjetoFinalLab1\include;D:\PF\ProjetoFinalLab1\Codigos
+Libs=D:\PF\ProjetoFinalLab1\lib
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=3
 CompilerSettings=0000000100000000000000000
-UnitCount=13
+UnitCount=12
 
 [VersionInfo]
 Major=1
@@ -182,16 +182,6 @@ BuildCmd=
 
 [Unit11]
 FileName=Codigos\Cabecalhos\funcoesMelhorVolta.h
-CompileCpp=0
-Folder=Cabecalhos
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit13]
-FileName=Codigos\Cabecalhos\funcoesValidacao.h
 CompileCpp=0
 Folder=Cabecalhos
 Compile=1

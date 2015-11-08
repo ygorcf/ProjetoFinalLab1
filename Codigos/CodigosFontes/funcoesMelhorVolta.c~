@@ -6,8 +6,6 @@
 //#include <SDL2/SDL.h>
 //#include <SDL2/SDL_ttf.h>
 #include <includesProjeto.h>
-#include <Cabecalhos/funcoesPiloto.h>
-#include <Cabecalhos/funcoesCircuito.h>
 
 
 
@@ -77,57 +75,47 @@ MelhorVolta pesquisarMelhorVolta(int idPesquisar){
 
 
 
-//Objetivo:
-void apresentarMelhoresVoltasPesquisadas(MelhorVolta *melhoresVoltasApresentar, int qtdMelhoresVoltas, Componente tabelaDestino, Janela janelaDestino){
-  int melhorVoltaAtual = 0;
-	char stringIdMelhorVolta[8], stringIdCircuitoMelhorVolta[8], stringIdPilotoMelhorVolta[8];
-	while(melhorVoltaAtual < qtdMelhoresVoltas){
-		sprintf(stringIdMelhorVolta, "%7u", melhoresVoltasApresentar[melhorVoltaAtual].id);
-		sprintf(stringIdCircuitoMelhorVolta, "%7u", melhoresVoltasApresentar[melhorVoltaAtual].idCircuito);
-		sprintf(stringIdPilotoMelhorVolta, "%7u", melhoresVoltasApresentar[melhorVoltaAtual].idPiloto);
-		pintarDadoTabela(tabelaDestino, (melhorVoltaAtual + 2), 1, stringIdMelhorVolta, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (melhorVoltaAtual + 2), 2, stringIdPilotoMelhorVolta, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (melhorVoltaAtual + 2), 3, stringIdCircuitoMelhorVolta, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (melhorVoltaAtual + 2), 4, melhoresVoltasApresentar[melhorVoltaAtual].nomeEquipe, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (melhorVoltaAtual + 2), 5, melhoresVoltasApresentar[melhorVoltaAtual].data, janelaDestino);
-		pintarDadoTabela(tabelaDestino, (melhorVoltaAtual + 2), 6, melhoresVoltasApresentar[melhorVoltaAtual].tempo, janelaDestino);
-		melhorVoltaAtual++;
-	}
-}
-
-
-
 // Objetivo:
-int pesquisarTodasMelhoresVoltas(MelhorVolta **melhoresVoltas){
+int apresentarTodasMelhoresVoltas(Componente tabelaDestino, Janela janelaDestino){
 	FILE *arquivoMelhoresVoltas;
 	MelhorVolta melhorVoltaApresentar;
-	int linhaTabela = 2, qtdMelhoresVoltas = 0;
+	int linhaTabela = 2, ret = 0;
 	
 	arquivoMelhoresVoltas = fopen(LOCAL_ARQUIVO_MELHORES_VOLTAS, "rb");
 	if(arquivoMelhoresVoltas == NULL){
-		salvarErro("Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarTodasMelhoresVoltas'\n");
-		qtdMelhoresVoltas = -1;
+		salvarErro("Erro abrir o arquivo com os dados das melhores voltas de 'apresentarTodasMelhoresVoltas'\n");
+		ret = 1;
 	}else{
-		while(1){
+		while(!feof(arquivoMelhoresVoltas)){
 			if(fread(&melhorVoltaApresentar, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
 				if(!feof(arquivoMelhoresVoltas)){
-					salvarErro("Erro ao ler uma melhor volta em 'pesquisarTodasMelhoresVoltas'!");
-					qtdMelhoresVoltas = -2;
+					salvarErro("Erro ao ler uma melhor volta em 'apresentarTodasMelhoresVoltas'!");
+					ret = 1;
 				}
 				break;
 			}else{
-				*melhoresVoltas = (MelhorVolta *)(realloc(*melhoresVoltas, (qtdMelhoresVoltas+1) * sizeof(MelhorVolta)));
-				*(*melhoresVoltas+qtdMelhoresVoltas) = melhorVoltaApresentar;
-				qtdMelhoresVoltas++;
+				char stringIdMelhorVolta[8], stringIdCircuitoMelhorVolta[8];
+				Piloto pilotoPesquisar;
+				Circuito circuitoPesquisar;
+				
+				pilotoPesquisar = pesquisarPiloto(melhorVoltaApresentar.idPiloto);
+				circuitoPesquisar = pesquisarCircuitoPId(melhorVoltaApresentar.idCircuito);
+				
+				sprintf(stringIdMelhorVolta, "%d", melhorVoltaApresentar.id);
+				sprintf(stringIdCircuitoMelhorVolta, "%c", melhorVoltaApresentar.idCircuito);
+				pintarDadoTabela(tabelaDestino, linhaTabela, 1, stringIdMelhorVolta, janelaDestino);
+				pintarDadoTabela(tabelaDestino, linhaTabela, 2, pilotoPesquisar.nome, janelaDestino);
+				pintarDadoTabela(tabelaDestino, linhaTabela, 3, circuitoPesquisar.nome, janelaDestino);
+				pintarDadoTabela(tabelaDestino, linhaTabela, 4, melhorVoltaApresentar.nomeEquipe, janelaDestino);
+				pintarDadoTabela(tabelaDestino, linhaTabela, 5, melhorVoltaApresentar.data, janelaDestino);
+				pintarDadoTabela(tabelaDestino, linhaTabela, 6, melhorVoltaApresentar.tempo, janelaDestino);
+				linhaTabela++;
 			}
 		}
-		if(fclose(arquivoMelhoresVoltas) != 0){
-			salvarErro("Erro ao fechar o arquivo de melhores voltas em 'pesquisarTodasMelhoresVoltas'!");
-			qtdMelhoresVoltas = -3;
-		}
 	}
+	fclose(arquivoMelhoresVoltas);
 	
-	return qtdMelhoresVoltas;
+	return ret;
 }
 
 
@@ -234,60 +222,56 @@ int excluirMelhorVolta(MelhorVolta melhorVoltaExcluir){
 	MelhorVolta melhorVoltaTemporaria;
 	
 	arquivoMelhoresVoltas = fopen(LOCAL_ARQUIVO_MELHORES_VOLTAS, "rb");
-	if (arquivoMelhoresVoltas == NULL){
+	arquivoMelhoresVoltasTemporario = fopen(LOCAL_ARQUIVO_MELHORES_VOLTAS_TMP, "wb");
+	if(arquivoMelhoresVoltas == NULL){
 		salvarErro("Erro abrir o arquivo com os dados das melhores voltas de 'excluirMelhorVolta'\n");
 		ret = 1;
+	}	
+	if(arquivoMelhoresVoltasTemporario == NULL){
+		salvarErro("Erro abrir o arquivo temporario para excluir uma das melhores voltas de 'excluirMelhorVolta'\n");
+		ret = 1;
 	}
-	else{
-		arquivoMelhoresVoltasTemporario = fopen(LOCAL_ARQUIVO_MELHORES_VOLTAS_TMP, "wb");
-		if (arquivoMelhoresVoltasTemporario == NULL){
-			salvarErro("Erro abrir o arquivo com os dados das melhores voltas de 'excluirMelhorVolta'\n");
-			ret = 1;			
-		}else{		
-			while(!feof(arquivoMelhoresVoltas)){
-				if(fread(&melhorVoltaTemporaria, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
-					if(!feof(arquivoMelhoresVoltas)){
-						salvarErro("Erro ao ler os dados do arquivo de uma melhor volta em 'excluirMelhorVolta'\n");
-						ret = 1;
-					}
+	while(!feof(arquivoMelhoresVoltas)){
+		if(fread(&melhorVoltaTemporaria, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
+			if(!feof(arquivoMelhoresVoltas)){
+				salvarErro("Erro ao ler os dados do arquivo de uma melhor volta em 'excluirMelhorVolta'\n");
+				ret = 1;
+			}
+			break;
+		}else{
+		  if(idAtualMelhorVoltaArquivoTemporario > melhorVoltaExcluir.id){
+		    melhorVoltaTemporaria.id = melhorVoltaTemporaria.id - 1;
+		  }
+			if(idAtualMelhorVoltaArquivoTemporario != melhorVoltaExcluir.id){
+				if(fwrite(&melhorVoltaTemporaria, sizeof(MelhorVolta), 1, arquivoMelhoresVoltasTemporario) != 1){
+					salvarErro("Erro ao salvar os dados alterados no arquivo temporario de uma melhor volta em 'excluirMelhorVolta'\n");
+					ret = 1;
 					break;
-				}else{
-				  if(idAtualMelhorVoltaArquivoTemporario > melhorVoltaExcluir.id){
-				    melhorVoltaTemporaria.id = melhorVoltaTemporaria.id - 1;
-				  }
-					if(idAtualMelhorVoltaArquivoTemporario != melhorVoltaExcluir.id){
-						if(fwrite(&melhorVoltaTemporaria, sizeof(MelhorVolta), 1, arquivoMelhoresVoltasTemporario) != 1){
-							salvarErro("Erro ao salvar os dados alterados no arquivo temporario de uma melhor volta em 'excluirMelhorVolta'\n");
-							ret = 1;
-							break;
-						}
-					}
-					idAtualMelhorVoltaArquivoTemporario++;
 				}
 			}
-			if (ret != 0){			
-				if(fclose(arquivoMelhoresVoltas) != 0){		
-					salvarErro("Erro ao fechar o arquivo de melhores voltas em 'excluirMelhorVolta'\n");
-					ret = 1;
-				}else{
-					if(fclose(arquivoMelhoresVoltasTemporario) != 0){
-						salvarErro("Erro ao fechar o arquivo temporario de melhores voltas em 'excluirMelhorVolta'\n");
-						ret = 1;
-					}else{
-						if(remove(LOCAL_ARQUIVO_MELHORES_VOLTAS) != 0){
-							salvarErro("Erro ao remover o arquivo de melhores voltas em 'excluirMelhorVolta'\n");
-							ret = 1;
-						}else{
-							if(rename(LOCAL_ARQUIVO_MELHORES_VOLTAS_TMP, LOCAL_ARQUIVO_MELHORES_VOLTAS) != 0){
-								salvarErro("Erro ao renomear o arquivo temporario de melhores voltas em 'excluirMelhorVolta'\n");
-								ret = 1;
-							}
-						}
-					}
-				}			
-			}		
+			idAtualMelhorVoltaArquivoTemporario++;
 		}
-	}	
+	}
+	if(fclose(arquivoMelhoresVoltas) != 0){		
+		salvarErro("Erro ao fechar o arquivo de melhores voltas em 'excluirMelhorVolta'\n");
+		ret = 1;
+	}else{
+		if(fclose(arquivoMelhoresVoltasTemporario) != 0){
+			salvarErro("Erro ao fechar o arquivo temporario de melhores voltas em 'excluirMelhorVolta'\n");
+			ret = 1;
+		}else{
+			if(remove(LOCAL_ARQUIVO_MELHORES_VOLTAS) != 0){
+				salvarErro("Erro ao remover o arquivo de melhores voltas em 'excluirMelhorVolta'\n");
+				ret = 1;
+			}else{
+				if(rename(LOCAL_ARQUIVO_MELHORES_VOLTAS_TMP, LOCAL_ARQUIVO_MELHORES_VOLTAS) != 0){
+					salvarErro("Erro ao renomear o arquivo temporario de melhores voltas em 'excluirMelhorVolta'\n");
+					ret = 1;
+				}
+			}
+		}
+	}
+	
 	return ret;
 }
 
@@ -316,39 +300,6 @@ MelhorVolta pesquisarMelhorVoltaPCircuito(Circuito circuitoMelhorVoltaPesquisar)
 				ret = 1;
 			}
 			if(melhorVoltaPesquisar.idCircuito == circuitoMelhorVoltaPesquisar.codigo)
-				break;
-		}
-	}
-	fclose(arquivoMelhoresVoltas);
-	
-	return ((ret == 0) ? melhorVoltaPesquisar : melhorVoltaErro);
-}
-
-
-
-MelhorVolta pesquisarMelhorVoltaPPiloto(Piloto pilotoMelhorVoltaPesquisar){
-	FILE *arquivoMelhoresVoltas;
-	MelhorVolta melhorVoltaPesquisar, melhorVoltaErro;
-	int ret = 0;
-	
-	arquivoMelhoresVoltas = fopen(LOCAL_ARQUIVO_PILOTOS, "rb");
-	melhorVoltaErro.id = -1;
-	melhorVoltaErro.idCircuito = -1;
-	melhorVoltaErro.idPiloto = -1;
-	strcpy(melhorVoltaErro.data, "ERRO");
-	strcpy(melhorVoltaErro.tempo, "ERRO");
-	strcpy(melhorVoltaErro.nomeEquipe, "ERRO");
-	
-	if(arquivoMelhoresVoltas == NULL){
-		salvarErro("Erro abrir o arquivo com os dados das melhores voltas de 'pesquisarMelhorVoltaPCircuito'\n");
-		ret = 1;
-	}else{
-		while(!feof(arquivoMelhoresVoltas)){
-			if(fread(&melhorVoltaPesquisar, sizeof(MelhorVolta), 1, arquivoMelhoresVoltas) != 1){
-				salvarErro("Erro ao ler os dados de uma melhor volta de 'pesquisarMelhorVoltaPCircuito'\n");
-				ret = 1;
-			}
-			if(melhorVoltaPesquisar.idPiloto == pilotoMelhorVoltaPesquisar.id)
 				break;
 		}
 	}
